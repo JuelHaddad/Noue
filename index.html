@@ -118,6 +118,56 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
 .stat-label{font-size:12px;color:var(--ink-60);}
 .stat-value{font-size:15px;font-weight:600;color:var(--ink);}
 
+/* ═══════════════════════ WHY JOIN BOXES ═══════════════════════ */
+/* ═══════════════════════ COUPLE STORIES ═══════════════════════ */
+.stories-section{padding:36px 32px 48px;}
+.stories-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:28px;}
+.stories-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;}
+.stories-sub{font-size:12px;color:var(--ink-60);margin-top:4px;}
+.stories-nav{display:flex;gap:8px;}
+.stories-nav-btn{width:34px;height:34px;border-radius:50%;border:1px solid var(--stone);background:var(--white);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all .2s;color:var(--ink-60);}
+.stories-nav-btn:hover{background:var(--ink);color:white;border-color:var(--ink);}
+.stories-track-wrap{overflow:hidden;}
+.stories-track{display:flex;gap:28px;transition:transform .45s cubic-bezier(.4,0,.2,1);}
+.story-card{flex-shrink:0;width:520px;background:var(--white);border:1px solid var(--stone);border-radius:var(--r16);overflow:hidden;display:flex;flex-direction:column;}
+.story-gallery{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:160px 100px;gap:3px;}
+.story-gallery-main{grid-column:1;grid-row:1/3;overflow:hidden;}
+.story-gallery-a{grid-column:2;grid-row:1;overflow:hidden;}
+.story-gallery-b{grid-column:2;grid-row:2;overflow:hidden;}
+.story-gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;}
+.story-card:hover .story-gallery img{transform:scale(1.04);}
+.story-body{padding:22px 24px 20px;display:flex;flex-direction:column;gap:14px;}
+.story-couple{display:flex;align-items:center;gap:12px;}
+.story-avatar{width:42px;height:42px;border-radius:50%;overflow:hidden;border:2px solid var(--stone);flex-shrink:0;}
+.story-avatar img{width:100%;height:100%;object-fit:cover;}
+.story-couple-name{font-size:14px;font-weight:600;}
+.story-couple-meta{font-size:11px;color:var(--ink-60);}
+.story-letter{font-size:13px;color:var(--ink-80);line-height:1.75;font-style:italic;position:relative;padding-left:16px;}
+.story-letter::before{content:'"';font-family:'Cormorant Garamond',serif;font-size:52px;color:var(--sage-light);position:absolute;left:-6px;top:-10px;line-height:1;}
+.story-vendors-used{display:flex;flex-wrap:wrap;gap:6px;padding-top:4px;border-top:1px solid var(--stone);}
+.story-vendor-tag{font-size:10px;font-weight:600;padding:3px 9px;border-radius:20px;background:var(--sage-pale);color:var(--sage-dark);}
+
+.why-join-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:28px 32px 8px;}
+.why-join-box{border-radius:var(--r16);padding:24px 26px;border:1px solid var(--stone);}
+.why-join-box.couples{background:var(--white);}
+.why-join-box.vendors{background:var(--sage-pale);border-color:var(--sage-light);}
+.why-join-eyebrow{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px;}
+.why-join-box.couples .why-join-eyebrow{color:var(--ink-60);}
+.why-join-box.vendors .why-join-eyebrow{color:var(--sage-dark);}
+.why-join-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;margin-bottom:16px;line-height:1.3;}
+.why-join-list{display:flex;flex-direction:column;gap:10px;margin-bottom:20px;}
+.why-join-item{display:flex;align-items:flex-start;gap:10px;}
+.why-join-icon{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;}
+.why-join-box.couples .why-join-icon{background:var(--mint-bg);color:var(--sage-dark);}
+.why-join-box.vendors .why-join-icon{background:rgba(255,255,255,0.6);color:var(--sage-dark);}
+.why-join-item-text strong{display:block;font-size:13px;font-weight:600;margin-bottom:1px;}
+.why-join-item-text span{font-size:11px;color:var(--ink-60);line-height:1.4;}
+.why-join-cta{display:inline-block;padding:9px 20px;border-radius:var(--r8);font-size:12px;font-weight:600;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;transition:all .2s;}
+.why-join-box.couples .why-join-cta{background:var(--ink);color:white;}
+.why-join-box.couples .why-join-cta:hover{background:var(--sage-dark);}
+.why-join-box.vendors .why-join-cta{background:var(--sage-dark);color:white;}
+.why-join-box.vendors .why-join-cta:hover{opacity:0.88;}
+
 .section-header{padding:28px 32px 16px;display:flex;justify-content:space-between;align-items:center;}
 .section-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;}
 .section-see-all{font-size:12px;color:var(--sage-dark);cursor:pointer;font-weight:500;}
@@ -507,7 +557,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
   .stat-cell{border-right:none;border-bottom:1px solid var(--stone);padding:14px 20px;}
   .stat-cell:last-child{border-bottom:none;}
 
-  /* Section / vendors */
+  .stories-section{padding:24px 16px 36px;}
+  .story-card{width:88vw;}
+  /* Why join / Section / vendors */
+  .why-join-row{grid-template-columns:1fr;padding:20px 16px 4px;}
   .section-header{padding:20px 16px 12px;}
   .vendors-strip{padding:0 16px 24px;}
 
@@ -767,6 +820,49 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
     </div>
   </div>
 
+  <div class="why-join-row">
+    <!-- Couples box -->
+    <div class="why-join-box couples">
+      <div class="why-join-eyebrow">For Couples</div>
+      <div class="why-join-title">Why plan your wedding with Noué?</div>
+      <div class="why-join-list">
+        <div class="why-join-item">
+          <div class="why-join-icon"><svg width="15" height="15"><use href="#ico-clock"/></svg></div>
+          <div class="why-join-item-text"><strong>Save Time &amp; Stress</strong><span>Our AI curates your perfect vendor bundle in minutes, not months.</span></div>
+        </div>
+        <div class="why-join-item">
+          <div class="why-join-icon"><svg width="15" height="15"><use href="#ico-shield"/></svg></div>
+          <div class="why-join-item-text"><strong>Peace of Mind</strong><span>Every vendor is background-checked, verified, and covered by our escrow payment protection.</span></div>
+        </div>
+        <div class="why-join-item">
+          <div class="why-join-icon"><svg width="15" height="15"><use href="#ico-sparkle"/></svg></div>
+          <div class="why-join-item-text"><strong>Make Inspo a Reality</strong><span>Tell us your vision and we'll match it — from boho garden to black-tie ballroom.</span></div>
+        </div>
+      </div>
+      <button class="why-join-cta" onclick="showPage('concierge')">Start Planning →</button>
+    </div>
+    <!-- Vendors box -->
+    <div class="why-join-box vendors">
+      <div class="why-join-eyebrow">For Vendors</div>
+      <div class="why-join-title">Why list your business on Noué?</div>
+      <div class="why-join-list">
+        <div class="why-join-item">
+          <div class="why-join-icon"><svg width="15" height="15"><use href="#ico-pin"/></svg></div>
+          <div class="why-join-item-text"><strong>More Exposure</strong><span>Get discovered by thousands of couples actively planning their weddings right now.</span></div>
+        </div>
+        <div class="why-join-item">
+          <div class="why-join-icon"><svg width="15" height="15"><use href="#ico-rings"/></svg></div>
+          <div class="why-join-item-text"><strong>More Qualified Leads</strong><span>Our AI only recommends you to couples whose style, budget, and date match yours.</span></div>
+        </div>
+        <div class="why-join-item">
+          <div class="why-join-icon"><svg width="15" height="15"><use href="#ico-doc"/></svg></div>
+          <div class="why-join-item-text"><strong>Less Admin Work</strong><span>Contracts, payments, and scheduling — all handled through one smart dashboard.</span></div>
+        </div>
+      </div>
+      <button class="why-join-cta" onclick="showPage('vendor')">Join as a Vendor →</button>
+    </div>
+  </div>
+
   <div class="section-header">
     <div class="section-title">Featured Vendors</div>
     <div class="section-see-all" onclick="showPage('explore')">See All →</div>
@@ -797,6 +893,101 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
       <div class="vendor-thumb-info"><div class="vendor-thumb-name">Harmony DJ Co.</div><div class="vendor-thumb-cat">Music · Laval</div></div>
     </div>
   </div>
+
+  <!-- ── Couple Stories ── -->
+  <div class="stories-section">
+    <div class="stories-header">
+      <div>
+        <div class="stories-title">Real Weddings, Real Love</div>
+        <div class="stories-sub">Couples who planned their perfect day with Noué.</div>
+      </div>
+      <div class="stories-nav">
+        <button class="stories-nav-btn" onclick="storyScroll(-1)">‹</button>
+        <button class="stories-nav-btn" onclick="storyScroll(1)">›</button>
+      </div>
+    </div>
+    <div class="stories-track-wrap">
+      <div class="stories-track" id="stories-track">
+
+        <!-- Story 1 -->
+        <div class="story-card">
+          <div class="story-gallery">
+            <div class="story-gallery-main"><img src="secret garden venue.jpg" alt="Ceremony"></div>
+            <div class="story-gallery-a"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Florals"></div>
+            <div class="story-gallery-b"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&q=80" alt="Photography"></div>
+          </div>
+          <div class="story-body">
+            <div class="story-couple">
+              <div class="story-avatar"><img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?w=80&q=80" alt="Sofia & James"></div>
+              <div>
+                <div class="story-couple-name">Sofia &amp; James</div>
+                <div class="story-couple-meta">September 2025 · Secret Garden, Montreal</div>
+              </div>
+            </div>
+            <div class="story-letter">We never imagined planning a wedding could feel this effortless. Noué matched us with our dream team in one afternoon — our florist, photographer, and venue all felt like they'd worked together forever. Every detail, from the pampas arch to the golden-hour portraits, was exactly us. We just got to enjoy it.</div>
+            <div class="story-vendors-used">
+              <span class="story-vendor-tag">The Secret Garden</span>
+              <span class="story-vendor-tag">Boho Floral Collective</span>
+              <span class="story-vendor-tag">Lumière Co.</span>
+              <span class="story-vendor-tag">Harmony DJ Co.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story 2 -->
+        <div class="story-card">
+          <div class="story-gallery">
+            <div class="story-gallery-main"><img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600&q=80" alt="Grand Hall"></div>
+            <div class="story-gallery-a"><img src="https://images.unsplash.com/photo-1612548403247-aa2873e9422d?w=400&q=80" alt="Cake"></div>
+            <div class="story-gallery-b"><img src="hair.jpg" alt="Hair & Makeup"></div>
+          </div>
+          <div class="story-body">
+            <div class="story-couple">
+              <div class="story-avatar"><img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=80&q=80" alt="Nour & David"></div>
+              <div>
+                <div class="story-couple-name">Nour &amp; David</div>
+                <div class="story-couple-meta">October 2025 · The Grand Hall, Ottawa</div>
+              </div>
+            </div>
+            <div class="story-letter">We blended two cultures in one celebration and needed vendors who genuinely understood that. Noué's AI found us the perfect fusion catering team and a cake designer who created something neither of us had seen before. Our guests are still talking about it months later. Truly a dream come true.</div>
+            <div class="story-vendors-used">
+              <span class="story-vendor-tag">The Grand Hall</span>
+              <span class="story-vendor-tag">Sucré Patisserie</span>
+              <span class="story-vendor-tag">HAUS of RTISTS</span>
+              <span class="story-vendor-tag">Lumière Co.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story 3 -->
+        <div class="story-card">
+          <div class="story-gallery">
+            <div class="story-gallery-main"><img src="https://images.unsplash.com/photo-1470920238487-4ff9cdca7b31?w=600&q=80" alt="Garden"></div>
+            <div class="story-gallery-a"><img src="floral shop.jpg" alt="Florals"></div>
+            <div class="story-gallery-b"><img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=400&q=80" alt="DJ"></div>
+          </div>
+          <div class="story-body">
+            <div class="story-couple">
+              <div class="story-avatar"><img src="https://images.unsplash.com/photo-1521119989659-a83eee488004?w=80&q=80" alt="Priya & Lucas"></div>
+              <div>
+                <div class="story-couple-name">Priya &amp; Lucas</div>
+                <div class="story-couple-meta">August 2025 · Secret Garden, Montreal</div>
+              </div>
+            </div>
+            <div class="story-letter">I came to Noué with a Pinterest board full of contradictions and a budget I was nervous about. Within minutes the concierge understood exactly what I meant. The florals were wild and romantic, the music kept everyone on the dance floor, and not once did I feel like a number in a system. I felt taken care of.</div>
+            <div class="story-vendors-used">
+              <span class="story-vendor-tag">The Secret Garden</span>
+              <span class="story-vendor-tag">Lily's Florals</span>
+              <span class="story-vendor-tag">Harmony DJ Co.</span>
+              <span class="story-vendor-tag">Boho Photo Collective</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <!-- ══════ PAGE: AI CONCIERGE ══════ -->
@@ -1589,6 +1780,16 @@ function sendChat(){
   setTimeout(()=>{const a=document.createElement('div');a.className='ai-bubble';a.textContent=aiReplies[chatIdx%aiReplies.length];bubbles.appendChild(a);chatIdx++;bubbles.scrollTop=bubbles.scrollHeight;},700);
 }
 function showMatches(){document.getElementById('match-cards').style.opacity='0';setTimeout(()=>{document.getElementById('match-cards').style.opacity='1';},300);}
+
+let storyIndex=0;
+function storyScroll(dir){
+  const track=document.getElementById('stories-track');
+  const card=track.querySelector('.story-card');
+  const cardW=card.offsetWidth+28;
+  const total=track.querySelectorAll('.story-card').length;
+  storyIndex=Math.max(0,Math.min(storyIndex+dir,total-1));
+  track.style.transform=`translateX(-${storyIndex*cardW}px)`;
+}
 </script>
 </body>
 </html>
