@@ -410,6 +410,93 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
 ::-webkit-scrollbar{width:5px;height:5px;}
 ::-webkit-scrollbar-track{background:transparent;}
 ::-webkit-scrollbar-thumb{background:var(--stone-dark);border-radius:10px;}
+
+/* ═══════════════════════ MOBILE ═══════════════════════ */
+@media (max-width: 768px) {
+
+  /* Nav */
+  .topnav{padding:0 16px;gap:0;}
+  .topnav-links{display:none;}
+  .topnav-right .btn-login{display:none;}
+  .topnav-avatar{display:none;}
+
+  /* Sidebar → bottom tab bar */
+  .icon-sidebar{
+    top:auto;left:0;right:0;bottom:0;width:100%;height:58px;
+    flex-direction:row;justify-content:space-around;align-items:center;
+    padding:0 8px;border-right:none;border-top:1px solid var(--stone);
+    gap:0;
+  }
+  .icon-btn{width:44px;height:44px;}
+
+  /* Content: no left margin, space for bottom bar */
+  .content{margin-left:0;padding-bottom:58px;}
+  .footer{margin-left:0;flex-direction:column;text-align:center;gap:14px;padding-bottom:72px;}
+  .footer-links{flex-wrap:wrap;justify-content:center;gap:12px;}
+
+  /* Hero */
+  .hero{min-height:260px;}
+  .hero-content{padding:32px 20px 28px;max-width:100%;}
+  .hero-h1{font-size:clamp(28px,8vw,42px);}
+  .hero-sub{font-size:13px;max-width:100%;}
+  .hero-ctas{flex-direction:column;gap:8px;}
+  .btn-hero-primary,.btn-hero-secondary{width:100%;text-align:center;}
+
+  /* Stats bar */
+  .stats-bar{flex-direction:column;}
+  .stat-cell{border-right:none;border-bottom:1px solid var(--stone);padding:14px 20px;}
+  .stat-cell:last-child{border-bottom:none;}
+
+  /* Section / vendors */
+  .section-header{padding:20px 16px 12px;}
+  .vendors-strip{padding:0 16px 24px;}
+
+  /* Concierge */
+  .concierge-layout{grid-template-columns:1fr;grid-template-rows:auto auto;}
+  .concierge-left{border-right:none;border-bottom:1px solid var(--stone);}
+  .concierge-right{padding:20px 16px;}
+
+  /* Match cards */
+  .match-card{flex-direction:column;}
+  .match-img{width:100%;height:160px;}
+  .match-actions{flex-direction:row;border-left:none;border-top:1px solid var(--stone);padding:12px 16px;}
+
+  /* Explore */
+  .explore-layout{grid-template-columns:1fr;}
+  .filter-sidebar{display:none;}
+  .explore-main{padding:16px;}
+  .explore-topbar{flex-wrap:wrap;gap:8px;}
+  .search-box{width:100%;}
+  .explore-grid{grid-template-columns:1fr;}
+
+  /* Dashboard */
+  .dashboard-main-pad{padding:20px 16px;}
+  .countdown-card{flex-direction:column;align-items:flex-start;gap:20px;padding:20px;}
+  .countdown-number{font-size:56px;}
+  .dash-grid{grid-template-columns:1fr;}
+
+  /* Portal */
+  .portal-pad{padding:20px 16px;}
+  .portal-toprow{flex-direction:column;gap:12px;}
+  .portal-toprow > div:last-child{margin-left:0;flex-wrap:wrap;}
+  .portal-stats{grid-template-columns:1fr;}
+  .portal-grid{grid-template-columns:1fr;}
+
+  /* Vendor onboarding */
+  .vendor-wrap{padding:20px 16px;}
+  .vendor-card{padding:20px;}
+  .cat-grid{grid-template-columns:repeat(2,1fr);}
+  .sp-item{font-size:10px;padding:8px 6px;}
+
+  /* Checkout */
+  .checkout-wrap{grid-template-columns:1fr;}
+  .checkout-left{padding:20px 16px;}
+  .checkout-right{border-left:none;border-top:1px solid var(--stone);padding:20px 16px;}
+  .cinput-row{grid-template-columns:1fr;}
+
+  /* Maybe drawer */
+  .maybe-drawer-overlay{width:100%;bottom:58px;}
+}
 </style>
 </head>
 <body>
@@ -596,7 +683,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
     <div class="hero-content">
       <div class="hero-eyebrow">AI Wedding Assistant</div>
       <h1 class="hero-h1">Your Dream Wedding,<br><em>untangled, Stress-Free.</em></h1>
-      <p class="hero-sub">Noué — as you prepare to tie the knot, let us untanglg the journey. Costumize you Bundels.</p>
+      <p class="hero-sub">Noué — as you prepare to tie the knot, let us untangle the journey. Costumize you Bundels.</p>
       <div class="hero-ctas">
         <button class="btn-hero-primary" onclick="showPage('concierge')">Start Planning (Couples)</button>
         <button class="btn-hero-secondary" onclick="showPage('vendor')">Join as Vendor</button>
@@ -629,16 +716,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
       <div class="vendor-thumb-info"><div class="vendor-thumb-name">The Willow Venue</div><div class="vendor-thumb-cat">Venue · Montreal</div></div>
     </div>
     <div class="vendor-thumb" onclick="showPage('explore')">
-      <div class="vendor-thumb-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=380&q=80" alt="Lily's Florals"></div>
+      <div class="vendor-thumb-img"><img src="floral shop.jpg" alt="Lily's Florals"></div>
       <div class="vendor-thumb-info"><div class="vendor-thumb-name">Lily's Florals</div><div class="vendor-thumb-cat">Florist · Quebec City</div></div>
     </div>
     <div class="vendor-thumb" onclick="showPage('explore')">
-      <div class="vendor-thumb-img"><img src="https://images.unsplash.com/photo-1470920238487-4ff9cdca7b31?w=380&q=80" alt="Garden Venue"></div>
-      <div class="vendor-thumb-info"><div class="vendor-thumb-name">Secret Garden</div><div class="vendor-thumb-cat">Venue · Toronto</div></div>
+      <div class="vendor-thumb-img"><img src="secret garden venue.jpg" alt="Garden Venue"></div>
+      <div class="vendor-thumb-info"><div class="vendor-thumb-name">Secret Garden</div><div class="vendor-thumb-cat">Venue · Montreal</div></div>
     </div>
     <div class="vendor-thumb" onclick="showPage('explore')">
-      <div class="vendor-thumb-img"><img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=380&q=80" alt="The Grand Venue"></div>
-      <div class="vendor-thumb-info"><div class="vendor-thumb-name">The Grand Hall</div><div class="vendor-thumb-cat">Venue · Ottawa</div></div>
+      <div class="vendor-thumb-img"><img src="hair.jpg" alt="The Grand Venue"></div>
+      <div class="vendor-thumb-info"><div class="vendor-thumb-name">HAUS of RTISTS</div><div class="vendor-thumb-cat">Hair · Laval</div></div>
     </div>
     <div class="vendor-thumb" onclick="showPage('explore')">
       <div class="vendor-thumb-img"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=380&q=80" alt="Lumière Photography"></div>
@@ -646,7 +733,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
     </div>
     <div class="vendor-thumb" onclick="showPage('explore')">
       <div class="vendor-thumb-img"><img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=380&q=80" alt="Harmony DJ"></div>
-      <div class="vendor-thumb-info"><div class="vendor-thumb-name">Harmony DJ Co.</div><div class="vendor-thumb-cat">Music · Vancouver</div></div>
+      <div class="vendor-thumb-info"><div class="vendor-thumb-name">Harmony DJ Co.</div><div class="vendor-thumb-cat">Music · Laval</div></div>
     </div>
   </div>
 </div>
