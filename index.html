@@ -5,684 +5,538 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Noué — Untangling Your Wedding Journey</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ═══════════════════════════════════════
-   DESIGN TOKENS
-═══════════════════════════════════════ */
 :root {
   --sage:        #8FAF8A;
   --sage-light:  #C8DCC5;
   --sage-pale:   #EBF3E9;
   --sage-dark:   #5A7A56;
-  --mint-bg:     #F0F5EE;
+  --mint-bg:     #F2F6F0;
   --blush:       #E8C4C4;
   --blush-light: #F5E6E6;
   --blush-dark:  #C47A7A;
   --cream:       #FDFAF7;
   --white:       #FFFFFF;
-  --stone:       #E8E3DD;
-  --stone-dark:  #C8C0B8;
-  --ink:         #2D2D2D;
-  --ink-60:      rgba(45,45,45,0.6);
-  --ink-30:      rgba(45,45,45,0.3);
-  --ink-12:      rgba(45,45,45,0.12);
+  --stone:       #E4DED8;
+  --stone-dark:  #C4BCB4;
+  --ink:         #2A2A2A;
+  --ink-60:      rgba(42,42,42,0.6);
+  --ink-30:      rgba(42,42,42,0.3);
+  --ink-12:      rgba(42,42,42,0.12);
   --gold:        #C9A96E;
-  --r4: 4px; --r8: 8px; --r12: 12px; --r16: 16px; --r24: 24px;
-  --shadow-sm: 0 1px 4px rgba(45,45,45,0.08);
-  --shadow:    0 4px 20px rgba(45,45,45,0.10);
-  --shadow-lg: 0 8px 40px rgba(45,45,45,0.14);
+  --r4:4px;--r8:8px;--r12:12px;--r16:16px;--r24:24px;
+  --shadow-sm:0 1px 4px rgba(42,42,42,0.07);
+  --shadow:0 4px 20px rgba(42,42,42,0.10);
+  --shadow-lg:0 8px 40px rgba(42,42,42,0.14);
 }
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink);overflow-x:hidden;}
 
-* { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body { font-family:'Jost',sans-serif; background:var(--mint-bg); color:var(--ink); overflow-x:hidden; }
-
-/* ═══════════════════════════════════════
-   TOP NAV
-═══════════════════════════════════════ */
-.topnav {
-  position:fixed; top:0; left:0; right:0; z-index:200;
-  height:56px;
-  background:var(--white);
-  border-bottom:1px solid var(--stone);
-  display:flex; align-items:center; padding:0 28px; gap:32px;
+/* ── TOP NAV ── */
+.topnav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:56px;background:var(--white);border-bottom:1px solid var(--stone);
+  display:flex;align-items:center;padding:0 28px;gap:32px;
   box-shadow:var(--shadow-sm);
 }
-.topnav-logo {
-  font-family:'Playfair Display',serif;
-  font-size:20px; font-weight:400; letter-spacing:0.04em;
-  color:var(--ink); cursor:pointer; white-space:nowrap;
-  text-decoration:none;
+.topnav-logo{
+  font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;
+  letter-spacing:0.04em;color:var(--ink);cursor:pointer;white-space:nowrap;text-decoration:none;
 }
-.topnav-logo span { color:var(--sage-dark); font-style:italic; }
-.topnav-links { display:flex; gap:24px; flex:1; }
-.topnav-link {
-  font-size:13px; font-weight:400; color:var(--ink-60);
-  cursor:pointer; text-decoration:none; transition:color .2s;
-  white-space:nowrap;
-}
-.topnav-link:hover { color:var(--ink); }
-.topnav-right { display:flex; align-items:center; gap:10px; margin-left:auto; }
-.topnav-price { font-size:12px; color:var(--ink-60); }
-.btn-login {
-  font-size:12px; font-weight:500; color:var(--ink);
-  border:1px solid var(--stone); border-radius:var(--r8);
-  padding:6px 14px; cursor:pointer; background:var(--white);
-  transition:all .2s; font-family:'Jost',sans-serif;
-}
-.btn-login:hover { border-color:var(--sage); color:var(--sage-dark); }
-.btn-signup {
-  font-size:12px; font-weight:500; color:var(--white);
-  background:var(--sage-dark); border:none; border-radius:var(--r8);
-  padding:6px 16px; cursor:pointer; font-family:'Jost',sans-serif;
-  transition:background .2s;
-}
-.btn-signup:hover { background:var(--sage); }
-.topnav-avatar {
-  width:30px; height:30px; border-radius:50%;
-  background:var(--sage-pale); border:1.5px solid var(--sage-light);
-  display:flex; align-items:center; justify-content:center;
-  font-size:14px; cursor:pointer;
-}
+.topnav-logo span{color:var(--sage-dark);font-style:italic;}
+.topnav-links{display:flex;gap:24px;flex:1;}
+.topnav-link{font-size:13px;font-weight:400;color:var(--ink-60);cursor:pointer;text-decoration:none;transition:color .2s;white-space:nowrap;}
+.topnav-link:hover{color:var(--ink);}
+.topnav-right{display:flex;align-items:center;gap:10px;margin-left:auto;}
+.topnav-price{font-size:12px;color:var(--ink-60);}
+.btn-login{font-size:12px;font-weight:500;color:var(--ink);border:1px solid var(--stone);border-radius:var(--r8);padding:6px 14px;cursor:pointer;background:var(--white);transition:all .2s;font-family:'DM Sans',sans-serif;}
+.btn-login:hover{border-color:var(--sage);color:var(--sage-dark);}
+.btn-signup{font-size:12px;font-weight:500;color:var(--white);background:var(--sage-dark);border:none;border-radius:var(--r8);padding:6px 16px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .2s;}
+.btn-signup:hover{background:var(--sage);}
+.topnav-avatar{width:30px;height:30px;border-radius:50%;overflow:hidden;border:1.5px solid var(--sage-light);cursor:pointer;}
+.topnav-avatar img{width:100%;height:100%;object-fit:cover;}
 
-/* ═══════════════════════════════════════
-   SHELL: left icon-sidebar + content area
-═══════════════════════════════════════ */
-.shell {
-  display:flex; padding-top:56px; min-height:100vh;
+/* ── SHELL ── */
+.shell{display:flex;padding-top:56px;min-height:100vh;}
+.icon-sidebar{
+  position:fixed;left:0;top:56px;bottom:0;width:56px;
+  background:var(--white);border-right:1px solid var(--stone);
+  display:flex;flex-direction:column;align-items:center;
+  padding:16px 0;gap:4px;z-index:100;
 }
-.icon-sidebar {
-  position:fixed; left:0; top:56px; bottom:0; width:56px;
-  background:var(--white); border-right:1px solid var(--stone);
-  display:flex; flex-direction:column; align-items:center;
-  padding:16px 0; gap:4px; z-index:100;
+.icon-btn{
+  width:40px;height:40px;border-radius:var(--r8);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all .2s;position:relative;
+  color:var(--ink-60);
 }
-.icon-btn {
-  width:40px; height:40px; border-radius:var(--r8);
-  display:flex; align-items:center; justify-content:center;
-  font-size:18px; cursor:pointer; transition:all .2s;
-  position:relative; text-decoration:none; color:var(--ink-60);
+.icon-btn:hover{background:var(--mint-bg);color:var(--sage-dark);}
+.icon-btn.active{background:var(--sage-pale);color:var(--sage-dark);}
+.icon-btn .badge{position:absolute;top:4px;right:4px;width:8px;height:8px;border-radius:50%;background:var(--blush-dark);border:1.5px solid var(--white);}
+.icon-btn svg{width:18px;height:18px;}
+.content{margin-left:56px;flex:1;}
+
+/* ── PAGES ── */
+.page{display:none;}
+.page.active{display:block;animation:fadeUp .3s ease;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* ═══════════════════════ LANDING ═══════════════════════ */
+#page-landing{background:var(--cream);}
+
+.hero{
+  position:relative;overflow:hidden;min-height:360px;
+  display:flex;flex-direction:column;justify-content:flex-end;
 }
-.icon-btn:hover { background:var(--mint-bg); color:var(--sage-dark); }
-.icon-btn.active { background:var(--sage-pale); color:var(--sage-dark); }
-.icon-btn .badge {
-  position:absolute; top:4px; right:4px;
-  width:8px; height:8px; border-radius:50%;
-  background:var(--blush-dark); border:1.5px solid var(--white);
+.hero-img{
+  position:absolute;inset:0;z-index:0;
+  background:url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1400&q=80') center/cover no-repeat;
 }
-
-.content { margin-left:56px; flex:1; }
-
-/* ═══════════════════════════════════════
-   PAGES
-═══════════════════════════════════════ */
-.page { display:none; }
-.page.active { display:block; animation:fadeUp .3s ease; }
-@keyframes fadeUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
-
-/* ═══════════════════════════════════════
-   PAGE: LANDING
-═══════════════════════════════════════ */
-#page-landing { background:var(--cream); }
-
-.hero {
-  background:var(--sage-dark);
-  padding:56px 64px 48px;
-  position:relative; overflow:hidden;
-  min-height:340px;
-  display:flex; flex-direction:column; justify-content:flex-end;
+.hero-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(135deg,rgba(60,90,56,0.82) 0%,rgba(30,40,28,0.65) 100%);
 }
-.hero-bg-overlay {
-  position:absolute; inset:0;
-  background:linear-gradient(135deg, rgba(90,122,86,0.85) 0%, rgba(45,45,45,0.7) 100%);
-  z-index:1;
-}
-.hero-photo {
-  position:absolute; inset:0; z-index:0;
-  background:linear-gradient(135deg, #7A9E76 0%, #4A6A46 40%, #2D3D2A 100%);
-  display:flex; align-items:center; justify-content:center;
-  font-size:120px; opacity:0.3;
-}
-.hero-content { position:relative; z-index:2; max-width:520px; }
-.hero-eyebrow {
-  font-size:11px; letter-spacing:0.12em; text-transform:uppercase;
-  color:rgba(255,255,255,0.65); margin-bottom:12px; font-weight:500;
-}
-.hero-h1 {
-  font-family:'Playfair Display',serif;
-  font-size:clamp(32px,4vw,52px); font-weight:400;
-  color:white; line-height:1.15; margin-bottom:14px;
-}
-.hero-h1 em { font-style:italic; }
-.hero-sub { font-size:14px; color:rgba(255,255,255,0.7); line-height:1.6; margin-bottom:28px; max-width:380px; }
-.hero-ctas { display:flex; gap:10px; }
-.btn-hero-primary {
-  background:white; color:var(--sage-dark);
-  font-family:'Jost',sans-serif; font-size:13px; font-weight:600;
-  border:none; border-radius:var(--r8); padding:11px 22px;
-  cursor:pointer; transition:all .2s; letter-spacing:0.02em;
-}
-.btn-hero-primary:hover { background:var(--sage-pale); transform:translateY(-1px); }
-.btn-hero-secondary {
-  background:rgba(255,255,255,0.15); color:white;
-  font-family:'Jost',sans-serif; font-size:13px; font-weight:500;
-  border:1.5px solid rgba(255,255,255,0.4); border-radius:var(--r8);
-  padding:11px 22px; cursor:pointer; transition:all .2s;
-}
-.btn-hero-secondary:hover { background:rgba(255,255,255,0.25); }
+.hero-content{position:relative;z-index:2;padding:56px 64px 48px;max-width:560px;}
+.hero-eyebrow{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:12px;font-weight:500;}
+.hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4.5vw,58px);font-weight:400;color:white;line-height:1.1;margin-bottom:14px;}
+.hero-h1 em{font-style:italic;}
+.hero-sub{font-size:14px;color:rgba(255,255,255,0.7);line-height:1.65;margin-bottom:28px;max-width:380px;}
+.hero-ctas{display:flex;gap:10px;}
+.btn-hero-primary{background:white;color:var(--sage-dark);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;border:none;border-radius:var(--r8);padding:11px 22px;cursor:pointer;transition:all .2s;letter-spacing:0.02em;}
+.btn-hero-primary:hover{background:var(--sage-pale);transform:translateY(-1px);}
+.btn-hero-secondary{background:rgba(255,255,255,0.15);color:white;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;border:1.5px solid rgba(255,255,255,0.4);border-radius:var(--r8);padding:11px 22px;cursor:pointer;transition:all .2s;}
+.btn-hero-secondary:hover{background:rgba(255,255,255,0.25);}
 
-/* Stats bar */
-.stats-bar {
-  display:flex; gap:0;
-  border-bottom:1px solid var(--stone);
-}
-.stat-cell {
-  flex:1; padding:20px 28px;
-  border-right:1px solid var(--stone);
-  display:flex; align-items:center; gap:12px;
-}
-.stat-cell:last-child { border-right:none; }
-.stat-icon { font-size:22px; }
-.stat-label { font-size:12px; color:var(--ink-60); }
-.stat-value { font-size:15px; font-weight:600; color:var(--ink); }
+.stats-bar{display:flex;border-bottom:1px solid var(--stone);}
+.stat-cell{flex:1;padding:20px 28px;border-right:1px solid var(--stone);display:flex;align-items:center;gap:14px;}
+.stat-cell:last-child{border-right:none;}
+.stat-icon-wrap{width:40px;height:40px;border-radius:50%;background:var(--sage-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.stat-icon-wrap svg{width:20px;height:20px;color:var(--sage-dark);}
+.stat-label{font-size:12px;color:var(--ink-60);}
+.stat-value{font-size:15px;font-weight:600;color:var(--ink);}
 
-/* Featured vendors strip */
-.section-header { padding:28px 32px 16px; display:flex; justify-content:space-between; align-items:center; }
-.section-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:400; }
-.section-see-all { font-size:12px; color:var(--sage-dark); cursor:pointer; font-weight:500; }
-.section-see-all:hover { text-decoration:underline; }
+.section-header{padding:28px 32px 16px;display:flex;justify-content:space-between;align-items:center;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;}
+.section-see-all{font-size:12px;color:var(--sage-dark);cursor:pointer;font-weight:500;}
+.section-see-all:hover{text-decoration:underline;}
 
-.vendors-strip { display:flex; gap:14px; padding:0 32px 32px; overflow-x:auto; }
-.vendor-thumb {
-  flex-shrink:0; width:180px; border-radius:var(--r12);
-  background:var(--white); border:1px solid var(--stone);
-  overflow:hidden; cursor:pointer; transition:box-shadow .2s;
-}
-.vendor-thumb:hover { box-shadow:var(--shadow); }
-.vendor-thumb-img {
-  height:110px; display:flex; align-items:center; justify-content:center;
-  font-size:40px;
-}
-.vendor-thumb-info { padding:10px 12px 12px; }
-.vendor-thumb-name { font-size:13px; font-weight:600; margin-bottom:2px; }
-.vendor-thumb-cat { font-size:11px; color:var(--ink-60); }
+.vendors-strip{display:flex;gap:14px;padding:0 32px 32px;overflow-x:auto;}
+.vendor-thumb{flex-shrink:0;width:190px;border-radius:var(--r12);background:var(--white);border:1px solid var(--stone);overflow:hidden;cursor:pointer;transition:box-shadow .2s;}
+.vendor-thumb:hover{box-shadow:var(--shadow);}
+.vendor-thumb-img{height:120px;overflow:hidden;}
+.vendor-thumb-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s;}
+.vendor-thumb:hover .vendor-thumb-img img{transform:scale(1.05);}
+.vendor-thumb-info{padding:10px 12px 12px;}
+.vendor-thumb-name{font-size:13px;font-weight:600;margin-bottom:2px;}
+.vendor-thumb-cat{font-size:11px;color:var(--ink-60);}
 
-/* ═══════════════════════════════════════
-   PAGE: AI CONCIERGE
-═══════════════════════════════════════ */
-#page-concierge { background:var(--mint-bg); min-height:calc(100vh - 56px); }
-.concierge-layout { display:grid; grid-template-columns:320px 1fr; min-height:calc(100vh - 56px); }
+/* ═══════════════════════ CONCIERGE ═══════════════════════ */
+#page-concierge{background:var(--mint-bg);min-height:calc(100vh - 56px);}
+.concierge-layout{display:grid;grid-template-columns:320px 1fr;min-height:calc(100vh - 56px);}
+.concierge-left{background:var(--white);border-right:1px solid var(--stone);padding:28px 24px;}
+.panel-title{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;margin-bottom:20px;}
+.form-label{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-60);margin-bottom:6px;display:block;}
+.form-input{width:100%;padding:9px 12px;border:1px solid var(--stone);border-radius:var(--r8);font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink);background:var(--cream);outline:none;transition:border-color .2s;margin-bottom:14px;}
+.form-input:focus{border-color:var(--sage);}
+.textarea-vibe{width:100%;padding:10px 12px;min-height:80px;resize:none;border:1px solid var(--stone);border-radius:var(--r8);font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink);background:var(--cream);outline:none;transition:border-color .2s;margin-bottom:14px;line-height:1.5;}
+.textarea-vibe:focus{border-color:var(--sage);}
 
-/* Left panel */
-.concierge-left {
-  background:var(--white); border-right:1px solid var(--stone);
-  padding:28px 24px;
-}
-.panel-title { font-family:'Playfair Display',serif; font-size:17px; font-weight:400; margin-bottom:20px; }
+.mood-uploads{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:14px;}
+.mood-cell{aspect-ratio:1;border:1.5px dashed var(--stone-dark);border-radius:var(--r8);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;background:var(--cream);overflow:hidden;}
+.mood-cell:hover{border-color:var(--sage);}
+.mood-cell img{width:100%;height:100%;object-fit:cover;}
+.mood-cell-plus{color:var(--ink-30);display:flex;align-items:center;justify-content:center;width:100%;height:100%;}
+.mood-cell-plus svg{width:20px;height:20px;}
 
-.form-label { font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-60); margin-bottom:6px; display:block; }
-.form-input {
-  width:100%; padding:9px 12px;
-  border:1px solid var(--stone); border-radius:var(--r8);
-  font-family:'Jost',sans-serif; font-size:13px; color:var(--ink);
-  background:var(--cream); outline:none; transition:border-color .2s;
-  margin-bottom:14px;
-}
-.form-input:focus { border-color:var(--sage); }
-.textarea-vibe {
-  width:100%; padding:10px 12px; min-height:80px; resize:none;
-  border:1px solid var(--stone); border-radius:var(--r8);
-  font-family:'Jost',sans-serif; font-size:13px; color:var(--ink);
-  background:var(--cream); outline:none; transition:border-color .2s;
-  margin-bottom:14px; line-height:1.5;
-}
-.textarea-vibe:focus { border-color:var(--sage); }
+.chat-row{display:flex;gap:8px;margin-top:16px;}
+.chat-field{flex:1;padding:9px 12px;border:1px solid var(--stone);border-radius:var(--r8);font-family:'DM Sans',sans-serif;font-size:13px;background:var(--cream);outline:none;transition:border-color .2s;}
+.chat-field:focus{border-color:var(--sage);}
+.chat-send-btn{width:36px;height:36px;border-radius:var(--r8);background:var(--sage-dark);border:none;color:white;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s;}
+.chat-send-btn:hover{background:var(--sage);}
+.chat-send-btn svg{width:16px;height:16px;}
 
-.mood-uploads {
-  display:grid; grid-template-columns:1fr 1fr 1fr; gap:6px; margin-bottom:14px;
-}
-.mood-cell {
-  aspect-ratio:1; border:1.5px dashed var(--stone-dark); border-radius:var(--r8);
-  display:flex; align-items:center; justify-content:center;
-  font-size:18px; color:var(--ink-30); cursor:pointer;
-  transition:all .2s; background:var(--cream);
-}
-.mood-cell:hover { border-color:var(--sage); color:var(--sage); }
+.chat-bubbles{margin-top:12px;display:flex;flex-direction:column;gap:6px;}
+.ai-bubble{background:var(--sage-pale);border-radius:12px 12px 12px 2px;padding:9px 12px;font-size:12px;line-height:1.5;color:var(--ink);max-width:90%;}
+.user-bubble{background:var(--ink);color:white;border-radius:12px 12px 2px 12px;padding:9px 12px;font-size:12px;line-height:1.5;max-width:90%;align-self:flex-end;}
 
-.chat-row { display:flex; gap:8px; margin-top:16px; }
-.chat-field {
-  flex:1; padding:9px 12px; border:1px solid var(--stone);
-  border-radius:var(--r8); font-family:'Jost',sans-serif; font-size:13px;
-  background:var(--cream); outline:none; transition:border-color .2s;
-}
-.chat-field:focus { border-color:var(--sage); }
-.chat-send-btn {
-  width:36px; height:36px; border-radius:var(--r8);
-  background:var(--sage-dark); border:none; color:white;
-  font-size:15px; cursor:pointer; display:flex; align-items:center; justify-content:center;
-  flex-shrink:0; transition:background .2s;
-}
-.chat-send-btn:hover { background:var(--sage); }
+.find-btn{width:100%;margin-top:20px;background:var(--sage-dark);color:white;border:none;border-radius:var(--r8);padding:12px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;letter-spacing:0.04em;transition:background .2s;}
+.find-btn:hover{background:var(--sage);}
 
-.chat-bubbles { margin-top:12px; display:flex; flex-direction:column; gap:6px; }
-.ai-bubble {
-  background:var(--sage-pale); border-radius:12px 12px 12px 2px;
-  padding:9px 12px; font-size:12px; line-height:1.5; color:var(--ink);
-  max-width:90%;
-}
-.user-bubble {
-  background:var(--ink); color:white;
-  border-radius:12px 12px 2px 12px;
-  padding:9px 12px; font-size:12px; line-height:1.5;
-  max-width:90%; align-self:flex-end;
-}
+.concierge-right{padding:28px;}
+.back-link{font-size:12px;color:var(--sage-dark);cursor:pointer;display:inline-flex;align-items:center;gap:4px;margin-bottom:20px;}
+.back-link:hover{text-decoration:underline;}
+.matches-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;margin-bottom:6px;}
+.matches-sub{font-size:13px;color:var(--ink-60);margin-bottom:24px;}
 
-.find-btn {
-  width:100%; margin-top:20px;
-  background:var(--sage-dark); color:white; border:none;
-  border-radius:var(--r8); padding:12px; font-family:'Jost',sans-serif;
-  font-size:13px; font-weight:600; cursor:pointer;
-  letter-spacing:0.04em; transition:background .2s;
-}
-.find-btn:hover { background:var(--sage); }
+.match-cards{display:flex;flex-direction:column;gap:14px;}
+.match-card{background:var(--white);border-radius:var(--r12);border:1px solid var(--stone);overflow:hidden;display:flex;transition:box-shadow .2s;}
+.match-card:hover{box-shadow:var(--shadow);}
+.match-card.top{border-color:var(--sage-light);}
+.match-img{width:140px;flex-shrink:0;overflow:hidden;}
+.match-img img{width:100%;height:100%;object-fit:cover;}
+.match-body{flex:1;padding:16px 18px;}
+.match-name-row{display:flex;align-items:center;gap:8px;margin-bottom:4px;}
+.match-name{font-size:15px;font-weight:600;}
+.verified-badge{display:inline-flex;align-items:center;gap:3px;font-size:10px;color:var(--sage-dark);font-weight:600;background:var(--sage-pale);padding:2px 7px;border-radius:20px;}
+.match-location{font-size:12px;color:var(--ink-60);margin-bottom:8px;display:flex;align-items:center;gap:4px;}
+.match-desc{font-size:12px;color:var(--ink-60);line-height:1.5;margin-bottom:10px;}
+.match-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px;}
+.tag{font-size:10px;font-weight:500;padding:3px 9px;border-radius:20px;background:var(--sage-pale);color:var(--sage-dark);}
+.tag.blush{background:var(--blush-light);color:var(--blush-dark);}
+.match-score-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.score-label{font-size:11px;color:var(--ink-60);}
+.score-bar{flex:1;height:4px;background:var(--stone);border-radius:2px;overflow:hidden;}
+.score-fill{height:100%;background:var(--sage);border-radius:2px;}
+.score-pct{font-size:12px;font-weight:600;color:var(--sage-dark);}
+.match-reviews{font-size:11px;color:var(--ink-60);display:flex;align-items:center;gap:4px;}
+.match-actions{display:flex;flex-direction:column;justify-content:center;gap:8px;padding:16px;border-left:1px solid var(--stone);}
+.action-btn{padding:8px 16px;border-radius:var(--r8);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;white-space:nowrap;text-align:center;border:none;}
+.btn-top{background:var(--sage-dark);color:white;}
+.btn-top:hover{background:var(--sage);}
+.btn-maybe{background:var(--sage-pale);color:var(--sage-dark);}
+.btn-maybe:hover{background:var(--sage-light);}
+.btn-pass{background:var(--cream);color:var(--ink-60);border:1px solid var(--stone)!important;}
+.btn-pass:hover{background:var(--blush-light);color:var(--blush-dark);}
+.more-btn{width:100%;margin-top:10px;background:var(--sage-pale);color:var(--sage-dark);border:none;border-radius:var(--r8);padding:12px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:background .2s;}
+.more-btn:hover{background:var(--sage-light);}
 
-/* Right panel: Top Matches */
-.concierge-right { padding:28px 28px; }
-.back-link { font-size:12px; color:var(--sage-dark); cursor:pointer; display:inline-flex; align-items:center; gap:4px; margin-bottom:20px; }
-.back-link:hover { text-decoration:underline; }
-.matches-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:400; margin-bottom:6px; }
-.matches-sub { font-size:13px; color:var(--ink-60); margin-bottom:24px; }
+/* ═══════════════════════ EXPLORE ═══════════════════════ */
+#page-explore{background:var(--mint-bg);}
+.explore-layout{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 56px);}
+.filter-sidebar{background:var(--white);border-right:1px solid var(--stone);padding:24px 18px;}
+.filter-title{font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-60);margin-bottom:20px;}
+.filter-section{margin-bottom:22px;}
+.filter-section-title{font-size:12px;font-weight:600;color:var(--ink);margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;}
+.filter-option{display:flex;align-items:center;gap:8px;margin-bottom:8px;cursor:pointer;}
+.filter-option input[type=checkbox]{accent-color:var(--sage-dark);width:14px;height:14px;}
+.filter-option label{font-size:13px;color:var(--ink-60);cursor:pointer;}
+.filter-option label:hover{color:var(--ink);}
+.range-track{height:4px;background:var(--stone);border-radius:2px;margin:10px 0 4px;position:relative;}
+.range-fill{height:100%;background:var(--sage);border-radius:2px;width:75%;}
+.range-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--ink-60);}
+.mini-cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;text-align:center;}
+.mc-header{font-size:9px;color:var(--ink-30);padding:2px 0;}
+.mc-day{font-size:10px;padding:3px 0;border-radius:4px;cursor:pointer;}
+.mc-day:hover{background:var(--sage-pale);}
+.mc-day.avail{background:var(--sage-pale);color:var(--sage-dark);font-weight:600;}
+.mc-day.booked{background:var(--stone);color:var(--ink-30);}
+.mc-day.today-m{border:1px solid var(--sage-dark);}
 
-.match-cards { display:flex; flex-direction:column; gap:14px; }
-.match-card {
-  background:var(--white); border-radius:var(--r12);
-  border:1px solid var(--stone); overflow:hidden;
-  display:flex; gap:0; transition:box-shadow .2s;
-}
-.match-card:hover { box-shadow:var(--shadow); }
-.match-card.top { border-color:var(--sage-light); }
-.match-img {
-  width:130px; flex-shrink:0;
-  display:flex; align-items:center; justify-content:center;
-  font-size:40px; min-height:130px;
-}
-.match-body { flex:1; padding:16px 18px; }
-.match-name-row { display:flex; align-items:center; gap:8px; margin-bottom:4px; }
-.match-name { font-size:15px; font-weight:600; }
-.verified-badge {
-  display:inline-flex; align-items:center; gap:3px;
-  font-size:10px; color:var(--sage-dark); font-weight:600;
-  background:var(--sage-pale); padding:2px 7px; border-radius:20px;
-}
-.match-location { font-size:12px; color:var(--ink-60); margin-bottom:8px; display:flex; align-items:center; gap:4px; }
-.match-desc { font-size:12px; color:var(--ink-60); line-height:1.5; margin-bottom:10px; }
-.match-tags { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:10px; }
-.tag {
-  font-size:10px; font-weight:500; padding:3px 9px; border-radius:20px;
-  background:var(--sage-pale); color:var(--sage-dark);
-}
-.tag.blush { background:var(--blush-light); color:var(--blush-dark); }
-.match-score-row { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
-.score-label { font-size:11px; color:var(--ink-60); }
-.score-bar { flex:1; height:4px; background:var(--stone); border-radius:2px; overflow:hidden; }
-.score-fill { height:100%; background:var(--sage); border-radius:2px; }
-.score-pct { font-size:12px; font-weight:600; color:var(--sage-dark); }
-.match-reviews { font-size:11px; color:var(--ink-60); display:flex; align-items:center; gap:4px; }
-.match-actions { display:flex; flex-direction:column; justify-content:center; gap:8px; padding:16px; border-left:1px solid var(--stone); }
-.action-btn {
-  padding:8px 16px; border-radius:var(--r8); font-family:'Jost',sans-serif;
-  font-size:12px; font-weight:600; cursor:pointer; transition:all .2s;
-  white-space:nowrap; text-align:center; border:none;
-}
-.btn-top { background:var(--sage-dark); color:white; }
-.btn-top:hover { background:var(--sage); }
-.btn-maybe { background:var(--sage-pale); color:var(--sage-dark); }
-.btn-maybe:hover { background:var(--sage-light); }
-.btn-pass { background:var(--cream); color:var(--ink-60); border:1px solid var(--stone) !important; }
-.btn-pass:hover { background:var(--blush-light); color:var(--blush-dark); }
+.explore-main{padding:24px;}
+.explore-topbar{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.explore-heading{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;flex:1;}
+.search-box{display:flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--stone);border-radius:var(--r8);padding:7px 12px;width:220px;}
+.search-box input{border:none;outline:none;font-family:'DM Sans',sans-serif;font-size:13px;flex:1;background:transparent;}
+.search-box svg{color:var(--ink-30);width:14px;height:14px;}
 
-/* More btn */
-.more-btn {
-  width:100%; margin-top:10px;
-  background:var(--sage-pale); color:var(--sage-dark); border:none;
-  border-radius:var(--r8); padding:12px; font-family:'Jost',sans-serif;
-  font-size:13px; font-weight:600; cursor:pointer; transition:background .2s;
-}
-.more-btn:hover { background:var(--sage-light); }
+.explore-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.explore-card{background:var(--white);border-radius:var(--r12);border:1px solid var(--stone);overflow:hidden;cursor:pointer;transition:box-shadow .2s;}
+.explore-card:hover{box-shadow:var(--shadow);}
+.explore-card-img{height:150px;overflow:hidden;}
+.explore-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .35s;}
+.explore-card:hover .explore-card-img img{transform:scale(1.06);}
+.explore-card-body{padding:14px;}
+.explore-card-name{font-size:14px;font-weight:600;margin-bottom:2px;display:flex;align-items:center;gap:6px;}
+.explore-card-location{font-size:11px;color:var(--ink-60);margin-bottom:8px;}
+.explore-card-desc{font-size:12px;color:var(--ink-60);line-height:1.5;margin-bottom:8px;}
+.score-chip{display:inline-flex;align-items:center;gap:4px;background:var(--sage-pale);color:var(--sage-dark);font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px;margin-bottom:8px;}
+.card-reviews{font-size:11px;color:var(--ink-60);margin-bottom:10px;}
+.card-actions{display:flex;gap:6px;}
+.card-action-btn{flex:1;padding:7px 0;border-radius:var(--r8);border:none;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;cursor:pointer;transition:all .2s;text-align:center;}
 
-/* ═══════════════════════════════════════
-   PAGE: EXPLORE VENDORS
-═══════════════════════════════════════ */
-#page-explore { background:var(--mint-bg); }
-.explore-layout { display:grid; grid-template-columns:220px 1fr; min-height:calc(100vh-56px); }
+/* ═══════════════════════ DASHBOARD ═══════════════════════ */
+#page-dashboard{background:var(--mint-bg);}
+.dashboard-main-pad{padding:28px 32px;}
+.dash-greeting{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;margin-bottom:4px;}
+.dash-greeting em{font-style:italic;color:var(--sage-dark);}
+.dash-sub{font-size:13px;color:var(--ink-60);margin-bottom:24px;}
+.countdown-card{background:var(--sage-dark);color:white;border-radius:var(--r16);padding:28px 32px;display:flex;align-items:center;gap:40px;margin-bottom:20px;position:relative;overflow:hidden;}
+.countdown-card::before{content:'';position:absolute;right:-30px;top:-30px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.06);}
+.countdown-number{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:400;line-height:1;}
+.countdown-label{font-size:14px;opacity:0.7;margin-top:4px;}
+.countdown-sub{font-size:12px;opacity:0.5;margin-top:2px;}
+.ring-svg{width:90px;height:90px;transform:rotate(-90deg);}
+.ring-track{fill:none;stroke:rgba(255,255,255,0.15);stroke-width:8;}
+.ring-fill{fill:none;stroke:white;stroke-width:8;stroke-linecap:round;stroke-dasharray:220;stroke-dashoffset:77;}
+.dash-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+.dash-card{background:var(--white);border-radius:var(--r12);border:1px solid var(--stone);padding:20px;}
+.dash-card-title{font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-60);margin-bottom:16px;}
+.confirmed-vendor{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--stone);}
+.confirmed-vendor:last-child{border-bottom:none;}
+.cv-avatar{width:32px;height:32px;border-radius:50%;overflow:hidden;flex-shrink:0;}
+.cv-avatar img{width:100%;height:100%;object-fit:cover;}
+.cv-name{font-size:13px;font-weight:600;margin-bottom:1px;}
+.cv-cat{font-size:11px;color:var(--ink-60);}
+.cv-status{margin-left:auto;font-size:10px;font-weight:600;color:var(--sage-dark);background:var(--sage-pale);padding:2px 7px;border-radius:10px;white-space:nowrap;}
+.next-step{display:flex;align-items:flex-start;gap:8px;padding:7px 0;border-bottom:1px solid var(--stone);}
+.next-step:last-child{border-bottom:none;}
+.ns-check{width:16px;height:16px;border:1.5px solid var(--stone-dark);border-radius:4px;flex-shrink:0;margin-top:1px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:10px;transition:all .2s;}
+.ns-check.done{background:var(--sage-dark);border-color:var(--sage-dark);color:white;}
+.ns-text{font-size:13px;color:var(--ink);}
+.ns-text.done-text{color:var(--ink-60);text-decoration:line-through;}
 
-/* Filter sidebar */
-.filter-sidebar {
-  background:var(--white); border-right:1px solid var(--stone);
-  padding:24px 18px;
-}
-.filter-title { font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-60); margin-bottom:20px; }
-.filter-section { margin-bottom:22px; }
-.filter-section-title { font-size:12px; font-weight:600; color:var(--ink); margin-bottom:10px; display:flex; justify-content:space-between; align-items:center; }
-.filter-option { display:flex; align-items:center; gap:8px; margin-bottom:8px; cursor:pointer; }
-.filter-option input[type=checkbox] { accent-color:var(--sage-dark); width:14px; height:14px; }
-.filter-option label { font-size:13px; color:var(--ink-60); cursor:pointer; }
-.filter-option label:hover { color:var(--ink); }
-.range-track { height:4px; background:var(--stone); border-radius:2px; margin:10px 0 4px; position:relative; }
-.range-fill { height:100%; background:var(--sage); border-radius:2px; width:75%; }
-.range-labels { display:flex; justify-content:space-between; font-size:11px; color:var(--ink-60); }
+/* ═══════════════════════ VENDOR PORTAL ═══════════════════════ */
+#page-portal{background:var(--mint-bg);}
+.portal-pad{padding:28px 32px;}
+.portal-toprow{display:flex;align-items:flex-start;gap:16px;margin-bottom:24px;}
+.verified-chip{display:inline-flex;align-items:center;gap:6px;background:var(--sage-pale);color:var(--sage-dark);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;}
+.portal-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:20px;}
+.pstat{background:var(--white);border:1px solid var(--stone);border-radius:var(--r12);padding:18px 20px;}
+.pstat-label{font-size:11px;color:var(--ink-60);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;}
+.pstat-value{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:400;color:var(--sage-dark);}
+.pstat-delta{font-size:11px;color:var(--sage-dark);margin-top:4px;}
+.portal-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.portal-card{background:var(--white);border:1px solid var(--stone);border-radius:var(--r12);padding:20px;}
+.portal-card-title{font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-60);margin-bottom:16px;display:flex;align-items:center;gap:6px;}
+.calendar-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+.cal-month-title{font-size:13px;font-weight:600;}
+.cal-grid2{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;}
+.cal2-head{font-size:10px;color:var(--ink-30);text-align:center;padding:4px 0;}
+.cal2-day{font-size:12px;text-align:center;padding:5px 2px;border-radius:6px;cursor:pointer;}
+.cal2-day:hover{background:var(--sage-pale);}
+.cal2-day.booked2{background:var(--sage);color:white;font-weight:600;}
+.cal2-day.today2{border:1.5px solid var(--sage-dark);font-weight:600;}
+.pkg-row{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border:1px solid var(--stone);border-radius:var(--r8);margin-bottom:8px;}
+.pkg-row.featured{border-color:var(--sage-light);background:var(--sage-pale);}
+.pkg-name{font-size:13px;font-weight:600;margin-bottom:2px;}
+.pkg-features{font-size:11px;color:var(--ink-60);}
+.pkg-price{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--sage-dark);}
+.pkg-badge{font-size:9px;font-weight:700;background:var(--sage-dark);color:white;padding:2px 6px;border-radius:10px;letter-spacing:0.04em;margin-left:6px;}
+.instant-book-row{display:flex;align-items:center;justify-content:space-between;padding:14px;background:var(--cream);border-radius:var(--r8);margin-top:12px;}
+.toggle-switch{width:40px;height:22px;border-radius:11px;background:var(--sage-dark);position:relative;cursor:pointer;flex-shrink:0;}
+.toggle-knob{position:absolute;top:3px;right:3px;width:16px;height:16px;border-radius:50%;background:white;}
 
-.avail-cal { margin-top:8px; }
-.avail-cal-header { display:flex; justify-content:space-between; align-items:center; font-size:12px; margin-bottom:8px; }
-.cal-nav2 { font-size:16px; color:var(--ink-60); cursor:pointer; }
-.mini-cal-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:1px; text-align:center; }
-.mc-header { font-size:9px; color:var(--ink-30); padding:2px 0; }
-.mc-day { font-size:10px; padding:3px 0; border-radius:4px; cursor:pointer; }
-.mc-day:hover { background:var(--sage-pale); }
-.mc-day.avail { background:var(--sage-pale); color:var(--sage-dark); font-weight:600; }
-.mc-day.booked { background:var(--stone); color:var(--ink-30); }
-.mc-day.today-m { border:1px solid var(--sage-dark); }
+/* ═══════════════════════ VENDOR ONBOARDING ═══════════════════════ */
+#page-vendor{background:var(--mint-bg);}
+.vendor-wrap{max-width:720px;margin:0 auto;padding:36px 24px;}
+.step-progress{display:flex;gap:0;margin-bottom:36px;}
+.sp-item{flex:1;padding:10px 14px;font-size:12px;font-weight:600;text-align:center;border-bottom:3px solid var(--stone);color:var(--ink-60);cursor:pointer;transition:all .2s;}
+.sp-item.active{border-bottom-color:var(--sage-dark);color:var(--sage-dark);}
+.sp-item.done{border-bottom-color:var(--sage-light);color:var(--sage);}
+.vendor-card{background:var(--white);border:1px solid var(--stone);border-radius:var(--r16);padding:32px;}
+.vendor-card-title{font-family:'Cormorant Garamond',serif;font-size:24px;margin-bottom:6px;}
+.vendor-card-sub{font-size:13px;color:var(--ink-60);margin-bottom:24px;}
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:24px;}
+.cat-chip{border:1.5px solid var(--stone);border-radius:var(--r12);padding:12px 8px;text-align:center;cursor:pointer;transition:all .2s;background:var(--cream);}
+.cat-chip:hover{border-color:var(--sage);}
+.cat-chip.sel{border-color:var(--sage-dark);background:var(--sage-pale);}
+.cat-chip-icon{margin-bottom:6px;display:flex;justify-content:center;}
+.cat-chip-icon svg{width:24px;height:24px;color:var(--sage-dark);}
+.cat-chip-name{font-size:11px;font-weight:600;color:var(--ink);}
+.compliance-card{background:var(--sage-pale);border:1px solid var(--sage-light);border-radius:var(--r12);padding:20px;margin-bottom:16px;}
+.compliance-card h4{font-size:14px;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.compliance-card p{font-size:12px;color:var(--ink-60);line-height:1.6;margin-bottom:12px;}
+.check-label{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--ink-60);margin-bottom:8px;line-height:1.5;}
+.check-label input{accent-color:var(--sage-dark);margin-top:2px;flex-shrink:0;}
+.upload-zone{border:2px dashed var(--stone-dark);border-radius:var(--r12);padding:28px;text-align:center;cursor:pointer;transition:all .2s;background:var(--cream);margin-bottom:16px;}
+.upload-zone:hover{border-color:var(--sage);background:var(--sage-pale);}
+.upload-zone-icon{margin-bottom:8px;display:flex;justify-content:center;}
+.upload-zone-icon svg{width:32px;height:32px;color:var(--ink-30);}
+.upload-zone-text{font-size:13px;color:var(--ink-60);}
+.upload-zone-text strong{color:var(--sage-dark);}
+.continue-btn{width:100%;background:var(--sage-dark);color:white;border:none;border-radius:var(--r8);padding:13px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;margin-top:8px;transition:background .2s;}
+.continue-btn:hover{background:var(--sage);}
 
-/* Explore main */
-.explore-main { padding:24px; }
-.explore-topbar { display:flex; align-items:center; gap:12px; margin-bottom:20px; }
-.explore-heading { font-family:'Playfair Display',serif; font-size:22px; font-weight:400; flex:1; }
-.search-box {
-  display:flex; align-items:center; gap:8px;
-  background:var(--white); border:1px solid var(--stone);
-  border-radius:var(--r8); padding:7px 12px; width:220px;
-}
-.search-box input { border:none; outline:none; font-family:'Jost',sans-serif; font-size:13px; flex:1; background:transparent; }
-.search-icon { color:var(--ink-30); font-size:14px; }
-.all-screen-btn {
-  background:var(--white); border:1px solid var(--stone); border-radius:var(--r8);
-  padding:7px 12px; font-size:12px; cursor:pointer; font-family:'Jost',sans-serif;
-  display:flex; align-items:center; gap:4px; transition:border-color .2s;
-}
-.all-screen-btn:hover { border-color:var(--sage); }
+/* ═══════════════════════ CHECKOUT ═══════════════════════ */
+#page-checkout{background:var(--mint-bg);}
+.checkout-wrap{display:grid;grid-template-columns:1fr 340px;min-height:calc(100vh - 56px);}
+.checkout-left{padding:32px 40px;background:var(--cream);}
+.checkout-right{background:var(--white);border-left:1px solid var(--stone);padding:28px 24px;}
+.checkout-step-h{display:flex;align-items:center;gap:12px;margin-bottom:20px;margin-top:8px;}
+.step-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;}
+.step-num.done{background:var(--sage-dark);color:white;}
+.step-num.active{background:var(--sage-pale);color:var(--sage-dark);border:2px solid var(--sage-dark);}
+.step-num.todo{background:var(--stone);color:var(--ink-60);}
+.step-name{font-size:14px;font-weight:600;}
+.order-item{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--stone);}
+.order-item:last-child{border-bottom:none;}
+.order-icon{width:44px;height:44px;border-radius:var(--r8);overflow:hidden;flex-shrink:0;}
+.order-icon img{width:100%;height:100%;object-fit:cover;}
+.order-name{font-size:14px;font-weight:600;margin-bottom:2px;}
+.order-pkg{font-size:12px;color:var(--ink-60);}
+.order-amt{margin-left:auto;text-align:right;}
+.order-amt-main{font-size:15px;font-weight:600;}
+.order-amt-sub{font-size:11px;color:var(--ink-60);}
+.card-form{background:var(--white);border:1px solid var(--stone);border-radius:var(--r12);padding:20px;}
+.card-logos{display:flex;gap:6px;margin-bottom:14px;}
+.card-logo{padding:4px 8px;border:1px solid var(--stone);border-radius:4px;font-size:10px;font-weight:700;color:var(--ink-60);}
+.secure-row{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--ink-60);margin-bottom:14px;}
+.cinput{width:100%;padding:10px 12px;border:1px solid var(--stone);border-radius:var(--r8);font-family:'DM Sans',sans-serif;font-size:13px;margin-bottom:10px;outline:none;transition:border-color .2s;}
+.cinput:focus{border-color:var(--sage);}
+.cinput-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.pay-btn{width:100%;margin-top:4px;background:var(--sage-dark);color:white;border:none;border-radius:var(--r8);padding:13px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:background .2s;}
+.pay-btn:hover{background:var(--sage);}
+.contract-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--stone);}
+.contract-row:last-child{border-bottom:none;}
+.contract-icon2 svg{width:20px;height:20px;color:var(--sage-dark);}
+.contract-name2{font-size:13px;font-weight:600;margin-bottom:2px;}
+.contract-status2{font-size:11px;}
+.contract-status2.pending{color:var(--gold);}
+.contract-status2.signed{color:var(--sage-dark);}
+.sign-btn2{margin-left:auto;background:var(--sage-pale);color:var(--sage-dark);border:none;border-radius:var(--r8);padding:6px 12px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;}
+.summary-heading{font-family:'Cormorant Garamond',serif;font-size:20px;margin-bottom:20px;}
+.sum-line{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--stone);font-size:13px;color:var(--ink-60);}
+.sum-total{display:flex;justify-content:space-between;padding:14px 0 0;font-size:15px;font-weight:700;color:var(--ink);}
+.sum-amount{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--sage-dark);}
+.trust-list{margin-top:24px;display:flex;flex-direction:column;gap:10px;}
+.trust-row{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink-60);}
+.trust-row svg{width:15px;height:15px;color:var(--sage-dark);flex-shrink:0;}
 
-.explore-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
-.explore-card {
-  background:var(--white); border-radius:var(--r12);
-  border:1px solid var(--stone); overflow:hidden;
-  cursor:pointer; transition:box-shadow .2s;
-  position:relative;
-}
-.explore-card:hover { box-shadow:var(--shadow); }
-.explore-card-img {
-  height:140px; display:flex; align-items:center; justify-content:center;
-  font-size:48px; position:relative; overflow:hidden;
-}
-.explore-card-body { padding:14px; }
-.explore-card-name { font-size:14px; font-weight:600; margin-bottom:2px; display:flex; align-items:center; gap:6px; }
-.explore-card-location { font-size:11px; color:var(--ink-60); margin-bottom:8px; }
-.explore-card-desc { font-size:12px; color:var(--ink-60); line-height:1.5; margin-bottom:8px; }
-.score-chip {
-  display:inline-flex; align-items:center; gap:4px;
-  background:var(--sage-pale); color:var(--sage-dark);
-  font-size:11px; font-weight:600; padding:3px 9px; border-radius:20px;
-  margin-bottom:8px;
-}
-.card-reviews { font-size:11px; color:var(--ink-60); margin-bottom:10px; }
-.card-actions { display:flex; gap:6px; }
-.card-action-btn {
-  flex:1; padding:7px 0; border-radius:var(--r8); border:none;
-  font-family:'Jost',sans-serif; font-size:11px; font-weight:600;
-  cursor:pointer; transition:all .2s; text-align:center;
-}
+/* Maybe Drawer */
+.maybe-drawer-overlay{position:fixed;top:56px;right:0;bottom:0;width:260px;background:var(--white);border-left:1px solid var(--stone);z-index:150;transform:translateX(100%);transition:transform .3s ease;box-shadow:-4px 0 24px rgba(42,42,42,0.1);display:flex;flex-direction:column;}
+.maybe-drawer-overlay.open{transform:translateX(0);}
+.drawer-header{padding:16px 18px;border-bottom:1px solid var(--stone);display:flex;justify-content:space-between;align-items:center;}
+.drawer-title{font-size:13px;font-weight:600;}
+.drawer-close{font-size:18px;cursor:pointer;color:var(--ink-60);line-height:1;background:none;border:none;}
+.drawer-item{padding:14px 18px;border-bottom:1px solid var(--stone);display:flex;align-items:center;gap:10px;cursor:pointer;}
+.drawer-item:hover{background:var(--mint-bg);}
+.drawer-item-thumb{width:36px;height:36px;border-radius:var(--r8);overflow:hidden;flex-shrink:0;}
+.drawer-item-thumb img{width:100%;height:100%;object-fit:cover;}
+.drawer-item-name{font-size:13px;font-weight:600;margin-bottom:2px;}
+.drawer-item-status{font-size:11px;}
+.drawer-item-status.confirmed{color:var(--sage-dark);}
+.drawer-item-status.saved{color:var(--gold);}
 
-/* Maybe drawer overlay */
-.maybe-drawer-overlay {
-  position:fixed; top:56px; right:0; bottom:0; width:260px;
-  background:var(--white); border-left:1px solid var(--stone);
-  z-index:150; transform:translateX(100%);
-  transition:transform .3s ease; box-shadow:-4px 0 24px rgba(45,45,45,0.1);
-  display:flex; flex-direction:column;
-}
-.maybe-drawer-overlay.open { transform:translateX(0); }
-.drawer-header {
-  padding:16px 18px; border-bottom:1px solid var(--stone);
-  display:flex; justify-content:space-between; align-items:center;
-}
-.drawer-title { font-size:13px; font-weight:600; }
-.drawer-close { font-size:18px; cursor:pointer; color:var(--ink-60); line-height:1; background:none; border:none; }
-.drawer-item {
-  padding:14px 18px; border-bottom:1px solid var(--stone);
-  display:flex; align-items:center; gap:10px; cursor:pointer;
-}
-.drawer-item:hover { background:var(--mint-bg); }
-.drawer-item-icon { font-size:22px; }
-.drawer-item-name { font-size:13px; font-weight:600; margin-bottom:2px; }
-.drawer-item-status { font-size:11px; }
-.drawer-item-status.confirmed { color:var(--sage-dark); }
-.drawer-item-status.saved { color:var(--gold); }
+/* Footer */
+.footer{background:var(--ink);color:rgba(255,255,255,0.5);font-size:12px;padding:20px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-left:56px;}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:18px;color:white;}
+.footer-links{display:flex;gap:20px;}
+.footer-link{cursor:pointer;transition:color .2s;}
+.footer-link:hover{color:white;}
+.footer-badge{background:var(--sage-dark);color:white;font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;letter-spacing:0.04em;}
 
-/* ═══════════════════════════════════════
-   PAGE: COUPLE DASHBOARD
-═══════════════════════════════════════ */
-#page-dashboard { background:var(--mint-bg); }
-.dashboard-main-pad { padding:28px 32px; }
-.dash-greeting { font-family:'Playfair Display',serif; font-size:24px; font-weight:400; margin-bottom:4px; }
-.dash-greeting em { font-style:italic; color:var(--sage-dark); }
-.dash-sub { font-size:13px; color:var(--ink-60); margin-bottom:24px; }
-
-.countdown-card {
-  background:var(--sage-dark); color:white;
-  border-radius:var(--r16); padding:28px 32px;
-  display:flex; align-items:center; gap:40px;
-  margin-bottom:20px; position:relative; overflow:hidden;
-}
-.countdown-card::before {
-  content:''; position:absolute; right:-30px; top:-30px;
-  width:180px; height:180px; border-radius:50%;
-  background:rgba(255,255,255,0.06);
-}
-.countdown-number { font-family:'Playfair Display',serif; font-size:72px; font-weight:400; line-height:1; }
-.countdown-label { font-size:14px; opacity:0.7; margin-top:4px; }
-.countdown-sub { font-size:12px; opacity:0.5; margin-top:2px; }
-.progress-ring-section { flex:1; }
-.ring-wrap { display:flex; align-items:center; gap:20px; }
-.ring-svg { width:90px; height:90px; transform:rotate(-90deg); }
-.ring-track { fill:none; stroke:rgba(255,255,255,0.15); stroke-width:8; }
-.ring-fill { fill:none; stroke:white; stroke-width:8; stroke-linecap:round; stroke-dasharray:220; stroke-dashoffset:77; }
-.ring-label { position:absolute; font-family:'Playfair Display',serif; font-size:20px; color:white; }
-.ring-text-group { font-size:13px; opacity:0.8; }
-.ring-text-group strong { display:block; font-size:15px; font-weight:600; opacity:1; margin-bottom:4px; }
-
-.dash-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
-.dash-card {
-  background:var(--white); border-radius:var(--r12);
-  border:1px solid var(--stone); padding:20px;
-}
-.dash-card-title { font-size:12px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-60); margin-bottom:16px; }
-
-.confirmed-vendor { display:flex; align-items:center; gap:10px; padding:8px 0; border-bottom:1px solid var(--stone); }
-.confirmed-vendor:last-child { border-bottom:none; }
-.cv-avatar { width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:15px; flex-shrink:0; }
-.cv-name { font-size:13px; font-weight:600; margin-bottom:1px; }
-.cv-cat { font-size:11px; color:var(--ink-60); }
-.cv-status { margin-left:auto; font-size:10px; font-weight:600; color:var(--sage-dark); background:var(--sage-pale); padding:2px 7px; border-radius:10px; white-space:nowrap; }
-
-.next-step { display:flex; align-items:flex-start; gap:8px; padding:7px 0; border-bottom:1px solid var(--stone); }
-.next-step:last-child { border-bottom:none; }
-.ns-check { width:16px; height:16px; border:1.5px solid var(--stone-dark); border-radius:4px; flex-shrink:0; margin-top:1px; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:10px; transition:all .2s; }
-.ns-check.done { background:var(--sage-dark); border-color:var(--sage-dark); color:white; }
-.ns-text { font-size:13px; color:var(--ink); }
-.ns-text.done-text { color:var(--ink-60); text-decoration:line-through; }
-
-/* ═══════════════════════════════════════
-   PAGE: VENDOR PORTAL
-═══════════════════════════════════════ */
-#page-portal { background:var(--mint-bg); }
-.portal-pad { padding:28px 32px; }
-.portal-toprow { display:flex; align-items:flex-start; gap:16px; margin-bottom:24px; }
-.verified-chip {
-  display:inline-flex; align-items:center; gap:6px;
-  background:var(--sage-pale); color:var(--sage-dark);
-  padding:6px 14px; border-radius:20px;
-  font-size:12px; font-weight:600;
-}
-
-.portal-stats { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-bottom:20px; }
-.pstat {
-  background:var(--white); border:1px solid var(--stone); border-radius:var(--r12);
-  padding:18px 20px;
-}
-.pstat-label { font-size:11px; color:var(--ink-60); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:6px; display:flex; align-items:center; gap:5px; }
-.pstat-value { font-family:'Playfair Display',serif; font-size:32px; font-weight:400; color:var(--sage-dark); }
-.pstat-value.plain { font-family:'Jost',sans-serif; font-size:28px; font-weight:600; }
-.pstat-delta { font-size:11px; color:var(--sage-dark); margin-top:4px; }
-
-.portal-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-.portal-card { background:var(--white); border:1px solid var(--stone); border-radius:var(--r12); padding:20px; }
-.portal-card-title { font-size:12px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-60); margin-bottom:16px; display:flex; align-items:center; gap:6px; }
-
-.calendar-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
-.cal-month-title { font-size:13px; font-weight:600; }
-.cal-navs { display:flex; gap:4px; }
-.cal-nav-btn { background:none; border:none; font-size:14px; cursor:pointer; color:var(--ink-60); padding:2px 4px; }
-.cal-grid2 { display:grid; grid-template-columns:repeat(7,1fr); gap:2px; }
-.cal2-head { font-size:10px; color:var(--ink-30); text-align:center; padding:4px 0; }
-.cal2-day { font-size:12px; text-align:center; padding:5px 2px; border-radius:6px; cursor:pointer; }
-.cal2-day:hover { background:var(--sage-pale); }
-.cal2-day.booked2 { background:var(--sage); color:white; font-weight:600; }
-.cal2-day.today2 { border:1.5px solid var(--sage-dark); font-weight:600; }
-.cal2-day.blocked2 { background:var(--stone); color:var(--ink-30); }
-
-.cal-legend { display:flex; gap:12px; margin-top:10px; }
-.leg-item { display:flex; align-items:center; gap:4px; font-size:10px; color:var(--ink-60); }
-.leg-dot { width:8px; height:8px; border-radius:50%; }
-
-.pkg-row { display:flex; align-items:center; justify-content:space-between; padding:11px 14px; border:1px solid var(--stone); border-radius:var(--r8); margin-bottom:8px; }
-.pkg-row.featured { border-color:var(--sage-light); background:var(--sage-pale); }
-.pkg-name { font-size:13px; font-weight:600; margin-bottom:2px; }
-.pkg-features { font-size:11px; color:var(--ink-60); }
-.pkg-price { font-family:'Playfair Display',serif; font-size:22px; color:var(--sage-dark); }
-.pkg-badge { font-size:9px; font-weight:700; background:var(--sage-dark); color:white; padding:2px 6px; border-radius:10px; letter-spacing:0.04em; margin-left:6px; }
-
-.instant-book-row { display:flex; align-items:center; justify-content:space-between; padding:14px; background:var(--cream); border-radius:var(--r8); margin-top:12px; }
-.ib-label { font-size:13px; font-weight:600; margin-bottom:2px; }
-.ib-sub { font-size:11px; color:var(--ink-60); }
-.toggle-switch {
-  width:40px; height:22px; border-radius:11px; background:var(--sage-dark);
-  position:relative; cursor:pointer; transition:background .2s; flex-shrink:0;
-}
-.toggle-knob {
-  position:absolute; top:3px; right:3px; width:16px; height:16px;
-  border-radius:50%; background:white; transition:right .2s;
-}
-
-/* ═══════════════════════════════════════
-   PAGE: CHECKOUT
-═══════════════════════════════════════ */
-#page-checkout { background:var(--mint-bg); }
-.checkout-wrap { display:grid; grid-template-columns:1fr 340px; min-height:calc(100vh - 56px); }
-.checkout-left { padding:32px 40px; background:var(--cream); }
-.checkout-right { background:var(--white); border-left:1px solid var(--stone); padding:28px 24px; }
-
-.checkout-step-h { display:flex; align-items:center; gap:12px; margin-bottom:20px; margin-top:8px; }
-.step-num { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; flex-shrink:0; }
-.step-num.done { background:var(--sage-dark); color:white; }
-.step-num.active { background:var(--sage-pale); color:var(--sage-dark); border:2px solid var(--sage-dark); }
-.step-num.todo { background:var(--stone); color:var(--ink-60); }
-.step-name { font-size:14px; font-weight:600; }
-
-.order-item { display:flex; align-items:center; gap:12px; padding:14px 0; border-bottom:1px solid var(--stone); }
-.order-item:last-child { border-bottom:none; }
-.order-icon { width:40px; height:40px; border-radius:var(--r8); display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; }
-.order-name { font-size:14px; font-weight:600; margin-bottom:2px; }
-.order-pkg { font-size:12px; color:var(--ink-60); }
-.order-amt { margin-left:auto; text-align:right; }
-.order-amt-main { font-size:15px; font-weight:600; }
-.order-amt-sub { font-size:11px; color:var(--ink-60); }
-
-.card-form { background:var(--white); border:1px solid var(--stone); border-radius:var(--r12); padding:20px; }
-.card-logos { display:flex; gap:6px; margin-bottom:14px; }
-.card-logo { padding:4px 8px; border:1px solid var(--stone); border-radius:4px; font-size:10px; font-weight:700; color:var(--ink-60); }
-.secure-row { display:flex; align-items:center; gap:5px; font-size:11px; color:var(--ink-60); margin-bottom:14px; }
-.cinput { width:100%; padding:10px 12px; border:1px solid var(--stone); border-radius:var(--r8); font-family:'Jost',sans-serif; font-size:13px; margin-bottom:10px; outline:none; transition:border-color .2s; }
-.cinput:focus { border-color:var(--sage); }
-.cinput-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-.pay-btn { width:100%; margin-top:4px; background:var(--sage-dark); color:white; border:none; border-radius:var(--r8); padding:13px; font-family:'Jost',sans-serif; font-size:14px; font-weight:600; cursor:pointer; transition:background .2s; }
-.pay-btn:hover { background:var(--sage); }
-
-.contract-row { display:flex; align-items:center; gap:10px; padding:12px 0; border-bottom:1px solid var(--stone); }
-.contract-row:last-child { border-bottom:none; }
-.contract-icon2 { font-size:20px; }
-.contract-name2 { font-size:13px; font-weight:600; margin-bottom:2px; }
-.contract-status2 { font-size:11px; }
-.contract-status2.pending { color:var(--gold); }
-.contract-status2.signed { color:var(--sage-dark); }
-.sign-btn2 { margin-left:auto; background:var(--sage-pale); color:var(--sage-dark); border:none; border-radius:var(--r8); padding:6px 12px; font-family:'Jost',sans-serif; font-size:11px; font-weight:600; cursor:pointer; white-space:nowrap; }
-
-/* Summary sidebar */
-.summary-heading { font-family:'Playfair Display',serif; font-size:18px; margin-bottom:20px; }
-.sum-line { display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid var(--stone); font-size:13px; color:var(--ink-60); }
-.sum-total { display:flex; justify-content:space-between; padding:14px 0 0; font-size:15px; font-weight:700; color:var(--ink); }
-.sum-amount { font-family:'Playfair Display',serif; font-size:22px; color:var(--sage-dark); }
-.trust-list { margin-top:24px; display:flex; flex-direction:column; gap:10px; }
-.trust-row { display:flex; align-items:center; gap:8px; font-size:12px; color:var(--ink-60); }
-.trust-icon2 { font-size:16px; }
-
-/* ═══════════════════════════════════════
-   PAGE: VENDOR ONBOARDING
-═══════════════════════════════════════ */
-#page-vendor { background:var(--mint-bg); }
-.vendor-wrap { max-width:720px; margin:0 auto; padding:36px 24px; }
-.step-progress { display:flex; gap:0; margin-bottom:36px; }
-.sp-item { flex:1; padding:10px 14px; font-size:12px; font-weight:600; text-align:center; border-bottom:3px solid var(--stone); color:var(--ink-60); cursor:pointer; transition:all .2s; }
-.sp-item.active { border-bottom-color:var(--sage-dark); color:var(--sage-dark); }
-.sp-item.done { border-bottom-color:var(--sage-light); color:var(--sage); }
-
-.vendor-card { background:var(--white); border:1px solid var(--stone); border-radius:var(--r16); padding:32px; }
-.vendor-card-title { font-family:'Playfair Display',serif; font-size:22px; margin-bottom:6px; }
-.vendor-card-sub { font-size:13px; color:var(--ink-60); margin-bottom:24px; }
-
-.cat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:24px; }
-.cat-chip { border:1.5px solid var(--stone); border-radius:var(--r12); padding:12px 8px; text-align:center; cursor:pointer; transition:all .2s; background:var(--cream); }
-.cat-chip:hover { border-color:var(--sage); }
-.cat-chip.sel { border-color:var(--sage-dark); background:var(--sage-pale); }
-.cat-chip-icon { font-size:22px; margin-bottom:4px; }
-.cat-chip-name { font-size:11px; font-weight:600; color:var(--ink); }
-
-.compliance-card { background:var(--sage-pale); border:1px solid var(--sage-light); border-radius:var(--r12); padding:20px; margin-bottom:16px; }
-.compliance-card h4 { font-size:14px; font-weight:600; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
-.compliance-card p { font-size:12px; color:var(--ink-60); line-height:1.6; margin-bottom:12px; }
-.check-label { display:flex; align-items:flex-start; gap:8px; font-size:12px; color:var(--ink-60); margin-bottom:8px; line-height:1.5; }
-.check-label input { accent-color:var(--sage-dark); margin-top:2px; flex-shrink:0; }
-
-.upload-zone { border:2px dashed var(--stone-dark); border-radius:var(--r12); padding:28px; text-align:center; cursor:pointer; transition:all .2s; background:var(--cream); margin-bottom:16px; }
-.upload-zone:hover { border-color:var(--sage); background:var(--sage-pale); }
-.upload-zone-icon { font-size:28px; margin-bottom:8px; }
-.upload-zone-text { font-size:13px; color:var(--ink-60); }
-.upload-zone-text strong { color:var(--sage-dark); }
-
-.continue-btn { width:100%; background:var(--sage-dark); color:white; border:none; border-radius:var(--r8); padding:13px; font-family:'Jost',sans-serif; font-size:14px; font-weight:600; cursor:pointer; margin-top:8px; transition:background .2s; }
-.continue-btn:hover { background:var(--sage); }
-
-/* ═══════════════════════════════════════
-   FOOTER (minimal)
-═══════════════════════════════════════ */
-.footer { background:var(--ink); color:rgba(255,255,255,0.5); font-size:12px; padding:20px 32px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-left:56px; }
-.footer-logo { font-family:'Playfair Display',serif; font-size:16px; color:white; }
-.footer-links { display:flex; gap:20px; }
-.footer-link { cursor:pointer; transition:color .2s; }
-.footer-link:hover { color:white; }
-.footer-verify { display:flex; align-items:center; gap:6px; }
-.footer-badge { background:var(--sage-dark); color:white; font-size:10px; font-weight:700; padding:2px 7px; border-radius:4px; letter-spacing:0.04em; }
-
-/* scrollbars */
-::-webkit-scrollbar { width:5px; height:5px; }
-::-webkit-scrollbar-track { background:transparent; }
-::-webkit-scrollbar-thumb { background:var(--stone-dark); border-radius:10px; }
+::-webkit-scrollbar{width:5px;height:5px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--stone-dark);border-radius:10px;}
 </style>
 </head>
 <body>
 
-<!-- ═════════════════════════════════
-     TOP NAV
-═════════════════════════════════ -->
+<!-- SVG DEFS (reusable icons) -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Home -->
+    <symbol id="ico-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/>
+    </symbol>
+    <!-- Sparkle/AI -->
+    <symbol id="ico-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z"/>
+    </symbol>
+    <!-- Search -->
+    <symbol id="ico-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+    </symbol>
+    <!-- Clipboard -->
+    <symbol id="ico-clip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="9" y="2" width="6" height="4" rx="1"/><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/>
+    </symbol>
+    <!-- Heart -->
+    <symbol id="ico-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+    </symbol>
+    <!-- Building -->
+    <symbol id="ico-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/>
+    </symbol>
+    <!-- Card -->
+    <symbol id="ico-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/>
+    </symbol>
+    <!-- Send arrow -->
+    <symbol id="ico-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+    </symbol>
+    <!-- Pin -->
+    <symbol id="ico-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+    </symbol>
+    <!-- Upload -->
+    <symbol id="ico-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0018 9h-1.26A8 8 0 103 16.3"/>
+    </symbol>
+    <!-- Camera/Photo -->
+    <symbol id="ico-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/>
+    </symbol>
+    <!-- Shield -->
+    <symbol id="ico-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+    </symbol>
+    <!-- Lock -->
+    <symbol id="ico-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
+    </symbol>
+    <!-- Document -->
+    <symbol id="ico-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+    </symbol>
+    <!-- Chat -->
+    <symbol id="ico-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+    </symbol>
+    <!-- Check -->
+    <symbol id="ico-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"/>
+    </symbol>
+    <!-- Clock/Hours -->
+    <symbol id="ico-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+    </symbol>
+    <!-- Flowers/floral -->
+    <symbol id="ico-floral" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="3"/>
+      <path d="M12 2a3 3 0 000 6 3 3 0 000-6z" opacity=".5"/>
+      <path d="M12 16a3 3 0 000 6 3 3 0 000-6z" opacity=".5"/>
+      <path d="M2 12a3 3 0 006 0 3 3 0 00-6 0z" opacity=".5"/>
+      <path d="M16 12a3 3 0 006 0 3 3 0 00-6 0z" opacity=".5"/>
+    </symbol>
+    <!-- Music -->
+    <symbol id="ico-music" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+    </symbol>
+    <!-- Rings (wedding) -->
+    <symbol id="ico-rings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="9" cy="12" r="5"/><circle cx="15" cy="12" r="5"/>
+    </symbol>
+    <!-- Cake -->
+    <symbol id="ico-cake" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 21v-8a2 2 0 00-2-2H6a2 2 0 00-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2 1 2 1"/><line x1="2" y1="21" x2="22" y2="21"/><line x1="7" y1="11" x2="7" y2="8"/><line x1="12" y1="11" x2="12" y2="6"/><line x1="17" y1="11" x2="17" y2="8"/>
+    </symbol>
+    <!-- Star -->
+    <symbol id="ico-star" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+    </symbol>
+    <!-- Video -->
+    <symbol id="ico-video" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+    </symbol>
+    <!-- Venue/arch -->
+    <symbol id="ico-arch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 20V8a9 9 0 0118 0v12"/><line x1="3" y1="20" x2="21" y2="20"/><line x1="9" y1="20" x2="9" y2="12"/><path d="M9 12a3 3 0 006 0"/>
+    </symbol>
+    <!-- MakeUp -->
+    <symbol id="ico-makeup" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 22c-4.97 0-9-3.58-9-8 0-3 2-5.5 5-7l.5 2.5S10 8 12 8s3.5-1.5 3.5-1.5l.5-2.5c3 1.5 5 4 5 7 0 4.42-4.03 8-9 8z"/><line x1="12" y1="14" x2="12" y2="18"/>
+    </symbol>
+    <!-- Calendar -->
+    <symbol id="ico-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+    </symbol>
+    <!-- Package box -->
+    <symbol id="ico-pkg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12.89 1.45l8 4A2 2 0 0122 7.24v9.53a2 2 0 01-1.11 1.79l-8 4a2 2 0 01-1.78 0l-8-4a2 2 0 01-1.11-1.8V7.24a2 2 0 011.11-1.79l8-4a2 2 0 011.78 0z"/><polyline points="2.32 6.16 12 11 21.68 6.16"/><line x1="12" y1="22.76" x2="12" y2="11"/>
+    </symbol>
+    <!-- Profile/user -->
+    <symbol id="ico-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- TOP NAV -->
 <nav class="topnav">
   <span class="topnav-logo" onclick="showPage('landing')">Noué<span>.</span></span>
   <div class="topnav-links">
@@ -696,42 +550,49 @@ body { font-family:'Jost',sans-serif; background:var(--mint-bg); color:var(--ink
     <button class="btn-login" onclick="showPage('dashboard')">Log in</button>
     <button class="btn-signup" onclick="showPage('vendor')">Sign up</button>
     <div style="display:flex;align-items:center;gap:6px;cursor:pointer">
-      <div class="topnav-avatar">👤</div>
+      <div class="topnav-avatar">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=60&q=80" alt="Avatar">
+      </div>
       <span style="font-size:12px;color:var(--ink-60)">▾</span>
     </div>
   </div>
 </nav>
 
-<!-- ═════════════════════════════════
-     ICON SIDEBAR
-═════════════════════════════════ -->
 <div class="shell">
+<!-- ICON SIDEBAR -->
 <div class="icon-sidebar">
-  <div class="icon-btn active" onclick="setActiveIcon(this);showPage('landing')" title="Home">🏠</div>
-  <div class="icon-btn" onclick="setActiveIcon(this);showPage('concierge')" title="AI Concierge">✨</div>
-  <div class="icon-btn" onclick="setActiveIcon(this);showPage('explore')" title="Explore Vendors">🔍</div>
-  <div class="icon-btn" onclick="setActiveIcon(this);showPage('dashboard')" title="My Dashboard" style="position:relative">
-    📋<span class="badge"></span>
+  <div class="icon-btn active" onclick="setActiveIcon(this);showPage('landing')" title="Home">
+    <svg><use href="#ico-home"/></svg>
   </div>
-  <div class="icon-btn" onclick="setActiveIcon(this);openDrawer()" title="Maybe Drawer">♡</div>
+  <div class="icon-btn" onclick="setActiveIcon(this);showPage('concierge')" title="AI Concierge">
+    <svg><use href="#ico-sparkle"/></svg>
+  </div>
+  <div class="icon-btn" onclick="setActiveIcon(this);showPage('explore')" title="Explore Vendors">
+    <svg><use href="#ico-search"/></svg>
+  </div>
+  <div class="icon-btn" onclick="setActiveIcon(this);showPage('dashboard')" title="My Dashboard" style="position:relative">
+    <svg><use href="#ico-clip"/></svg>
+    <span class="badge"></span>
+  </div>
+  <div class="icon-btn" onclick="setActiveIcon(this);openDrawer()" title="Maybe Drawer">
+    <svg><use href="#ico-heart"/></svg>
+  </div>
   <div style="flex:1"></div>
-  <div class="icon-btn" onclick="setActiveIcon(this);showPage('portal')" title="Vendor Portal">🏢</div>
-  <div class="icon-btn" onclick="setActiveIcon(this);showPage('checkout')" title="Checkout">💳</div>
+  <div class="icon-btn" onclick="setActiveIcon(this);showPage('portal')" title="Vendor Portal">
+    <svg><use href="#ico-building"/></svg>
+  </div>
+  <div class="icon-btn" onclick="setActiveIcon(this);showPage('checkout')" title="Checkout">
+    <svg><use href="#ico-card"/></svg>
+  </div>
 </div>
 
-<!-- ═════════════════════════════════
-     CONTENT AREA
-═════════════════════════════════ -->
 <div class="content">
 
-<!-- ══════════════════════════════════════════════
-     PAGE: LANDING
-══════════════════════════════════════════════ -->
+<!-- ══════ PAGE: LANDING ══════ -->
 <div id="page-landing" class="page active">
-  <!-- Hero -->
   <div class="hero">
-    <div class="hero-photo">💐</div>
-    <div class="hero-bg-overlay"></div>
+    <div class="hero-img"></div>
+    <div class="hero-overlay"></div>
     <div class="hero-content">
       <div class="hero-eyebrow">AI Wedding Assistant</div>
       <h1 class="hero-h1">Your Dream Wedding,<br><em>AI-Planned, Stress-Free.</em></h1>
@@ -743,201 +604,130 @@ body { font-family:'Jost',sans-serif; background:var(--mint-bg); color:var(--ink
     </div>
   </div>
 
-  <!-- Stats -->
   <div class="stats-bar">
     <div class="stat-cell">
-      <div class="stat-icon">😊</div>
-      <div>
-        <div class="stat-value">Save 30+ Hours</div>
-        <div class="stat-label">Save big planning hours</div>
-      </div>
+      <div class="stat-icon-wrap"><svg><use href="#ico-clock"/></svg></div>
+      <div><div class="stat-value">Save 30+ Hours</div><div class="stat-label">Save big planning hours</div></div>
     </div>
     <div class="stat-cell">
-      <div class="stat-icon">✅</div>
-      <div>
-        <div class="stat-value">Verified Vendors</div>
-        <div class="stat-label">Verified business vendors</div>
-      </div>
+      <div class="stat-icon-wrap"><svg><use href="#ico-shield"/></svg></div>
+      <div><div class="stat-value">Verified Vendors</div><div class="stat-label">Background-checked businesses</div></div>
     </div>
     <div class="stat-cell">
-      <div class="stat-icon">☀️</div>
-      <div>
-        <div class="stat-value">30,30 Hours</div>
-        <div class="stat-label">Seamless templates</div>
-      </div>
+      <div class="stat-icon-wrap"><svg><use href="#ico-rings"/></svg></div>
+      <div><div class="stat-value">Seamless Planning</div><div class="stat-label">Smart templates &amp; tools</div></div>
     </div>
   </div>
 
-  <!-- Featured Vendors -->
   <div class="section-header">
     <div class="section-title">Featured Vendors</div>
     <div class="section-see-all" onclick="showPage('explore')">See All →</div>
   </div>
   <div class="vendors-strip">
     <div class="vendor-thumb" onclick="showPage('explore')">
-      <div class="vendor-thumb-img" style="background:linear-gradient(135deg,#C8DCC5,#8FAF8A)">🏛️</div>
-      <div class="vendor-thumb-info">
-        <div class="vendor-thumb-name">The Willow Venue</div>
-        <div class="vendor-thumb-cat">Venue · Montreal</div>
-      </div>
+      <div class="vendor-thumb-img"><img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=380&q=80" alt="The Willow Venue"></div>
+      <div class="vendor-thumb-info"><div class="vendor-thumb-name">The Willow Venue</div><div class="vendor-thumb-cat">Venue · Montreal</div></div>
     </div>
     <div class="vendor-thumb" onclick="showPage('explore')">
-      <div class="vendor-thumb-img" style="background:linear-gradient(135deg,#F5E6E6,#E8C4C4)">🌸</div>
-      <div class="vendor-thumb-info">
-        <div class="vendor-thumb-name">Lily's Florals</div>
-        <div class="vendor-thumb-cat">Florist · Quebec City</div>
-      </div>
+      <div class="vendor-thumb-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=380&q=80" alt="Lily's Florals"></div>
+      <div class="vendor-thumb-info"><div class="vendor-thumb-name">Lily's Florals</div><div class="vendor-thumb-cat">Florist · Quebec City</div></div>
     </div>
     <div class="vendor-thumb" onclick="showPage('explore')">
-      <div class="vendor-thumb-img" style="background:linear-gradient(135deg,#EBF3E9,#C8DCC5)">🌿</div>
-      <div class="vendor-thumb-info">
-        <div class="vendor-thumb-name">Lily's Floral</div>
-        <div class="vendor-thumb-cat">Florist · Toronto</div>
-      </div>
+      <div class="vendor-thumb-img"><img src="https://images.unsplash.com/photo-1470920238487-4ff9cdca7b31?w=380&q=80" alt="Garden Venue"></div>
+      <div class="vendor-thumb-info"><div class="vendor-thumb-name">Secret Garden</div><div class="vendor-thumb-cat">Venue · Toronto</div></div>
     </div>
     <div class="vendor-thumb" onclick="showPage('explore')">
-      <div class="vendor-thumb-img" style="background:linear-gradient(135deg,#C8DCC5,#5A7A56)">🏛️</div>
-      <div class="vendor-thumb-info">
-        <div class="vendor-thumb-name">The Willow</div>
-        <div class="vendor-thumb-cat">Venue · Ottawa</div>
-      </div>
+      <div class="vendor-thumb-img"><img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=380&q=80" alt="The Grand Venue"></div>
+      <div class="vendor-thumb-info"><div class="vendor-thumb-name">The Grand Hall</div><div class="vendor-thumb-cat">Venue · Ottawa</div></div>
     </div>
     <div class="vendor-thumb" onclick="showPage('explore')">
-      <div class="vendor-thumb-img" style="background:linear-gradient(135deg,#fce4d0,#e0a882)">📸</div>
-      <div class="vendor-thumb-info">
-        <div class="vendor-thumb-name">Lumière Co.</div>
-        <div class="vendor-thumb-cat">Photography · Montreal</div>
-      </div>
+      <div class="vendor-thumb-img"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=380&q=80" alt="Lumière Photography"></div>
+      <div class="vendor-thumb-info"><div class="vendor-thumb-name">Lumière Co.</div><div class="vendor-thumb-cat">Photography · Montreal</div></div>
     </div>
     <div class="vendor-thumb" onclick="showPage('explore')">
-      <div class="vendor-thumb-img" style="background:linear-gradient(135deg,#dce8f5,#8ab0d0)">🎵</div>
-      <div class="vendor-thumb-info">
-        <div class="vendor-thumb-name">Harmony DJ Co.</div>
-        <div class="vendor-thumb-cat">Music · Vancouver</div>
-      </div>
+      <div class="vendor-thumb-img"><img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=380&q=80" alt="Harmony DJ"></div>
+      <div class="vendor-thumb-info"><div class="vendor-thumb-name">Harmony DJ Co.</div><div class="vendor-thumb-cat">Music · Vancouver</div></div>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════
-     PAGE: AI CONCIERGE
-══════════════════════════════════════════════ -->
+<!-- ══════ PAGE: AI CONCIERGE ══════ -->
 <div id="page-concierge" class="page">
   <div class="concierge-layout">
-    <!-- Left: Input Panel -->
     <div class="concierge-left">
-      <div class="panel-title">Chat & Style Input</div>
-
+      <div class="panel-title">Chat &amp; Style Input</div>
       <label class="form-label">My Vibe</label>
-      <textarea class="textarea-vibe" placeholder="e.g. Boho-Chic with a $15k Budget, moody florals, garden ceremony…">Boho-Chic with a $15k Budget</textarea>
-
+      <textarea class="textarea-vibe">Boho-Chic with a $15k Budget</textarea>
       <label class="form-label">Wedding Date</label>
       <input class="form-input" type="date" value="2026-09-12">
-
       <label class="form-label">Location</label>
-      <input class="form-input" type="text" placeholder="City, Province" value="Montreal, QC">
-
+      <input class="form-input" type="text" value="Montreal, QC">
       <label class="form-label">Guest Count</label>
-      <input class="form-input" type="number" placeholder="e.g. 100" value="80">
-
-      <label class="form-label">Mood Board Uploads <span style="font-size:10px;color:var(--ink-30)">(Pinterest Screenshots)</span></label>
+      <input class="form-input" type="number" value="80">
+      <label class="form-label">Mood Board <span style="font-size:10px;color:var(--ink-30)">(Pinterest Screenshots)</span></label>
       <div class="mood-uploads">
-        <div class="mood-cell" style="background:linear-gradient(135deg,#C8DCC5,#8FAF8A);border:none;opacity:0.7">🌿</div>
-        <div class="mood-cell" style="background:linear-gradient(135deg,#F5E6E6,#E8C4C4);border:none;opacity:0.7">🌸</div>
-        <div class="mood-cell">＋</div>
+        <div class="mood-cell"><img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=200&q=80" alt="mood"></div>
+        <div class="mood-cell"><img src="https://images.unsplash.com/photo-1509927083803-4bd519298ac4?w=200&q=80" alt="mood"></div>
+        <div class="mood-cell"><div class="mood-cell-plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
       </div>
-
       <div class="chat-bubbles" id="chat-bubbles">
         <div class="ai-bubble">Hi! I'm your Noué AI concierge. Tell me your wedding vision — aesthetic, traditions, anything! ✨</div>
       </div>
-
-      <div class="chat-row" style="margin-top:12px">
+      <div class="chat-row">
         <input class="chat-field" type="text" id="chat-input" placeholder="Type a message…" onkeydown="if(event.key==='Enter')sendChat()">
-        <button class="chat-send-btn" onclick="sendChat()">→</button>
+        <button class="chat-send-btn" onclick="sendChat()"><svg><use href="#ico-send"/></svg></button>
       </div>
-
       <button class="find-btn" onclick="showMatches()">Find My Matches →</button>
     </div>
 
-    <!-- Right: Top Matches -->
     <div class="concierge-right">
       <span class="back-link" onclick="showPage('landing')">← Back to initial Matches</span>
       <div class="matches-title">Top Matches</div>
-      <div class="matches-sub">AI-curated based on your vibe, date, location & budget.</div>
-
+      <div class="matches-sub">AI-curated based on your vibe, date, location &amp; budget.</div>
       <div class="match-cards" id="match-cards">
-        <!-- Match 1 -->
         <div class="match-card top">
-          <div class="match-img" style="background:linear-gradient(135deg,#C8DCC5,#6A9E66)">🏛️</div>
+          <div class="match-img"><img src="https://images.unsplash.com/photo-1470920238487-4ff9cdca7b31?w=280&q=80" alt="Secret Garden Cafe"></div>
           <div class="match-body">
-            <div class="match-name-row">
-              <div class="match-name">The Secret Garden Cafe</div>
-              <div class="verified-badge">✓ Verified</div>
-            </div>
-            <div class="match-location">📍 Location, USA</div>
-            <div class="match-desc">Stocking planning you to make your dream wed, air stress-free, wane venie carles cables wafe to normalize.</div>
-            <div class="match-tags">
-              <span class="tag">Cultural Fusion Specialist</span>
-              <span class="tag blush">Boho Stylist</span>
-              <span class="tag">Vegan Catering</span>
-            </div>
-            <div class="match-score-row">
-              <span class="score-label">Match Score:</span>
-              <div class="score-bar"><div class="score-fill" style="width:98%"></div></div>
-              <span class="score-pct">98%</span>
-            </div>
-            <div class="match-reviews">👥 Marie maellem · 5 hours · 21 couples are 3 reviews</div>
+            <div class="match-name-row"><div class="match-name">The Secret Garden Cafe</div><div class="verified-badge">✓ Verified</div></div>
+            <div class="match-location"><svg width="12" height="12"><use href="#ico-pin"/></svg> Montreal, QC</div>
+            <div class="match-desc">A stunning garden venue with boho-chic aesthetic, outdoor ceremony space, and cultural fusion catering options for up to 150 guests.</div>
+            <div class="match-tags"><span class="tag">Cultural Fusion</span><span class="tag blush">Boho Stylist</span><span class="tag">Vegan Catering</span></div>
+            <div class="match-score-row"><span class="score-label">Match Score:</span><div class="score-bar"><div class="score-fill" style="width:98%"></div></div><span class="score-pct">98%</span></div>
+            <div class="match-reviews"><svg width="12" height="12" style="color:var(--gold)"><use href="#ico-star"/></svg> 4.9 · 21 couples · 3 reviews</div>
           </div>
           <div class="match-actions">
             <button class="action-btn btn-top" onclick="showPage('checkout')">Top Choice</button>
-            <button class="action-btn btn-maybe" onclick="addToMaybe('The Secret Garden Cafe')">Maybe</button>
+            <button class="action-btn btn-maybe" onclick="addToMaybe('The Secret Garden Cafe','https://images.unsplash.com/photo-1470920238487-4ff9cdca7b31?w=80&q=80')">Maybe</button>
             <button class="action-btn btn-pass">Pass</button>
           </div>
         </div>
-
-        <!-- Match 2 -->
         <div class="match-card">
-          <div class="match-img" style="background:linear-gradient(135deg,#e8d5c8,#b89880)">📸</div>
+          <div class="match-img"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=280&q=80" alt="Boho Photo Collective"></div>
           <div class="match-body">
-            <div class="match-name-row">
-              <div class="match-name">Boho Photo Collective</div>
-              <div class="verified-badge">✓ Verified</div>
-            </div>
-            <div class="match-location">📍 Location, USA</div>
-            <div class="match-desc">Mark andethole: enliting female photo; photocoon se-tour, of cerees tarwerie more.</div>
-            <div class="match-tags">
-              <span class="tag blush">Boho Stylist</span>
-              <span class="tag">Editorial Style</span>
-            </div>
-            <div class="match-score-row">
-              <span class="score-label">Match Score:</span>
-              <div class="score-bar"><div class="score-fill" style="width:95%"></div></div>
-              <span class="score-pct">95%</span>
-            </div>
-            <div class="match-reviews">👥 27 couples are 2 reviews · 5 hours</div>
+            <div class="match-name-row"><div class="match-name">Boho Photo Collective</div><div class="verified-badge">✓ Verified</div></div>
+            <div class="match-location"><svg width="12" height="12"><use href="#ico-pin"/></svg> Montreal, QC</div>
+            <div class="match-desc">Editorial and moody photography duo specializing in boho-chic aesthetics, documentary-style coverage, and fine art prints.</div>
+            <div class="match-tags"><span class="tag blush">Boho Stylist</span><span class="tag">Editorial Style</span></div>
+            <div class="match-score-row"><span class="score-label">Match Score:</span><div class="score-bar"><div class="score-fill" style="width:95%"></div></div><span class="score-pct">95%</span></div>
+            <div class="match-reviews"><svg width="12" height="12" style="color:var(--gold)"><use href="#ico-star"/></svg> 4.8 · 27 couples · 2 reviews</div>
           </div>
           <div class="match-actions">
             <button class="action-btn btn-top" onclick="showPage('checkout')">Top Choice</button>
-            <button class="action-btn btn-maybe" onclick="addToMaybe('Boho Photo Collective')">Maybe</button>
+            <button class="action-btn btn-maybe" onclick="addToMaybe('Boho Photo Collective','https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=80&q=80')">Maybe</button>
             <button class="action-btn btn-pass">Pass</button>
           </div>
         </div>
       </div>
-
       <button class="more-btn" onclick="showPage('explore')">More Vendors →</button>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════
-     PAGE: EXPLORE VENDORS
-══════════════════════════════════════════════ -->
+<!-- ══════ PAGE: EXPLORE VENDORS ══════ -->
 <div id="page-explore" class="page">
   <div class="explore-layout">
-    <!-- Filter Sidebar -->
     <div class="filter-sidebar">
       <div class="filter-title">Filter &amp; Refine</div>
-
       <div class="filter-section">
         <div class="filter-section-title">Category <span style="color:var(--ink-30);cursor:pointer">∧</span></div>
         <div class="filter-option"><input type="checkbox" id="f1" checked><label for="f1">Florist</label></div>
@@ -946,7 +736,6 @@ body { font-family:'Jost',sans-serif; background:var(--mint-bg); color:var(--ink
         <div class="filter-option"><input type="checkbox" id="f4"><label for="f4">Catering</label></div>
         <div class="filter-option"><input type="checkbox" id="f5"><label for="f5">Photography</label></div>
       </div>
-
       <div class="filter-section">
         <div class="filter-section-title">Style <span style="color:var(--ink-30);cursor:pointer">∧</span></div>
         <div class="filter-option"><input type="checkbox" id="s1" checked><label for="s1">Boho-Chic</label></div>
@@ -954,148 +743,130 @@ body { font-family:'Jost',sans-serif; background:var(--mint-bg); color:var(--ink
         <div class="filter-option"><input type="checkbox" id="s3"><label for="s3">Modern</label></div>
         <div class="filter-option"><input type="checkbox" id="s4" checked><label for="s4">Cultural Fusion</label></div>
       </div>
-
       <div class="filter-section">
         <div class="filter-section-title">Price Range</div>
         <div class="range-track"><div class="range-fill"></div></div>
         <div class="range-labels"><span>$1,000</span><span>$130,000</span></div>
       </div>
-
       <div class="filter-section">
-        <div class="filter-section-title">Availability Calendar <span style="color:var(--ink-30);cursor:pointer">∧</span></div>
-        <div class="avail-cal">
-          <div class="avail-cal-header">
-            <span style="font-size:12px;font-weight:600">Week 2022</span>
-            <div style="display:flex;gap:4px;align-items:center">
-              <span style="font-size:11px;color:var(--ink-60)">All tables ▾</span>
-              <span class="cal-nav2">‹</span><span class="cal-nav2">›</span>
-            </div>
+        <div class="filter-section-title">Availability Calendar</div>
+        <div style="margin-top:8px">
+          <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;margin-bottom:8px;">
+            <span style="font-weight:600">September 2026</span>
+            <div style="display:flex;gap:4px"><span style="cursor:pointer;color:var(--ink-60)">‹</span><span style="cursor:pointer;color:var(--ink-60)">›</span></div>
           </div>
           <div class="mini-cal-grid">
             <div class="mc-header">Su</div><div class="mc-header">Mo</div><div class="mc-header">Tu</div><div class="mc-header">We</div><div class="mc-header">Th</div><div class="mc-header">Fr</div><div class="mc-header">Sa</div>
-            <div class="mc-day" style="grid-column:1">11</div>
-            <div class="mc-day">1</div><div class="mc-day avail">2</div><div class="mc-day avail">3</div><div class="mc-day today-m avail">4</div><div class="mc-day avail">5</div>
-            <div class="mc-day avail">6</div><div class="mc-day">7</div><div class="mc-day">8</div><div class="mc-day avail">9</div><div class="mc-day avail">10</div><div class="mc-day avail">11</div><div class="mc-day">12</div>
-            <div class="mc-day booked">13</div><div class="mc-day booked">14</div><div class="mc-day">15</div><div class="mc-day">16</div><div class="mc-day">17</div><div class="mc-day">18</div><div class="mc-day">19</div>
-            <div class="mc-day">20</div><div class="mc-day">21</div><div class="mc-day booked">22</div><div class="mc-day booked">23</div><div class="mc-day">24</div><div class="mc-day">25</div><div class="mc-day">26</div>
-            <div class="mc-day">27</div><div class="mc-day">28</div><div class="mc-day">29</div><div class="mc-day">30</div>
+            <div class="mc-day"></div><div class="mc-day avail">1</div><div class="mc-day avail">2</div><div class="mc-day avail">3</div><div class="mc-day avail">4</div><div class="mc-day avail">5</div><div class="mc-day">6</div>
+            <div class="mc-day avail">7</div><div class="mc-day">8</div><div class="mc-day avail">9</div><div class="mc-day avail">10</div><div class="mc-day avail">11</div><div class="mc-day booked today-m">12</div><div class="mc-day">13</div>
+            <div class="mc-day booked">14</div><div class="mc-day booked">15</div><div class="mc-day">16</div><div class="mc-day">17</div><div class="mc-day">18</div><div class="mc-day avail">19</div><div class="mc-day">20</div>
+            <div class="mc-day">21</div><div class="mc-day booked">22</div><div class="mc-day booked">23</div><div class="mc-day">24</div><div class="mc-day avail">25</div><div class="mc-day avail">26</div><div class="mc-day">27</div>
+            <div class="mc-day">28</div><div class="mc-day avail">29</div><div class="mc-day avail">30</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Explore Main -->
     <div class="explore-main">
       <div class="explore-topbar">
         <div class="explore-heading">Explore More Vendors</div>
-        <div class="search-box">
-          <span class="search-icon">🔍</span>
-          <input type="text" placeholder="Search…">
-        </div>
-        <button class="all-screen-btn">All Screen ▾</button>
+        <div class="search-box"><svg><use href="#ico-search"/></svg><input type="text" placeholder="Search…"></div>
         <button class="btn-signup" onclick="openDrawer()">♡ Maybe Drawer</button>
       </div>
-
       <div class="explore-grid">
-        <!-- Card 1 -->
         <div class="explore-card">
-          <div class="explore-card-img" style="background:linear-gradient(135deg,#C8DCC5,#5A7A56)">🏛️</div>
+          <div class="explore-card-img"><img src="https://images.unsplash.com/photo-1470920238487-4ff9cdca7b31?w=600&q=80" alt="Secret Garden Cafe"></div>
           <div class="explore-card-body">
             <div class="explore-card-name">The Secret Garden Cafe <span style="font-size:10px;color:var(--sage-dark);background:var(--sage-pale);padding:2px 6px;border-radius:10px;font-weight:600">✓ Verified</span></div>
-            <div class="explore-card-location">📍 Location, USA</div>
-            <div class="explore-card-desc">Stocking planning you to make your dream wed, air stress-free, wane venie carles eufe to normalize.</div>
-            <div class="match-tags"><span class="tag">Cultural Fusion Specialist</span><span class="tag blush">Boho Stylist</span><span class="tag">Vegan Catering</span></div>
+            <div class="explore-card-location"><svg width="11" height="11"><use href="#ico-pin"/></svg> Montreal, QC</div>
+            <div class="explore-card-desc">Outdoor garden ceremony with boho-chic aesthetic, cultural fusion catering and vegan menu options.</div>
+            <div class="match-tags"><span class="tag">Cultural Fusion</span><span class="tag blush">Boho Stylist</span><span class="tag">Vegan</span></div>
             <div class="score-chip">Match Score: 98%</div>
-            <div class="card-reviews">👥 Recent couple reviews: 1 hours · 21 couples are 3 reviews</div>
+            <div class="card-reviews"><svg width="11" height="11" style="color:var(--gold)"><use href="#ico-star"/></svg> 4.9 · 21 couples · 3 reviews</div>
             <div class="card-actions">
               <button class="card-action-btn btn-top" onclick="showPage('checkout')">Select as Top Match</button>
-              <button class="card-action-btn btn-maybe" onclick="addToMaybe('Secret Garden Cafe')">Save as Maybe</button>
-              <button class="card-action-btn btn-pass" style="flex:0.5;background:var(--cream);color:var(--ink-60);border:1px solid var(--stone);">Hide</button>
+              <button class="card-action-btn btn-maybe" onclick="addToMaybe('Secret Garden','https://images.unsplash.com/photo-1470920238487-4ff9cdca7b31?w=80&q=80')">Save as Maybe</button>
+              <button class="card-action-btn btn-pass" style="flex:0.5;background:var(--cream);color:var(--ink-60);border:1px solid var(--stone)">Hide</button>
             </div>
           </div>
         </div>
-        <!-- Card 2 -->
         <div class="explore-card">
-          <div class="explore-card-img" style="background:linear-gradient(135deg,#f5e6e6,#c47a7a)">🌸</div>
+          <div class="explore-card-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Boho Florals"></div>
           <div class="explore-card-body">
-            <div class="explore-card-name">Boho Collective <span style="font-size:10px;color:var(--sage-dark);background:var(--sage-pale);padding:2px 6px;border-radius:10px;font-weight:600">✓ Verified</span></div>
-            <div class="explore-card-location">📍 Location, USA</div>
-            <div class="explore-card-desc">Mark andethole: enliting female photo; photocoon se-tour, of cerees tarwerie more.</div>
+            <div class="explore-card-name">Boho Floral Collective <span style="font-size:10px;color:var(--sage-dark);background:var(--sage-pale);padding:2px 6px;border-radius:10px;font-weight:600">✓ Verified</span></div>
+            <div class="explore-card-location"><svg width="11" height="11"><use href="#ico-pin"/></svg> Montreal, QC</div>
+            <div class="explore-card-desc">Wild, organic floral arrangements with dried flowers, pampas grass, and seasonal blooms.</div>
             <div class="match-tags"><span class="tag blush">Boho Stylist</span><span class="tag">Cultural Fusion</span></div>
             <div class="score-chip">Match Score: 76%</div>
-            <div class="card-reviews">👥 27 couples are 2 reviews · 5 hours</div>
+            <div class="card-reviews"><svg width="11" height="11" style="color:var(--gold)"><use href="#ico-star"/></svg> 4.7 · 27 couples · 5 reviews</div>
             <div class="card-actions">
               <button class="card-action-btn btn-top" onclick="showPage('checkout')">Select as Top Match</button>
-              <button class="card-action-btn btn-maybe" onclick="addToMaybe('Boho Collective')">Save as Maybe</button>
-              <button class="card-action-btn btn-pass" style="flex:0.5;background:var(--cream);color:var(--ink-60);border:1px solid var(--stone);">Hide</button>
+              <button class="card-action-btn btn-maybe" onclick="addToMaybe('Boho Florals','https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=80&q=80')">Save as Maybe</button>
+              <button class="card-action-btn btn-pass" style="flex:0.5;background:var(--cream);color:var(--ink-60);border:1px solid var(--stone)">Hide</button>
             </div>
           </div>
         </div>
-        <!-- Card 3 -->
         <div class="explore-card">
-          <div class="explore-card-img" style="background:linear-gradient(135deg,#f5e6e6,#e8c4c4)">💐</div>
+          <div class="explore-card-img"><img src="https://images.unsplash.com/photo-1487530811015-780f8c7c3ab9?w=600&q=80" alt="Lily Florals"></div>
           <div class="explore-card-body">
             <div class="explore-card-name">Lily's Florals <span style="font-size:10px;color:var(--sage-dark);background:var(--sage-pale);padding:2px 6px;border-radius:10px;font-weight:600">✓ Verified</span></div>
-            <div class="explore-card-location">📍 Location, USA</div>
-            <div class="explore-card-desc">Flora his person couply with vegan, wedding, and ocenous cities and minnan plonlets.</div>
-            <div class="match-tags"><span class="tag">Cultural Fusion Specialist</span><span class="tag blush">Boho Stylist</span></div>
+            <div class="explore-card-location"><svg width="11" height="11"><use href="#ico-pin"/></svg> Quebec City, QC</div>
+            <div class="explore-card-desc">Full floral design from bridal bouquets to ceremony arches and reception centerpieces.</div>
+            <div class="match-tags"><span class="tag">Cultural Fusion</span><span class="tag blush">Boho</span></div>
             <div class="score-chip">Match Score: 75%</div>
-            <div class="card-reviews">👥 19 more · 3 about couple 13 reviews</div>
+            <div class="card-reviews"><svg width="11" height="11" style="color:var(--gold)"><use href="#ico-star"/></svg> 4.8 · 19 couples · 8 reviews</div>
             <div class="card-actions">
               <button class="card-action-btn btn-top" onclick="showPage('checkout')">Select as Top Match</button>
-              <button class="card-action-btn btn-maybe" onclick="addToMaybe('Lily\'s Florals')">Save as Maybe</button>
-              <button class="card-action-btn btn-pass" style="flex:0.5;background:var(--cream);color:var(--ink-60);border:1px solid var(--stone);">Hide</button>
+              <button class="card-action-btn btn-maybe" onclick="addToMaybe('Lily\'s Florals','https://images.unsplash.com/photo-1487530811015-780f8c7c3ab9?w=80&q=80')">Save as Maybe</button>
+              <button class="card-action-btn btn-pass" style="flex:0.5;background:var(--cream);color:var(--ink-60);border:1px solid var(--stone)">Hide</button>
             </div>
           </div>
         </div>
-        <!-- Card 4 -->
         <div class="explore-card">
-          <div class="explore-card-img" style="background:linear-gradient(135deg,#e8f0f5,#8ab0cc)">🏛️</div>
+          <div class="explore-card-img"><img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600&q=80" alt="The Grand Hall"></div>
           <div class="explore-card-body">
-            <div class="explore-card-name">Lily's Florals <span style="font-size:10px;color:var(--sage-dark);background:var(--sage-pale);padding:2px 6px;border-radius:10px;font-weight:600">✓ Verified</span></div>
-            <div class="explore-card-location">📍 Location, USA</div>
-            <div class="explore-card-desc">Mark maddia anentrial artritial photo: photograph score teels toch mamplees.</div>
-            <div class="match-tags"><span class="tag">One steam Specialist</span><span class="tag">Vegan Catering</span></div>
+            <div class="explore-card-name">The Grand Hall <span style="font-size:10px;color:var(--sage-dark);background:var(--sage-pale);padding:2px 6px;border-radius:10px;font-weight:600">✓ Verified</span></div>
+            <div class="explore-card-location"><svg width="11" height="11"><use href="#ico-pin"/></svg> Ottawa, ON</div>
+            <div class="explore-card-desc">Elegant historic venue with soaring ceilings, chandeliers, and expansive garden grounds.</div>
+            <div class="match-tags"><span class="tag">Classic</span><span class="tag">Vegan Catering</span></div>
             <div class="score-chip">Match Score: 95%</div>
-            <div class="card-reviews">👥 19 more · 3 about couple 13 reviews</div>
+            <div class="card-reviews"><svg width="11" height="11" style="color:var(--gold)"><use href="#ico-star"/></svg> 5.0 · 33 couples · 12 reviews</div>
             <div class="card-actions">
               <button class="card-action-btn btn-top" onclick="showPage('checkout')">Select as Top Match</button>
-              <button class="card-action-btn btn-maybe" onclick="addToMaybe('Lily\'s Florals 2')">Save as Maybe</button>
-              <button class="card-action-btn btn-pass" style="flex:0.5;background:var(--cream);color:var(--ink-60);border:1px solid var(--stone);">Hide</button>
+              <button class="card-action-btn btn-maybe" onclick="addToMaybe('The Grand Hall','https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=80&q=80')">Save as Maybe</button>
+              <button class="card-action-btn btn-pass" style="flex:0.5;background:var(--cream);color:var(--ink-60);border:1px solid var(--stone)">Hide</button>
             </div>
           </div>
         </div>
-        <!-- Card 5 -->
         <div class="explore-card">
-          <div class="explore-card-img" style="background:linear-gradient(135deg,#fce4d0,#e0a882)">📸</div>
+          <div class="explore-card-img"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&q=80" alt="Lumière Photography"></div>
           <div class="explore-card-body">
             <div class="explore-card-name">Lumière Co. Photo</div>
-            <div class="explore-card-location">📍 Montreal, Canada</div>
+            <div class="explore-card-location"><svg width="11" height="11"><use href="#ico-pin"/></svg> Montreal, QC</div>
             <div class="explore-card-desc">Editorial, moody photography with a cinematic documentary approach.</div>
             <div class="match-tags"><span class="tag">Editorial</span><span class="tag blush">Fine Art</span></div>
             <div class="score-chip">Match Score: 92%</div>
-            <div class="card-reviews">👥 48 couples · 4.9 ★</div>
+            <div class="card-reviews"><svg width="11" height="11" style="color:var(--gold)"><use href="#ico-star"/></svg> 4.9 · 48 couples</div>
             <div class="card-actions">
               <button class="card-action-btn btn-top" onclick="showPage('checkout')">Select as Top Match</button>
-              <button class="card-action-btn btn-maybe" onclick="addToMaybe('Lumière Co.')">Save as Maybe</button>
-              <button class="card-action-btn btn-pass" style="flex:0.5;background:var(--cream);color:var(--ink-60);border:1px solid var(--stone);">Hide</button>
+              <button class="card-action-btn btn-maybe" onclick="addToMaybe('Lumière Co.','https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=80&q=80')">Save as Maybe</button>
+              <button class="card-action-btn btn-pass" style="flex:0.5;background:var(--cream);color:var(--ink-60);border:1px solid var(--stone)">Hide</button>
             </div>
           </div>
         </div>
-        <!-- Card 6 -->
         <div class="explore-card">
-          <div class="explore-card-img" style="background:linear-gradient(135deg,#f0ece4,#c8b898)">🎂</div>
+          <div class="explore-card-img"><img src="https://images.unsplash.com/photo-1612548403247-aa2873e9422d?w=600&q=80" alt="Wedding Cake"></div>
           <div class="explore-card-body">
             <div class="explore-card-name">Sucré Patisserie</div>
-            <div class="explore-card-location">📍 Quebec City, QC</div>
-            <div class="explore-card-desc">Custom wedding cakes and dessert tables with cultural fusion options.</div>
+            <div class="explore-card-location"><svg width="11" height="11"><use href="#ico-pin"/></svg> Quebec City, QC</div>
+            <div class="explore-card-desc">Custom wedding cakes and dessert tables with cultural fusion options and vegan alternatives.</div>
             <div class="match-tags"><span class="tag">Cultural Fusion</span><span class="tag">Vegan Options</span></div>
             <div class="score-chip">Match Score: 88%</div>
-            <div class="card-reviews">👥 32 couples · 4.8 ★</div>
+            <div class="card-reviews"><svg width="11" height="11" style="color:var(--gold)"><use href="#ico-star"/></svg> 4.8 · 32 couples</div>
             <div class="card-actions">
               <button class="card-action-btn btn-top" onclick="showPage('checkout')">Select as Top Match</button>
-              <button class="card-action-btn btn-maybe" onclick="addToMaybe('Sucré Patisserie')">Save as Maybe</button>
-              <button class="card-action-btn btn-pass" style="flex:0.5;background:var(--cream);color:var(--ink-60);border:1px solid var(--stone);">Hide</button>
+              <button class="card-action-btn btn-maybe" onclick="addToMaybe('Sucré Patisserie','https://images.unsplash.com/photo-1612548403247-aa2873e9422d?w=80&q=80')">Save as Maybe</button>
+              <button class="card-action-btn btn-pass" style="flex:0.5;background:var(--cream);color:var(--ink-60);border:1px solid var(--stone)">Hide</button>
             </div>
           </div>
         </div>
@@ -1104,163 +875,117 @@ body { font-family:'Jost',sans-serif; background:var(--mint-bg); color:var(--ink
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════
-     PAGE: COUPLE DASHBOARD
-══════════════════════════════════════════════ -->
+<!-- ══════ PAGE: COUPLE DASHBOARD ══════ -->
 <div id="page-dashboard" class="page">
   <div class="dashboard-main-pad">
     <div class="dash-greeting">Couple's Dashboard</div>
     <div class="dash-sub">Untangling your wedding journey, one step at a time.</div>
-
-    <!-- Countdown card -->
     <div class="countdown-card">
       <div>
-        <div style="font-size:12px;opacity:0.6;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px">Wedding Countdown</div>
+        <div style="font-size:11px;opacity:0.6;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px">Wedding Countdown</div>
         <div class="countdown-number">215</div>
         <div class="countdown-label">Days Until Your Wedding</div>
         <div class="countdown-sub">September 12, 2026</div>
       </div>
-
-      <!-- Maybe drawer preview inside countdown -->
       <div style="background:rgba(255,255,255,0.1);border-radius:12px;padding:14px;min-width:200px;backdrop-filter:blur(4px)">
-        <div style="font-size:11px;opacity:0.7;margin-bottom:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">The Maybe Drawer ✕</div>
-        <div style="font-size:10px;opacity:0.5;margin-bottom:8px">Saved vendors moved for compare.</div>
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:12px">
-          <span>🏛️</span><div><div style="font-weight:600">The Willow Venue</div><div style="opacity:0.6;font-size:10px;color:#C8DCC5">Confirmed</div></div>
+        <div style="font-size:11px;opacity:0.7;margin-bottom:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Maybe Drawer</div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:12px">
+          <div style="width:28px;height:28px;border-radius:6px;overflow:hidden;flex-shrink:0"><img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=60&q=80" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+          <div><div style="font-weight:600">The Willow Venue</div><div style="opacity:0.6;font-size:10px;color:#C8DCC5">Confirmed</div></div>
         </div>
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:12px">
-          <span>🌸</span><div><div style="font-weight:600">Lily's Florals</div><div style="opacity:0.6;font-size:10px;color:#C8DCC5">Confirmed</div></div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:12px">
+          <div style="width:28px;height:28px;border-radius:6px;overflow:hidden;flex-shrink:0"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=60&q=80" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+          <div><div style="font-weight:600">Lily's Florals</div><div style="opacity:0.6;font-size:10px;color:#C8DCC5">Confirmed</div></div>
         </div>
         <div style="display:flex;align-items:center;gap:8px;font-size:12px">
-          <span>🌸</span><div><div style="font-weight:600">Lily's Florals</div><div style="opacity:0.6;font-size:10px;color:#C8DCC5">Confirmed</div></div>
+          <div style="width:28px;height:28px;border-radius:6px;overflow:hidden;flex-shrink:0"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=60&q=80" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+          <div><div style="font-weight:600">Lumière Co.</div><div style="opacity:0.6;font-size:10px;color:#C8DCC5">Confirmed</div></div>
         </div>
       </div>
-
-      <!-- Planning ring -->
       <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
         <div style="position:relative;width:90px;height:90px">
-          <svg class="ring-svg" viewBox="0 0 90 90">
-            <circle class="ring-track" cx="45" cy="45" r="35"/>
-            <circle class="ring-fill" cx="45" cy="45" r="35"/>
-          </svg>
-          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:18px;color:white">65%</div>
+          <svg class="ring-svg" viewBox="0 0 90 90"><circle class="ring-track" cx="45" cy="45" r="35"/><circle class="ring-fill" cx="45" cy="45" r="35"/></svg>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:18px;color:white">65%</div>
         </div>
-        <div style="font-size:12px;opacity:0.7;text-align:center">Planning Progress<br>Ring</div>
+        <div style="font-size:12px;opacity:0.7;text-align:center">Planning Progress</div>
       </div>
     </div>
-
-    <!-- 3-column grid -->
     <div class="dash-grid">
-      <!-- Confirmed vendors -->
       <div class="dash-card">
         <div class="dash-card-title">Confirmed Vendors</div>
         <div class="confirmed-vendor">
-          <div class="cv-avatar" style="background:var(--blush-light)">📸</div>
-          <div><div class="cv-name">Photographer</div><div class="cv-cat">Photography</div></div>
+          <div class="cv-avatar"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=64&q=80" alt="Photographer"></div>
+          <div><div class="cv-name">Lumière Co.</div><div class="cv-cat">Photography</div></div>
           <div class="cv-status">Confirmed</div>
         </div>
         <div class="confirmed-vendor">
-          <div class="cv-avatar" style="background:var(--blush-light)">📸</div>
-          <div><div class="cv-name">Photographer</div><div class="cv-cat">Photography</div></div>
+          <div class="cv-avatar"><img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=64&q=80" alt="Venue"></div>
+          <div><div class="cv-name">The Willow</div><div class="cv-cat">Venue</div></div>
           <div class="cv-status">Confirmed</div>
         </div>
         <div class="confirmed-vendor">
-          <div class="cv-avatar" style="background:var(--sage-pale)">🌿</div>
+          <div class="cv-avatar"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=64&q=80" alt="Florals"></div>
           <div><div class="cv-name">City Fleur</div><div class="cv-cat">Florals</div></div>
           <div class="cv-status">Confirmed</div>
         </div>
       </div>
-
-      <!-- Next Steps -->
       <div class="dash-card">
         <div class="dash-card-title">Next Steps <span style="font-size:10px;color:var(--sage-dark);background:var(--sage-pale);padding:2px 7px;border-radius:10px;margin-left:4px">Generated by AI</span></div>
-        <div class="next-step">
-          <div class="ns-check done" onclick="toggleNS(this)">✓</div>
-          <div class="ns-text done-text">Book DJ</div>
-        </div>
-        <div class="next-step">
-          <div class="ns-check" onclick="toggleNS(this)"></div>
-          <div class="ns-text">Finalize Menu</div>
-        </div>
-        <div class="next-step">
-          <div class="ns-check" onclick="toggleNS(this)"></div>
-          <div class="ns-text">Finalize Menu</div>
-        </div>
-        <div class="next-step">
-          <div class="ns-check" onclick="toggleNS(this)"></div>
-          <div class="ns-text">Finalize Booklet</div>
-        </div>
-        <div class="next-step">
-          <div class="ns-check" onclick="toggleNS(this)"></div>
-          <div class="ns-text">Finalize Menu</div>
-        </div>
-        <div class="next-step">
-          <div class="ns-check" onclick="toggleNS(this)"></div>
-          <div class="ns-text">Checklist…</div>
-        </div>
+        <div class="next-step"><div class="ns-check done" onclick="toggleNS(this)"><svg width="10" height="10"><use href="#ico-check"/></svg></div><div class="ns-text done-text">Book DJ</div></div>
+        <div class="next-step"><div class="ns-check" onclick="toggleNS(this)"></div><div class="ns-text">Finalize Menu</div></div>
+        <div class="next-step"><div class="ns-check" onclick="toggleNS(this)"></div><div class="ns-text">Send Invitations</div></div>
+        <div class="next-step"><div class="ns-check" onclick="toggleNS(this)"></div><div class="ns-text">Finalize Booklet</div></div>
+        <div class="next-step"><div class="ns-check" onclick="toggleNS(this)"></div><div class="ns-text">Hair &amp; Makeup Trial</div></div>
+        <div class="next-step"><div class="ns-check" onclick="toggleNS(this)"></div><div class="ns-text">Confirm Seating Chart</div></div>
       </div>
-
-      <!-- Quick Actions -->
       <div class="dash-card">
         <div class="dash-card-title">Quick Actions</div>
-        <button class="find-btn" style="margin-top:0;margin-bottom:10px" onclick="showPage('concierge')">✨ Find More Vendors</button>
-        <button class="find-btn" style="background:var(--blush-dark);margin-bottom:10px" onclick="openDrawer()">♡ Open Maybe Drawer</button>
-        <button class="find-btn" style="background:var(--ink)" onclick="showPage('checkout')">💳 Continue to Checkout</button>
+        <button class="find-btn" style="margin-top:0;margin-bottom:10px" onclick="showPage('concierge')">Find More Vendors</button>
+        <button class="find-btn" style="background:var(--blush-dark);margin-bottom:10px" onclick="openDrawer()">Open Maybe Drawer</button>
+        <button class="find-btn" style="background:var(--ink)" onclick="showPage('checkout')">Continue to Checkout</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════
-     PAGE: VENDOR PORTAL
-══════════════════════════════════════════════ -->
+<!-- ══════ PAGE: VENDOR PORTAL ══════ -->
 <div id="page-portal" class="page">
   <div class="portal-pad">
     <div class="portal-toprow">
       <div>
-        <div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:400;margin-bottom:4px">Vendor Portal Dashboard</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;margin-bottom:4px">Vendor Portal Dashboard</div>
         <div style="font-size:13px;color:var(--ink-60)">Manage your listings, calendar, and earnings.</div>
       </div>
       <div style="margin-left:auto;display:flex;gap:10px;align-items:center">
-        <div class="verified-chip">✓ Verified Status</div>
+        <div class="verified-chip"><svg width="14" height="14"><use href="#ico-check"/></svg> Verified Status</div>
         <button class="btn-signup">+ Add Availability</button>
       </div>
     </div>
-
     <div class="portal-stats">
       <div class="pstat">
-        <div class="pstat-label">Total Earnings <span title="Gross YTD">ⓘ</span></div>
+        <div class="pstat-label">Total Earnings</div>
         <div class="pstat-value">$18,500</div>
         <div class="pstat-delta">↑ 23% vs last year</div>
       </div>
       <div class="pstat">
         <div class="pstat-label">Background Check</div>
-        <div class="pstat-value plain" style="color:var(--sage-dark);font-size:18px;font-family:'Jost',sans-serif;font-weight:700">✓ Passed</div>
+        <div class="pstat-value" style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:700;padding-top:6px;display:flex;align-items:center;gap:6px"><svg width="18" height="18"><use href="#ico-shield"/></svg> Passed</div>
         <div class="pstat-delta" style="color:var(--ink-60)">Verified Dec 2024</div>
       </div>
       <div class="pstat">
-        <div class="pstat-label">Pending Inquiries <span title="New this week">ⓘ</span></div>
-        <div class="pstat-value plain" style="font-size:40px">4</div>
+        <div class="pstat-label">Pending Inquiries</div>
+        <div class="pstat-value" style="font-family:'DM Sans',sans-serif;font-size:40px;font-weight:600">4</div>
         <div class="pstat-delta">3 new this week</div>
       </div>
     </div>
-
     <div class="portal-grid">
-      <!-- Smart Calendar -->
       <div class="portal-card">
-        <div class="portal-card-title">📅 Smart Calendar</div>
-        <div style="display:flex;gap:12px;font-size:11px;color:var(--ink-60);margin-bottom:12px">
-          <span><span style="display:inline-block;width:8px;height:8px;background:var(--sage);border-radius:50%;margin-right:4px"></span>Dates booked via the platform</span>
-          <span><span style="display:inline-block;width:8px;height:8px;background:var(--blush);border-radius:50%;margin-right:4px"></span>Synced personal dates</span>
-        </div>
+        <div class="portal-card-title"><svg width="15" height="15"><use href="#ico-calendar"/></svg> Smart Calendar</div>
         <div class="calendar-header">
           <div class="cal-month-title">April 2026</div>
-          <div style="display:flex;align-items:center;gap:8px">
-            <span style="font-size:11px;color:var(--ink-60)">All tables ▾</span>
-            <div class="cal-navs">
-              <button class="cal-nav-btn">‹</button>
-              <button class="cal-nav-btn">›</button>
-            </div>
+          <div style="display:flex;gap:8px">
+            <button style="background:none;border:none;cursor:pointer;font-size:14px;color:var(--ink-60)">‹</button>
+            <button style="background:none;border:none;cursor:pointer;font-size:14px;color:var(--ink-60)">›</button>
           </div>
         </div>
         <div class="cal-grid2">
@@ -1271,16 +996,14 @@ body { font-family:'Jost',sans-serif; background:var(--mint-bg); color:var(--ink
           <div class="cal2-day">20</div><div class="cal2-day">21</div><div class="cal2-day booked2">22</div><div class="cal2-day">23</div><div class="cal2-day">24</div><div class="cal2-day">25</div>
           <div class="cal2-day">27</div><div class="cal2-day">28</div><div class="cal2-day">29</div><div class="cal2-day">30</div>
         </div>
-        <div class="cal-legend" style="margin-top:10px">
-          <div class="leg-item"><div class="leg-dot" style="background:var(--sage)"></div>Booked</div>
-          <div class="leg-item"><div class="leg-dot" style="background:var(--stone)"></div>Blocked</div>
-          <div class="leg-item"><div class="leg-dot" style="border:1.5px solid var(--sage-dark);background:none"></div>Today</div>
+        <div style="display:flex;gap:12px;margin-top:10px;">
+          <div style="display:flex;align-items:center;gap:4px;font-size:10px;color:var(--ink-60)"><span style="width:8px;height:8px;border-radius:50%;background:var(--sage);display:inline-block"></span>Booked</div>
+          <div style="display:flex;align-items:center;gap:4px;font-size:10px;color:var(--ink-60)"><span style="width:8px;height:8px;border-radius:50%;background:var(--stone);display:inline-block"></span>Blocked</div>
+          <div style="display:flex;align-items:center;gap:4px;font-size:10px;color:var(--ink-60)"><span style="width:8px;height:8px;border-radius:50%;border:1.5px solid var(--sage-dark);display:inline-block"></span>Today</div>
         </div>
       </div>
-
-      <!-- Profile + Packages -->
       <div class="portal-card">
-        <div class="portal-card-title">📦 Package Editor</div>
+        <div class="portal-card-title"><svg width="15" height="15"><use href="#ico-pkg"/></svg> Package Editor</div>
         <div class="pkg-row">
           <div><div class="pkg-name">Silver</div><div class="pkg-features">6 hrs · 1 shooter · 300 edited photos</div></div>
           <div class="pkg-price">$2,800</div>
@@ -1293,16 +1016,10 @@ body { font-family:'Jost',sans-serif; background:var(--mint-bg); color:var(--ink
           <div><div class="pkg-name">Platinum</div><div class="pkg-features">Full day · 2 shooters · engagement + film</div></div>
           <div class="pkg-price">$7,200</div>
         </div>
-
-        <div class="portal-card-title" style="margin-top:20px">👤 Profile Editor</div>
-        <div style="font-size:12px;color:var(--ink-60);margin-bottom:10px">Sharpen your profile to your platform.</div>
+        <div class="portal-card-title" style="margin-top:20px"><svg width="15" height="15"><use href="#ico-user"/></svg> Profile Editor</div>
         <button class="find-btn" style="margin-top:0">Edit Profile</button>
-
         <div class="instant-book-row">
-          <div>
-            <div class="ib-label">Instant Book</div>
-            <div class="ib-sub">Settings to nly settings to your mind.</div>
-          </div>
+          <div><div style="font-size:13px;font-weight:600;margin-bottom:2px">Instant Book</div><div style="font-size:11px;color:var(--ink-60)">Allow couples to book instantly.</div></div>
           <div class="toggle-switch"><div class="toggle-knob"></div></div>
         </div>
       </div>
@@ -1310,81 +1027,89 @@ body { font-family:'Jost',sans-serif; background:var(--mint-bg); color:var(--ink
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════
-     PAGE: VENDOR ONBOARDING
-══════════════════════════════════════════════ -->
+<!-- ══════ PAGE: VENDOR ONBOARDING ══════ -->
 <div id="page-vendor" class="page">
   <div class="vendor-wrap">
-    <div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:400;margin-bottom:4px">Join as a Vendor</div>
-    <div style="font-size:14px;color:var(--ink-60);margin-bottom:28px">Noué — untangling your wedding journey. Reach thousands of couples planning their perfect day.</div>
-
+    <div style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:400;margin-bottom:4px">Join as a Vendor</div>
+    <div style="font-size:14px;color:var(--ink-60);margin-bottom:28px">Reach thousands of couples planning their perfect day on Noué.</div>
     <div class="step-progress">
       <div class="sp-item done">✓ Account</div>
-      <div class="sp-item active">Category & Portfolio</div>
-      <div class="sp-item">Compliance & ID</div>
+      <div class="sp-item active">Category &amp; Portfolio</div>
+      <div class="sp-item">Compliance &amp; ID</div>
       <div class="sp-item">Payout Setup</div>
     </div>
-
     <div class="vendor-card">
       <div class="vendor-card-title">What do you offer?</div>
       <div class="vendor-card-sub">Select your primary service category.</div>
-
       <div class="cat-grid">
-        <div class="cat-chip sel" onclick="toggleCat(this)"><div class="cat-chip-icon">📸</div><div class="cat-chip-name">Photography</div></div>
-        <div class="cat-chip" onclick="toggleCat(this)"><div class="cat-chip-icon">🎬</div><div class="cat-chip-name">Videography</div></div>
-        <div class="cat-chip" onclick="toggleCat(this)"><div class="cat-chip-icon">🌸</div><div class="cat-chip-name">Florals</div></div>
-        <div class="cat-chip" onclick="toggleCat(this)"><div class="cat-chip-icon">🍽️</div><div class="cat-chip-name">Catering</div></div>
-        <div class="cat-chip" onclick="toggleCat(this)"><div class="cat-chip-icon">🎵</div><div class="cat-chip-name">Music / DJ</div></div>
-        <div class="cat-chip" onclick="toggleCat(this)"><div class="cat-chip-icon">🎂</div><div class="cat-chip-name">Cakes</div></div>
-        <div class="cat-chip" onclick="toggleCat(this)"><div class="cat-chip-icon">💄</div><div class="cat-chip-name">Hair & MUA</div></div>
-        <div class="cat-chip" onclick="toggleCat(this)"><div class="cat-chip-icon">🏛️</div><div class="cat-chip-name">Venue</div></div>
+        <div class="cat-chip sel" onclick="toggleCat(this)">
+          <div class="cat-chip-icon"><svg viewBox="0 0 24 24"><use href="#ico-camera"/></svg></div>
+          <div class="cat-chip-name">Photography</div>
+        </div>
+        <div class="cat-chip" onclick="toggleCat(this)">
+          <div class="cat-chip-icon"><svg viewBox="0 0 24 24"><use href="#ico-video"/></svg></div>
+          <div class="cat-chip-name">Videography</div>
+        </div>
+        <div class="cat-chip" onclick="toggleCat(this)">
+          <div class="cat-chip-icon"><svg viewBox="0 0 24 24"><use href="#ico-floral"/></svg></div>
+          <div class="cat-chip-name">Florals</div>
+        </div>
+        <div class="cat-chip" onclick="toggleCat(this)">
+          <div class="cat-chip-icon" style="font-size:22px;margin-bottom:4px">🍽</div>
+          <div class="cat-chip-name">Catering</div>
+        </div>
+        <div class="cat-chip" onclick="toggleCat(this)">
+          <div class="cat-chip-icon"><svg viewBox="0 0 24 24"><use href="#ico-music"/></svg></div>
+          <div class="cat-chip-name">Music / DJ</div>
+        </div>
+        <div class="cat-chip" onclick="toggleCat(this)">
+          <div class="cat-chip-icon"><svg viewBox="0 0 24 24"><use href="#ico-cake"/></svg></div>
+          <div class="cat-chip-name">Cakes</div>
+        </div>
+        <div class="cat-chip" onclick="toggleCat(this)">
+          <div class="cat-chip-icon"><svg viewBox="0 0 24 24"><use href="#ico-makeup"/></svg></div>
+          <div class="cat-chip-name">Hair &amp; MUA</div>
+        </div>
+        <div class="cat-chip" onclick="toggleCat(this)">
+          <div class="cat-chip-icon"><svg viewBox="0 0 24 24"><use href="#ico-arch"/></svg></div>
+          <div class="cat-chip-name">Venue</div>
+        </div>
       </div>
-
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px">
         <div><label class="form-label">Business Name</label><input class="form-input" type="text" placeholder="Lumière Co."></div>
         <div><label class="form-label">Years Active</label><input class="form-input" type="number" placeholder="7"></div>
         <div><label class="form-label">Service Area</label><input class="form-input" type="text" placeholder="Montreal + 150km"></div>
       </div>
-
       <div class="upload-zone">
-        <div class="upload-zone-icon">📁</div>
+        <div class="upload-zone-icon"><svg viewBox="0 0 24 24"><use href="#ico-upload"/></svg></div>
         <div class="upload-zone-text"><strong>Upload your portfolio</strong><br>10–30 high-quality images feed our AI style-matching engine.</div>
       </div>
-
       <div class="compliance-card">
-        <h4>🛡️ Background Check Authorization</h4>
+        <h4><svg width="16" height="16"><use href="#ico-shield"/></svg> Background Check Authorization</h4>
         <p>Noué partners with Certn to run a standard background verification. Required for all vendors. Takes 2–5 business days. Your data is encrypted.</p>
         <label class="check-label"><input type="checkbox"> I authorize Noué to conduct a background check on my business and principal owners.</label>
         <label class="check-label"><input type="checkbox"> I agree to Noué's Terms of Service, including the 3–5% platform fee on confirmed bookings.</label>
       </div>
-
       <button class="continue-btn" onclick="showPage('portal')">Continue to ID Verification →</button>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════
-     PAGE: CHECKOUT
-══════════════════════════════════════════════ -->
+<!-- ══════ PAGE: CHECKOUT ══════ -->
 <div id="page-checkout" class="page">
   <div class="checkout-wrap">
     <div class="checkout-left">
-      <div style="font-family:'Playfair Display',serif;font-size:26px;font-weight:400;margin-bottom:4px">Secure Checkout</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;margin-bottom:4px">Secure Checkout</div>
       <div style="font-size:13px;color:var(--ink-60);margin-bottom:24px">Noué — untangling your wedding journey.</div>
-
-      <!-- Step 1 -->
-      <div class="checkout-step-h">
-        <div class="step-num done">✓</div>
-        <div class="step-name">Order Summary</div>
-      </div>
+      <div class="checkout-step-h"><div class="step-num done"><svg width="12" height="12"><use href="#ico-check"/></svg></div><div class="step-name">Order Summary</div></div>
       <div style="background:var(--white);border:1px solid var(--stone);border-radius:var(--r12);padding:16px;margin-bottom:24px">
         <div class="order-item">
-          <div class="order-icon" style="background:var(--blush-light)">📸</div>
+          <div class="order-icon"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=88&q=80" alt="Photography"></div>
           <div><div class="order-name">Lumière Co. Photography</div><div class="order-pkg">Gold Package · 50% Deposit</div></div>
           <div class="order-amt"><div class="order-amt-main">$2,400</div><div class="order-amt-sub">of $4,800</div></div>
         </div>
         <div class="order-item">
-          <div class="order-icon" style="background:var(--sage-pale)">🌸</div>
+          <div class="order-icon"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=88&q=80" alt="Florals"></div>
           <div><div class="order-name">Botanica Studio Florals</div><div class="order-pkg">Full Floral Package · 50% Deposit</div></div>
           <div class="order-amt"><div class="order-amt-main">$2,100</div><div class="order-amt-sub">of $4,200</div></div>
         </div>
@@ -1393,50 +1118,33 @@ body { font-family:'Jost',sans-serif; background:var(--mint-bg); color:var(--ink
           <div style="margin-left:auto;font-size:14px;font-weight:600;color:var(--ink-60)">$180</div>
         </div>
       </div>
-
-      <!-- Step 2 -->
-      <div class="checkout-step-h">
-        <div class="step-num active">2</div>
-        <div class="step-name">Payment Details</div>
-      </div>
+      <div class="checkout-step-h"><div class="step-num active">2</div><div class="step-name">Payment Details</div></div>
       <div class="card-form" style="margin-bottom:24px">
-        <div class="card-logos">
-          <div class="card-logo">VISA</div><div class="card-logo">MC</div><div class="card-logo">AMEX</div><div class="card-logo">Apple Pay</div>
-        </div>
-        <div class="secure-row">🔒 256-bit SSL · PCI DSS Compliant</div>
+        <div class="card-logos"><div class="card-logo">VISA</div><div class="card-logo">MC</div><div class="card-logo">AMEX</div><div class="card-logo">Apple Pay</div></div>
+        <div class="secure-row"><svg width="13" height="13"><use href="#ico-lock"/></svg> 256-bit SSL · PCI DSS Compliant</div>
         <input class="cinput" type="text" placeholder="Card number">
         <input class="cinput" type="text" placeholder="Cardholder name">
-        <div class="cinput-row">
-          <input class="cinput" type="text" placeholder="MM / YY">
-          <input class="cinput" type="text" placeholder="CVV">
-        </div>
-        <button class="pay-btn" onclick="alert('🎉 Booking confirmed! Welcome to the Noué family!')">Confirm & Pay $4,680</button>
+        <div class="cinput-row"><input class="cinput" style="margin-bottom:0" type="text" placeholder="MM / YY"><input class="cinput" style="margin-bottom:0" type="text" placeholder="CVV"></div>
+        <button class="pay-btn" style="margin-top:12px" onclick="alert('🎉 Booking confirmed! Welcome to the Noué family!')">Confirm &amp; Pay $4,680</button>
       </div>
-
-      <!-- Step 3 -->
-      <div class="checkout-step-h">
-        <div class="step-num todo">3</div>
-        <div class="step-name">Digital Contracts</div>
-      </div>
+      <div class="checkout-step-h"><div class="step-num todo">3</div><div class="step-name">Digital Contracts</div></div>
       <div style="background:var(--white);border:1px solid var(--stone);border-radius:var(--r12);padding:16px">
         <div class="contract-row">
-          <div class="contract-icon2">📄</div>
+          <div class="contract-icon2"><svg><use href="#ico-doc"/></svg></div>
           <div><div class="contract-name2">Lumière Co. — Service Agreement</div><div class="contract-status2 pending">Awaiting signature</div></div>
           <button class="sign-btn2">Sign Now →</button>
         </div>
         <div class="contract-row">
-          <div class="contract-icon2">📄</div>
+          <div class="contract-icon2"><svg><use href="#ico-doc"/></svg></div>
           <div><div class="contract-name2">Botanica Studio — Floral Contract</div><div class="contract-status2 pending">Awaiting signature</div></div>
           <button class="sign-btn2">Sign Now →</button>
         </div>
         <div class="contract-row">
-          <div class="contract-icon2">📄</div>
+          <div class="contract-icon2"><svg><use href="#ico-doc"/></svg></div>
           <div><div class="contract-name2">Noué Platform Agreement</div><div class="contract-status2 signed">✓ Signed at registration</div></div>
         </div>
       </div>
     </div>
-
-    <!-- Summary sidebar -->
     <div class="checkout-right">
       <div class="summary-heading">Booking Summary</div>
       <div class="sum-line"><span>Photography Deposit</span><span>$2,400</span></div>
@@ -1444,13 +1152,12 @@ body { font-family:'Jost',sans-serif; background:var(--mint-bg); color:var(--ink
       <div class="sum-line"><span>Service Fee</span><span>$180</span></div>
       <div class="sum-total"><span>Total Due Today</span><span class="sum-amount">$4,680</span></div>
       <div style="font-size:11px;color:var(--ink-60);margin-top:10px;line-height:1.5">Remaining $6,200 due 30 days before your wedding.</div>
-
       <div class="trust-list">
-        <div class="trust-row"><span class="trust-icon2">🛡️</span>All vendors background-checked</div>
-        <div class="trust-row"><span class="trust-icon2">🔒</span>Payments held in secure escrow</div>
-        <div class="trust-row"><span class="trust-icon2">📋</span>Digital contracts legally binding</div>
-        <div class="trust-row"><span class="trust-icon2">💬</span>Dispute resolution included</div>
-        <div class="trust-row"><span class="trust-icon2">✓</span>Instant booking confirmation</div>
+        <div class="trust-row"><svg><use href="#ico-shield"/></svg> All vendors background-checked</div>
+        <div class="trust-row"><svg><use href="#ico-lock"/></svg> Payments held in secure escrow</div>
+        <div class="trust-row"><svg><use href="#ico-doc"/></svg> Digital contracts legally binding</div>
+        <div class="trust-row"><svg><use href="#ico-chat"/></svg> Dispute resolution included</div>
+        <div class="trust-row"><svg><use href="#ico-check"/></svg> Instant booking confirmation</div>
       </div>
     </div>
   </div>
@@ -1465,14 +1172,14 @@ body { font-family:'Jost',sans-serif; background:var(--mint-bg); color:var(--ink
     <div class="drawer-title">My Maybe Drawer</div>
     <button class="drawer-close" onclick="closeDrawer()">✕</button>
   </div>
-  <div style="padding:10px 18px;font-size:11px;color:var(--ink-60);border-bottom:1px solid var(--stone)">Saved vendors moved for compare.</div>
+  <div style="padding:10px 18px;font-size:11px;color:var(--ink-60);border-bottom:1px solid var(--stone)">Saved vendors to compare and review.</div>
   <div id="drawer-items">
     <div class="drawer-item">
-      <div class="drawer-item-icon">🏛️</div>
+      <div class="drawer-item-thumb"><img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=72&q=80" alt="Willow"></div>
       <div><div class="drawer-item-name">The Willow Venue</div><div class="drawer-item-status confirmed">Confirmed</div></div>
     </div>
     <div class="drawer-item">
-      <div class="drawer-item-icon">🌸</div>
+      <div class="drawer-item-thumb"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=72&q=80" alt="Florals"></div>
       <div><div class="drawer-item-name">Lily's Florals</div><div class="drawer-item-status confirmed">Confirmed</div></div>
     </div>
   </div>
@@ -1481,7 +1188,6 @@ body { font-family:'Jost',sans-serif; background:var(--mint-bg); color:var(--ink
   </div>
 </div>
 
-<!-- Footer -->
 <footer class="footer">
   <div class="footer-logo">Noué.</div>
   <div class="footer-links">
@@ -1490,89 +1196,49 @@ body { font-family:'Jost',sans-serif; background:var(--mint-bg); color:var(--ink
     <span class="footer-link" onclick="showPage('concierge')">Start Planning</span>
     <span class="footer-link">Help Center</span>
     <span class="footer-link">Privacy Policy</span>
-    <span class="footer-link">How We Verify Vendors</span>
   </div>
-  <div class="footer-verify">
+  <div style="display:flex;align-items:center;gap:8px">
     <span class="footer-badge">✓ VERIFIED</span>
-    All vendors background-checked · © 2026 Noué Inc.
+    <span>All vendors background-checked · © 2026 Noué Inc.</span>
   </div>
 </footer>
 
 <script>
-// ── Navigation ──
-function showPage(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page-' + id).classList.add('active');
-  window.scrollTo(0, 0);
-}
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');window.scrollTo(0,0);}
+function setActiveIcon(el){document.querySelectorAll('.icon-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');}
+function openDrawer(){document.getElementById('maybe-drawer').classList.add('open');}
+function closeDrawer(){document.getElementById('maybe-drawer').classList.remove('open');}
 
-function setActiveIcon(el) {
-  document.querySelectorAll('.icon-btn').forEach(b => b.classList.remove('active'));
-  el.classList.add('active');
-}
-
-// ── Maybe Drawer ──
-const maybeVendors = [];
-function openDrawer() {
-  document.getElementById('maybe-drawer').classList.add('open');
-}
-function closeDrawer() {
-  document.getElementById('maybe-drawer').classList.remove('open');
-}
-function addToMaybe(name) {
-  if (maybeVendors.includes(name)) return;
+const maybeVendors=[];
+function addToMaybe(name,imgUrl){
+  if(maybeVendors.includes(name))return;
   maybeVendors.push(name);
-  const items = document.getElementById('drawer-items');
-  const icons = { 'Lumière': '📸', 'Botanica': '🌸', 'Garden': '🏛️', 'Boho': '🌿', 'Lily': '🌸', 'Sucré': '🎂' };
-  const icon = Object.entries(icons).find(([k]) => name.includes(k))?.[1] || '⭐';
-  const div = document.createElement('div');
-  div.className = 'drawer-item';
-  div.innerHTML = `<div class="drawer-item-icon">${icon}</div><div><div class="drawer-item-name">${name}</div><div class="drawer-item-status saved">Saved for review</div></div>`;
+  const items=document.getElementById('drawer-items');
+  const div=document.createElement('div');
+  div.className='drawer-item';
+  div.innerHTML=`<div class="drawer-item-thumb"><img src="${imgUrl||'https://images.unsplash.com/photo-1519741497674-611481863552?w=72&q=80'}" alt="${name}" style="width:100%;height:100%;object-fit:cover"></div><div><div class="drawer-item-name">${name}</div><div class="drawer-item-status saved">Saved for review</div></div>`;
   items.appendChild(div);
   openDrawer();
 }
-
-// ── Checklist toggle ──
-function toggleNS(el) {
-  const isDone = el.classList.toggle('done');
-  el.textContent = isDone ? '✓' : '';
-  const sibling = el.nextElementSibling;
-  if (sibling) sibling.className = isDone ? 'ns-text done-text' : 'ns-text';
+function toggleNS(el){
+  const isDone=el.classList.toggle('done');
+  el.innerHTML=isDone?'<svg width="10" height="10"><use href="#ico-check"/></svg>':'';
+  const sib=el.nextElementSibling;
+  if(sib)sib.className=isDone?'ns-text done-text':'ns-text';
 }
+function toggleCat(el){el.classList.toggle('sel');}
 
-// ── Category chips ──
-function toggleCat(el) { el.classList.toggle('sel'); }
-
-// ── AI Chat ──
-const aiReplies = [
-  "Boho-Chic with garden vibes — love it! Looking for vendors with natural, rustic aesthetic and outdoor ceremony experience.",
-  "Got it! I'll prioritize vendors who have worked garden ceremonies and have experience with cultural fusion elements.",
-  "Searching 2,400+ verified vendors for your date and budget… Found some great matches! Check your Top Matches →"
-];
-let chatIdx = 0;
-function sendChat() {
-  const input = document.getElementById('chat-input');
-  const bubbles = document.getElementById('chat-bubbles');
-  if (!input.value.trim()) return;
-  const userDiv = document.createElement('div');
-  userDiv.className = 'user-bubble';
-  userDiv.textContent = input.value;
-  bubbles.appendChild(userDiv);
-  input.value = '';
-  setTimeout(() => {
-    const aiDiv = document.createElement('div');
-    aiDiv.className = 'ai-bubble';
-    aiDiv.textContent = aiReplies[chatIdx % aiReplies.length];
-    bubbles.appendChild(aiDiv);
-    chatIdx++;
-    bubbles.scrollTop = bubbles.scrollHeight;
-  }, 700);
+const aiReplies=["Boho-Chic with garden vibes — love it! Looking for vendors with natural, rustic aesthetic and outdoor ceremony experience.","Got it! I'll prioritize vendors who've worked garden ceremonies and have experience with cultural fusion elements.","Searching 2,400+ verified vendors for your date and budget… Found some great matches! Check your Top Matches →"];
+let chatIdx=0;
+function sendChat(){
+  const input=document.getElementById('chat-input');
+  const bubbles=document.getElementById('chat-bubbles');
+  if(!input.value.trim())return;
+  const u=document.createElement('div');u.className='user-bubble';u.textContent=input.value;bubbles.appendChild(u);
+  input.value='';
+  setTimeout(()=>{const a=document.createElement('div');a.className='ai-bubble';a.textContent=aiReplies[chatIdx%aiReplies.length];bubbles.appendChild(a);chatIdx++;bubbles.scrollTop=bubbles.scrollHeight;},700);
 }
-
-function showMatches() {
-  document.getElementById('match-cards').style.opacity = '0';
-  setTimeout(() => { document.getElementById('match-cards').style.opacity = '1'; }, 300);
-}
+function showMatches(){document.getElementById('match-cards').style.opacity='0';setTimeout(()=>{document.getElementById('match-cards').style.opacity='1';},300);}
 </script>
 </body>
 </html>
