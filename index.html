@@ -545,92 +545,154 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
 /* ═══════════════════════ MOBILE ═══════════════════════ */
 @media (max-width: 768px) {
 
-  /* Nav */
-  .topnav{padding:0 16px;gap:0;}
+  /* ── Global ── */
+  body,html{overflow-x:hidden;font-size:15px;}
+  .page{overflow-x:hidden;}
+
+  /* ── Top nav ── */
+  .topnav{padding:0 16px;gap:0;height:52px;}
   .topnav-links{display:none;}
   .topnav-right .btn-login{display:none;}
   .topnav-avatar{display:none;}
+  .topnav-logo{font-size:28px;}
+  .btn-signup{font-size:13px;padding:8px 16px;}
 
-  /* Sidebar → bottom tab bar */
+  /* ── Icon sidebar → horizontal bar directly below topnav ── */
   .icon-sidebar{
-    top:auto;left:0;right:0;bottom:0;width:100%;height:58px;
+    top:52px;left:0;right:0;bottom:auto;
+    width:100%;height:52px;
     flex-direction:row;justify-content:space-around;align-items:center;
-    padding:0 8px;border-right:none;border-top:1px solid var(--stone);
-    gap:0;
+    padding:0 8px;border-right:none;border-bottom:1px solid var(--stone);
+    gap:0;z-index:99;overflow-x:auto;
   }
-  .icon-btn{width:44px;height:44px;}
+  .icon-btn{width:48px;height:48px;}
+  .icon-btn svg{width:22px;height:22px;}
 
-  /* Content: no left margin, space for bottom bar */
-  .content{margin-left:0;padding-bottom:58px;}
-  .footer{margin-left:0;flex-direction:column;text-align:center;gap:14px;padding-bottom:72px;}
-  .footer-links{flex-wrap:wrap;justify-content:center;gap:12px;}
+  /* ── Shell & content ── */
+  .shell{padding-top:52px;}
+  .content{margin-left:0;padding-top:52px;padding-bottom:32px;}
+  .footer{margin-left:0;flex-direction:column;text-align:center;gap:16px;padding:28px 20px 40px;}
+  .footer-links{flex-wrap:wrap;justify-content:center;gap:14px;}
 
-  /* Hero */
-  .hero{min-height:260px;}
-  .hero-content{padding:32px 20px 28px;max-width:100%;}
-  .hero-h1{font-size:clamp(28px,8vw,42px);}
-  .hero-sub{font-size:13px;max-width:100%;}
-  .hero-ctas{flex-direction:column;gap:8px;}
-  .btn-hero-primary,.btn-hero-secondary{width:100%;text-align:center;}
+  /* ── Maybe drawer ── */
+  .maybe-drawer-overlay{width:100%;top:104px;bottom:0;}
 
-  /* Stats bar */
+  /* ── Hero ── */
+  .hero{min-height:320px;}
+  .hero-content{padding:40px 20px 36px;max-width:100%;}
+  .hero-h1{font-size:clamp(30px,9vw,46px);}
+  .hero-sub{font-size:14px;max-width:100%;line-height:1.7;}
+  .hero-ctas{flex-direction:column;gap:12px;}
+  .btn-hero-primary,.btn-hero-secondary{width:100%;text-align:center;padding:14px 20px;font-size:14px;}
+
+  /* ── Stats bar ── */
   .stats-bar{flex-direction:column;}
-  .stat-cell{border-right:none;border-bottom:1px solid var(--stone);padding:14px 20px;}
+  .stat-cell{border-right:none;border-bottom:1px solid var(--stone);padding:18px 20px;}
   .stat-cell:last-child{border-bottom:none;}
+  .stat-value{font-size:15px;}
+  .stat-label{font-size:13px;}
 
-  .stories-section{padding:24px 16px 36px;}
-  .story-card{width:88vw;}
-  /* Why join / Section / vendors */
-  .why-join-row{grid-template-columns:1fr;padding:20px 16px 4px;}
-  .section-header{padding:20px 16px 12px;}
-  .vendors-strip{padding:0 16px 24px;}
+  /* ── Why join ── */
+  .why-join-row{grid-template-columns:1fr;padding:24px 20px 8px;gap:14px;}
+  .why-join-box{padding:22px 20px;}
+  .why-join-title{font-size:19px;margin-bottom:18px;}
+  .why-join-item-text strong{font-size:14px;}
+  .why-join-item-text span{font-size:13px;}
+  .why-join-cta{padding:12px 24px;font-size:13px;}
 
-  /* Concierge */
+  /* ── Section headers ── */
+  .section-header{padding:24px 20px 14px;}
+  .section-title{font-size:20px;}
+  .vendors-strip{padding:0 20px 28px;gap:16px;}
+  .vendor-thumb{width:200px;}
+
+  /* ── Stories ── */
+  .stories-section{padding:28px 20px 40px;}
+  .stories-title{font-size:22px;}
+  .story-card{width:calc(100vw - 40px);}
+  .story-gallery-single{height:220px;}
+  .story-body{padding:20px;}
+  .story-couple-name{font-size:15px;}
+  .story-couple-meta{font-size:12px;}
+  .story-letter{font-size:13px;line-height:1.8;}
+
+  /* ── Bundle Creator (concierge) ── */
   .concierge-layout{grid-template-columns:1fr;grid-template-rows:auto auto;}
-  .concierge-left{border-right:none;border-bottom:1px solid var(--stone);}
-  .concierge-right{padding:20px 16px;}
+  .concierge-left{border-right:none;border-bottom:1px solid var(--stone);padding:20px;}
+  .concierge-right{padding:20px;}
+  .panel-title{font-size:15px;}
+  .form-label{font-size:13px;}
+  .form-input,.textarea-vibe{font-size:16px;padding:12px 14px;}/* 16px prevents iOS zoom */
+  .find-btn{padding:14px;font-size:14px;}
+  .matches-title{font-size:20px;}
+  .match-cards{gap:16px;}
 
-  /* Match cards */
-  .match-card{flex-direction:column;}
-  .match-img{width:100%;height:160px;}
-  .match-actions{flex-direction:row;border-left:none;border-top:1px solid var(--stone);padding:12px 16px;}
+  /* Bundle cards */
+  .bundle-header{flex-direction:column;gap:10px;padding:18px;}
+  .bundle-name{font-size:18px;}
+  .bundle-score-wrap{flex-direction:row;align-items:center;gap:10px;}
+  .bundle-score{font-size:24px;}
+  .bundle-vendors{padding:14px 18px;gap:12px;}
+  .bundle-vendor-row{flex-wrap:wrap;gap:8px;}
+  .bv-name{font-size:14px;}
+  .bv-price{margin-left:0;font-size:13px;}
+  .bundle-footer{flex-wrap:wrap;gap:10px;padding:14px 18px;}
+  .bundle-footer .action-btn{flex:1;min-width:100px;padding:12px;font-size:13px;}
+  .bundle-tags{padding:0 18px;}
 
-  /* Explore */
+  /* ── Explore ── */
   .explore-layout{grid-template-columns:1fr;}
   .filter-sidebar{display:none;}
-  .explore-main{padding:16px;}
-  .explore-topbar{flex-wrap:wrap;gap:8px;}
+  .explore-main{padding:20px;}
+  .explore-heading{font-size:18px;}
+  .explore-topbar{flex-wrap:wrap;gap:10px;padding:0 0 16px;}
   .search-box{width:100%;}
-  .explore-grid{grid-template-columns:1fr;}
+  .explore-topbar .btn-signup{width:100%;padding:12px;font-size:13px;}
+  .explore-grid{grid-template-columns:1fr;gap:16px;}
+  .explore-card-name{font-size:15px;}
+  .explore-card-desc{font-size:13px;}
+  .card-action-btn{padding:12px 0;font-size:12px;}
 
-  /* Dashboard */
-  .dashboard-main-pad{padding:20px 16px;}
-  .countdown-card{padding:20px 24px;}
-  .countdown-number{font-size:48px;}
-  .countdown-days-word{font-size:48px;}
-  .dash-grid{grid-template-columns:1fr;}
+  /* ── Dashboard ── */
+  .dashboard-main-pad{padding:24px 20px;}
+  .dash-greeting{font-size:22px;}
+  .countdown-card{padding:24px;}
+  .countdown-number{font-size:52px;}
+  .countdown-days-word{font-size:52px;}
+  .dash-grid{grid-template-columns:1fr;gap:14px;}
+  .dash-card-title{font-size:13px;}
 
-  /* Portal */
-  .portal-pad{padding:20px 16px;}
-  .portal-toprow{flex-direction:column;gap:12px;}
+  /* ── Vendor Portal ── */
+  .portal-pad{padding:24px 20px;}
+  .portal-toprow{flex-direction:column;gap:14px;}
   .portal-toprow > div:last-child{margin-left:0;flex-wrap:wrap;}
-  .portal-stats{grid-template-columns:1fr;}
-  .portal-grid{grid-template-columns:1fr;}
+  .portal-stats{grid-template-columns:1fr;gap:10px;}
+  .pstat{padding:16px 18px;}
+  .pstat-label{font-size:12px;}
+  .pstat-value{font-size:28px;}
+  .portal-grid{grid-template-columns:1fr;gap:14px;}
+  .portal-card{padding:20px;}
+  .cal2-day{font-size:14px;padding:8px 2px;}
+  #cal-booking-detail{margin-top:14px;}
 
-  /* Vendor onboarding */
-  .vendor-wrap{padding:20px 16px;}
-  .vendor-card{padding:20px;}
-  .cat-grid{grid-template-columns:repeat(2,1fr);}
-  .sp-item{font-size:10px;padding:8px 6px;}
+  /* ── Vendor onboarding ── */
+  .vendor-wrap{padding:24px 20px;}
+  .vendor-card{padding:24px;}
+  .vendor-card-title{font-size:20px;}
+  .cat-grid{grid-template-columns:repeat(2,1fr);gap:10px;}
+  .sp-item{font-size:11px;padding:10px 6px;}
 
-  /* Checkout */
+  /* ── Checkout ── */
   .checkout-wrap{grid-template-columns:1fr;}
-  .checkout-left{padding:20px 16px;}
-  .checkout-right{border-left:none;border-top:1px solid var(--stone);padding:20px 16px;}
+  .checkout-left{padding:24px 20px;}
+  .checkout-right{border-left:none;border-top:1px solid var(--stone);padding:24px 20px;}
   .cinput-row{grid-template-columns:1fr;}
+  .cinput{font-size:16px;padding:12px 14px;}
 
-  /* Maybe drawer */
-  .maybe-drawer-overlay{width:100%;bottom:58px;}
+  /* ── Dual range slider ── */
+  .dual-range-input::-webkit-slider-thumb{width:22px;height:22px;}
+  .dual-range-wrap{height:52px;margin-bottom:24px;}
+  .dual-range-labels{font-size:13px;}
 }
 </style>
 </head>
