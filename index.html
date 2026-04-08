@@ -130,12 +130,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
 .stories-track-wrap{overflow:hidden;}
 .stories-track{display:flex;gap:28px;transition:transform .45s cubic-bezier(.4,0,.2,1);}
 .story-card{flex-shrink:0;width:520px;background:var(--white);border:1px solid var(--stone);border-radius:var(--r16);overflow:hidden;display:flex;flex-direction:column;}
-.story-gallery{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:160px 100px;gap:3px;}
-.story-gallery-main{grid-column:1;grid-row:1/3;overflow:hidden;}
-.story-gallery-a{grid-column:2;grid-row:1;overflow:hidden;}
-.story-gallery-b{grid-column:2;grid-row:2;overflow:hidden;}
-.story-gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;}
-.story-card:hover .story-gallery img{transform:scale(1.04);}
+.story-gallery-single{height:260px;overflow:hidden;}
+.story-gallery-single img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;}
+.story-card:hover .story-gallery-single img{transform:scale(1.03);}
 .story-body{padding:22px 24px 20px;display:flex;flex-direction:column;gap:14px;}
 .story-couple{display:flex;align-items:center;gap:12px;}
 .story-avatar{width:42px;height:42px;border-radius:50%;overflow:hidden;border:2px solid var(--stone);flex-shrink:0;}
@@ -214,6 +211,14 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
 
 .find-btn{width:100%;margin-top:20px;background:var(--sage-dark);color:white;border:none;border-radius:var(--r8);padding:12px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;letter-spacing:0.04em;transition:background .2s;}
 .find-btn:hover{background:var(--sage);}
+/* Dual range slider */
+.dual-range-wrap{position:relative;height:44px;margin-bottom:20px;}
+.dual-range-track{position:absolute;top:50%;left:0;right:0;height:4px;background:var(--stone);border-radius:2px;transform:translateY(-50%);}
+.dual-range-fill{position:absolute;top:0;height:4px;background:var(--sage-dark);border-radius:2px;}
+.dual-range-input{position:absolute;top:50%;left:0;width:100%;transform:translateY(-50%);margin:0;pointer-events:none;appearance:none;-webkit-appearance:none;background:transparent;height:4px;}
+.dual-range-input::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--sage-dark);border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,.2);pointer-events:all;cursor:pointer;}
+.dual-range-input::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--sage-dark);border:2px solid white;pointer-events:all;cursor:pointer;}
+.dual-range-labels{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-between;font-size:11px;font-weight:600;color:var(--sage-dark);}
 
 .concierge-right{padding:28px;}
 .back-link{font-size:12px;color:var(--sage-dark);cursor:pointer;display:inline-flex;align-items:center;gap:4px;margin-bottom:20px;}
@@ -342,7 +347,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
 .pstat-label{font-size:11px;color:var(--ink-60);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;}
 .pstat-value{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:400;color:var(--sage-dark);}
 .pstat-delta{font-size:11px;color:var(--sage-dark);margin-top:4px;}
-.portal-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.portal-grid{display:grid;grid-template-columns:3fr 1fr;gap:16px;}
 .portal-card{background:var(--white);border:1px solid var(--stone);border-radius:var(--r12);padding:20px;}
 .portal-card-title{font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-60);margin-bottom:16px;display:flex;align-items:center;gap:6px;}
 .calendar-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
@@ -351,8 +356,22 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
 .cal2-head{font-size:10px;color:var(--ink-30);text-align:center;padding:4px 0;}
 .cal2-day{font-size:12px;text-align:center;padding:5px 2px;border-radius:6px;cursor:pointer;}
 .cal2-day:hover{background:var(--sage-pale);}
-.cal2-day.booked2{background:var(--sage);color:white;font-weight:600;}
+.cal2-day.booked2{background:var(--sage);color:white;font-weight:600;cursor:pointer;}
+.cal2-day.booked2:hover{background:var(--sage-dark);}
 .cal2-day.today2{border:1.5px solid var(--sage-dark);font-weight:600;}
+.cal2-day.pending2{border:1.5px dashed var(--sage-dark);color:var(--sage-dark);font-weight:600;}
+.cal2-day.blocked2{background:var(--stone-dark);color:var(--ink-60);font-weight:600;cursor:not-allowed;}
+/* Booking info popup */
+.booking-popup-overlay{position:fixed;inset:0;background:rgba(30,30,20,.4);z-index:400;display:none;align-items:center;justify-content:center;}
+.booking-popup-overlay.open{display:flex;}
+.booking-popup{background:var(--white);border-radius:var(--r16);width:min(360px,90vw);padding:24px;box-shadow:0 20px 50px rgba(0,0,0,.16);}
+.booking-popup-date{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:8px;}
+.booking-popup-couple{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;margin-bottom:16px;}
+.booking-popup-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;font-size:12px;}
+.booking-popup-row svg{flex-shrink:0;margin-top:1px;color:var(--ink-60);}
+.booking-popup-row strong{display:block;font-weight:600;margin-bottom:1px;}
+.booking-popup-row span{color:var(--ink-60);}
+.booking-popup-close{margin-top:18px;width:100%;padding:9px;border:none;border-radius:var(--r8);background:var(--sage-pale);color:var(--sage-dark);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer;}
 .pkg-row{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border:1px solid var(--stone);border-radius:var(--r8);margin-bottom:8px;}
 .pkg-row.featured{border-color:var(--sage-light);background:var(--sage-pale);}
 .pkg-name{font-size:13px;font-weight:600;margin-bottom:2px;}
@@ -360,8 +379,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
 .pkg-price{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--sage-dark);}
 .pkg-badge{font-size:9px;font-weight:700;background:var(--sage-dark);color:white;padding:2px 6px;border-radius:10px;letter-spacing:0.04em;margin-left:6px;}
 .instant-book-row{display:flex;align-items:center;justify-content:space-between;padding:14px;background:var(--cream);border-radius:var(--r8);margin-top:12px;}
-.toggle-switch{width:40px;height:22px;border-radius:11px;background:var(--sage-dark);position:relative;cursor:pointer;flex-shrink:0;}
-.toggle-knob{position:absolute;top:3px;right:3px;width:16px;height:16px;border-radius:50%;background:white;}
+.toggle-switch{width:40px;height:22px;border-radius:11px;background:var(--sage-dark);position:relative;cursor:pointer;flex-shrink:0;transition:background .25s;}
+.toggle-switch.off{background:var(--stone-dark);}
+.toggle-knob{position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:white;transition:transform .25s;}
+.toggle-switch.on .toggle-knob{transform:translateX(18px);}
 
 /* ═══════════════════════ VENDOR ONBOARDING ═══════════════════════ */
 #page-vendor{background:var(--mint-bg);}
@@ -741,9 +762,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
 <nav class="topnav">
   <span class="topnav-logo" onclick="showPage('landing')">Noué<span></span></span>
   <div class="topnav-links">
-    <span class="topnav-link" onclick="showPage('landing')">Headline</span>
+    <span class="topnav-link" onclick="showPage('landing')">Home</span>
     <span class="topnav-link">Feature ▾</span>
-    <span class="topnav-link" onclick="showPage('concierge')">Planning</span>
+    <span class="topnav-link" onclick="showPage('concierge')">Bundle Creator</span>
     <span class="topnav-link">Contact</span>
   </div>
   <div class="topnav-right">
@@ -752,7 +773,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
     <button class="btn-signup" onclick="showPage('vendor')">Sign up</button>
     <div style="display:flex;align-items:center;gap:6px;cursor:pointer">
       <div class="topnav-avatar">
-        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=60&q=80" alt="Avatar">
+        <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=60&q=80" alt="Couple">
       </div>
       <span style="font-size:12px;color:var(--ink-60)">▾</span>
     </div>
@@ -765,7 +786,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
   <div class="icon-btn active" onclick="setActiveIcon(this);showPage('landing')" title="Home">
     <svg><use href="#ico-home"/></svg>
   </div>
-  <div class="icon-btn" onclick="setActiveIcon(this);showPage('concierge')" title="AI Concierge">
+  <div class="icon-btn" onclick="setActiveIcon(this);showPage('concierge')" title="Bundle Creator">
     <svg><use href="#ico-sparkle"/></svg>
   </div>
   <div class="icon-btn" onclick="setActiveIcon(this);showPage('explore')" title="Explore Vendors">
@@ -775,7 +796,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
     <svg><use href="#ico-clip"/></svg>
     <span class="badge"></span>
   </div>
-  <div class="icon-btn" onclick="setActiveIcon(this);openDrawer()" title="Maybe Drawer">
+  <div class="icon-btn" onclick="setActiveIcon(this);toggleDrawer()" title="Maybe Drawer">
     <svg><use href="#ico-heart"/></svg>
   </div>
   <div style="flex:1"></div>
@@ -911,11 +932,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
 
         <!-- Story 1 -->
         <div class="story-card">
-          <div class="story-gallery">
-            <div class="story-gallery-main"><img src="secret garden venue.jpg" alt="Ceremony"></div>
-            <div class="story-gallery-a"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Florals"></div>
-            <div class="story-gallery-b"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&q=80" alt="Photography"></div>
-          </div>
+          <div class="story-gallery-single"><img src="review 1.png" alt="Sofia & James Wedding"></div>
           <div class="story-body">
             <div class="story-couple">
               <div class="story-avatar"><img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?w=80&q=80" alt="Sofia & James"></div>
@@ -936,11 +953,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
 
         <!-- Story 2 -->
         <div class="story-card">
-          <div class="story-gallery">
-            <div class="story-gallery-main"><img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600&q=80" alt="Grand Hall"></div>
-            <div class="story-gallery-a"><img src="https://images.unsplash.com/photo-1612548403247-aa2873e9422d?w=400&q=80" alt="Cake"></div>
-            <div class="story-gallery-b"><img src="hair.jpg" alt="Hair & Makeup"></div>
-          </div>
+          <div class="story-gallery-single"><img src="review 2.png" alt="Nour & David Wedding"></div>
           <div class="story-body">
             <div class="story-couple">
               <div class="story-avatar"><img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=80&q=80" alt="Nour & David"></div>
@@ -961,11 +974,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
 
         <!-- Story 3 -->
         <div class="story-card">
-          <div class="story-gallery">
-            <div class="story-gallery-main"><img src="https://images.unsplash.com/photo-1470920238487-4ff9cdca7b31?w=600&q=80" alt="Garden"></div>
-            <div class="story-gallery-a"><img src="floral shop.jpg" alt="Florals"></div>
-            <div class="story-gallery-b"><img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=400&q=80" alt="DJ"></div>
-          </div>
+          <div class="story-gallery-single"><img src="review 3.png" alt="Priya & Lucas Wedding"></div>
           <div class="story-body">
             <div class="story-couple">
               <div class="story-avatar"><img src="https://images.unsplash.com/photo-1521119989659-a83eee488004?w=80&q=80" alt="Priya & Lucas"></div>
@@ -1003,6 +1012,18 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
       <input class="form-input" type="text" value="Montreal, QC">
       <label class="form-label">Guest Count</label>
       <input class="form-input" type="number" value="80">
+      <label class="form-label">Budget Range</label>
+      <div class="dual-range-wrap">
+        <div class="dual-range-track">
+          <div class="dual-range-fill" id="bc-range-fill"></div>
+        </div>
+        <input class="dual-range-input" type="range" id="bc-min" min="5000" max="80000" step="500" value="10000" oninput="updateBudgetRange()">
+        <input class="dual-range-input" type="range" id="bc-max" min="5000" max="80000" step="500" value="40000" oninput="updateBudgetRange()">
+        <div class="dual-range-labels">
+          <span id="bc-min-label">$10,000</span>
+          <span id="bc-max-label">$40,000</span>
+        </div>
+      </div>
       <label class="form-label">Mood Board <span style="font-size:10px;color:var(--ink-30)">(Pinterest Screenshots)</span></label>
       <div class="mood-uploads">
         <div class="mood-cell"><img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=200&q=80" alt="mood"></div>
@@ -1045,7 +1066,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
             <div class="bundle-vendor-row">
               <div class="bv-img"><img src="secret garden venue.jpg" alt="Venue"></div>
               <div><div class="bv-cat">Venue</div><div class="bv-name">The Secret Garden <span class="bv-verified">✓</span></div><a class="bv-rating" href="#" onclick="openReviews('The Secret Garden');return false;">★ 4.9</a></div>
-              <div class="bv-price">$4,200</div>
+              <div class="bv-price">$10,800</div>
             </div>
             <div class="bundle-vendor-row">
               <div class="bv-img"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=72&q=80" alt="Photography"></div>
@@ -1066,7 +1087,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
           <div class="bundle-footer">
             <div class="bundle-total-wrap">
               <div class="bundle-total-label">Bundle Total</div>
-              <div><span class="bundle-total">$11,500</span><span class="bundle-saving">Save $1,000</span></div>
+              <div><span class="bundle-total">$18,100</span><span class="bundle-saving">Save $1,400</span></div>
             </div>
             <button class="action-btn btn-maybe" onclick="addToMaybe('Boho Garden Dream Bundle','https://images.unsplash.com/photo-1470920238487-4ff9cdca7b31?w=80&q=80')">Save</button>
             <button class="action-btn btn-top" onclick="showPage('checkout')">Book Bundle →</button>
@@ -1093,7 +1114,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
             <div class="bundle-vendor-row">
               <div class="bv-img"><img src="secret garden venue.jpg" alt="Venue"></div>
               <div><div class="bv-cat">Venue</div><div class="bv-name">The Secret Garden <span class="bv-verified">✓</span></div><a class="bv-rating" href="#" onclick="openReviews('The Secret Garden');return false;">★ 4.9</a></div>
-              <div class="bv-price">$4,200</div>
+              <div class="bv-price">$10,800</div>
             </div>
             <div class="bundle-vendor-row">
               <div class="bv-img"><img src="floral shop.jpg" alt="Florals"></div>
@@ -1114,7 +1135,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
           <div class="bundle-footer">
             <div class="bundle-total-wrap">
               <div class="bundle-total-label">Bundle Total</div>
-              <div><span class="bundle-total">$9,700</span><span class="bundle-saving">Save $800</span></div>
+              <div><span class="bundle-total">$16,300</span><span class="bundle-saving">Save $1,000</span></div>
             </div>
             <button class="action-btn btn-maybe" onclick="addToMaybe('Intimate Garden Bundle','https://images.unsplash.com/photo-1470920238487-4ff9cdca7b31?w=80&q=80')">Save</button>
             <button class="action-btn btn-top" onclick="showPage('checkout')">Book Bundle →</button>
@@ -1141,7 +1162,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
             <div class="bundle-vendor-row">
               <div class="bv-img"><img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=72&q=80" alt="Venue"></div>
               <div><div class="bv-cat">Venue</div><div class="bv-name">The Grand Hall <span class="bv-verified">✓</span></div><a class="bv-rating" href="#" onclick="openReviews('The Grand Hall');return false;">★ 5.0</a></div>
-              <div class="bv-price">$5,500</div>
+              <div class="bv-price">$12,500</div>
             </div>
             <div class="bundle-vendor-row">
               <div class="bv-img"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=72&q=80" alt="Photography"></div>
@@ -1162,7 +1183,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
           <div class="bundle-footer">
             <div class="bundle-total-wrap">
               <div class="bundle-total-label">Bundle Total</div>
-              <div><span class="bundle-total">$10,900</span><span class="bundle-saving">Save $1,200</span></div>
+              <div><span class="bundle-total">$17,900</span><span class="bundle-saving">Save $1,500</span></div>
             </div>
             <button class="action-btn btn-maybe" onclick="addToMaybe('Cultural Fusion Feast Bundle','https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=80&q=80')">Save</button>
             <button class="action-btn btn-top" onclick="showPage('checkout')">Book Bundle →</button>
@@ -1197,8 +1218,17 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
       </div>
       <div class="filter-section">
         <div class="filter-section-title">Price Range</div>
-        <div class="range-track"><div class="range-fill"></div></div>
-        <div class="range-labels"><span>$1,000</span><span>$130,000</span></div>
+        <div class="dual-range-wrap">
+          <div class="dual-range-track">
+            <div class="dual-range-fill" id="ex-range-fill"></div>
+          </div>
+          <input class="dual-range-input" type="range" id="ex-min" min="1000" max="130000" step="1000" value="5000" oninput="updateExploreRange()">
+          <input class="dual-range-input" type="range" id="ex-max" min="1000" max="130000" step="1000" value="80000" oninput="updateExploreRange()">
+          <div class="dual-range-labels">
+            <span id="ex-min-label">$5,000</span>
+            <span id="ex-max-label">$80,000</span>
+          </div>
+        </div>
       </div>
       <div class="filter-section">
         <div class="filter-section-title">Availability Calendar</div>
@@ -1232,8 +1262,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
             <div class="explore-card-name">The Secret Garden <span style="font-size:10px;color:var(--sage-dark);background:var(--sage-pale);padding:2px 6px;border-radius:10px;font-weight:600">✓ Verified</span></div>
             <div class="explore-card-location"><svg width="11" height="11"><use href="#ico-pin"/></svg> Montreal, QC</div>
             <div class="explore-card-desc">Outdoor garden ceremony with boho-chic aesthetic, cultural fusion catering and vegan menu options.</div>
-            <div class="match-tags"><span class="tag">Cultural Fusion</span><span class="tag blush">Boho Stylist</span><span class="tag">Vegan</span></div>
-            <div class="score-chip">Match Score: 98%</div>
+            <div class="match-tags"><span class="tag">Cultural Fusion</span><span class="tag blush">Boho Stylist</span><span class="tag">Vegan</span><span class="tag">Catering Included</span><span class="tag blush">Indian Weddings</span><span class="tag blush">Middle Eastern</span></div>
             <div class="card-reviews"><svg width="11" height="11" style="color:var(--gold)"><use href="#ico-star"/></svg> 4.9 · 21 couples · 3 reviews</div>
             <div class="card-actions">
               <button class="card-action-btn btn-top" onclick="showPage('checkout')">Select as Top Match</button>
@@ -1249,7 +1278,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
             <div class="explore-card-location"><svg width="11" height="11"><use href="#ico-pin"/></svg> Montreal, QC</div>
             <div class="explore-card-desc">Wild, organic floral arrangements with dried flowers, pampas grass, and seasonal blooms.</div>
             <div class="match-tags"><span class="tag blush">Boho Stylist</span><span class="tag">Cultural Fusion</span></div>
-            <div class="score-chip">Match Score: 76%</div>
             <div class="card-reviews"><svg width="11" height="11" style="color:var(--gold)"><use href="#ico-star"/></svg> 4.7 · 27 couples · 5 reviews</div>
             <div class="card-actions">
               <button class="card-action-btn btn-top" onclick="showPage('checkout')">Select as Top Match</button>
@@ -1265,7 +1293,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
             <div class="explore-card-location"><svg width="11" height="11"><use href="#ico-pin"/></svg> Quebec City, QC</div>
             <div class="explore-card-desc">Full floral design from bridal bouquets to ceremony arches and reception centerpieces.</div>
             <div class="match-tags"><span class="tag">Cultural Fusion</span><span class="tag blush">Boho</span></div>
-            <div class="score-chip">Match Score: 75%</div>
             <div class="card-reviews"><svg width="11" height="11" style="color:var(--gold)"><use href="#ico-star"/></svg> 4.8 · 19 couples · 8 reviews</div>
             <div class="card-actions">
               <button class="card-action-btn btn-top" onclick="showPage('checkout')">Select as Top Match</button>
@@ -1280,8 +1307,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
             <div class="explore-card-name">The Grand Hall <span style="font-size:10px;color:var(--sage-dark);background:var(--sage-pale);padding:2px 6px;border-radius:10px;font-weight:600">✓ Verified</span></div>
             <div class="explore-card-location"><svg width="11" height="11"><use href="#ico-pin"/></svg> Ottawa, ON</div>
             <div class="explore-card-desc">Elegant historic venue with soaring ceilings, chandeliers, and expansive garden grounds.</div>
-            <div class="match-tags"><span class="tag">Classic</span><span class="tag">Vegan Catering</span></div>
-            <div class="score-chip">Match Score: 95%</div>
+            <div class="match-tags"><span class="tag">Classic</span><span class="tag">Vegan Catering</span><span class="tag">Catering Included</span><span class="tag blush">Indian Weddings</span><span class="tag blush">Middle Eastern</span></div>
             <div class="card-reviews"><svg width="11" height="11" style="color:var(--gold)"><use href="#ico-star"/></svg> 5.0 · 33 couples · 12 reviews</div>
             <div class="card-actions">
               <button class="card-action-btn btn-top" onclick="showPage('checkout')">Select as Top Match</button>
@@ -1297,7 +1323,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
             <div class="explore-card-location"><svg width="11" height="11"><use href="#ico-pin"/></svg> Montreal, QC</div>
             <div class="explore-card-desc">Editorial, moody photography with a cinematic documentary approach.</div>
             <div class="match-tags"><span class="tag">Editorial</span><span class="tag blush">Fine Art</span></div>
-            <div class="score-chip">Match Score: 92%</div>
             <div class="card-reviews"><svg width="11" height="11" style="color:var(--gold)"><use href="#ico-star"/></svg> 4.9 · 48 couples</div>
             <div class="card-actions">
               <button class="card-action-btn btn-top" onclick="showPage('checkout')">Select as Top Match</button>
@@ -1313,7 +1338,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
             <div class="explore-card-location"><svg width="11" height="11"><use href="#ico-pin"/></svg> Quebec City, QC</div>
             <div class="explore-card-desc">Custom wedding cakes and dessert tables with cultural fusion options and vegan alternatives.</div>
             <div class="match-tags"><span class="tag">Cultural Fusion</span><span class="tag">Vegan Options</span></div>
-            <div class="score-chip">Match Score: 88%</div>
             <div class="card-reviews"><svg width="11" height="11" style="color:var(--gold)"><use href="#ico-star"/></svg> 4.8 · 32 couples</div>
             <div class="card-actions">
               <button class="card-action-btn btn-top" onclick="showPage('checkout')">Select as Top Match</button>
@@ -1415,8 +1439,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
   <div class="portal-pad">
     <div class="portal-toprow">
       <div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;margin-bottom:4px">Vendor Portal Dashboard</div>
-        <div style="font-size:13px;color:var(--ink-60)">Manage your listings, calendar, and earnings.</div>
+        <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:4px">
+          <span style="font-size:13px;color:var(--ink-60)">Welcome back,</span>
+          <span style="font-family:'Corinthia',cursive;font-size:38px;font-weight:400;line-height:1">Anna-Maria</span>
+        </div>
+        <div style="font-size:12px;color:var(--ink-60)">Manage your listings, calendar, and earnings.</div>
       </div>
       <div style="margin-left:auto;display:flex;gap:10px;align-items:center">
         <div class="verified-chip"><svg width="14" height="14"><use href="#ico-check"/></svg> Verified Status</div>
@@ -1430,14 +1457,14 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
         <div class="pstat-delta">↑ 23% vs last year</div>
       </div>
       <div class="pstat">
-        <div class="pstat-label">Background Check</div>
-        <div class="pstat-value" style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:700;padding-top:6px;display:flex;align-items:center;gap:6px"><svg width="18" height="18"><use href="#ico-shield"/></svg> Passed</div>
-        <div class="pstat-delta" style="color:var(--ink-60)">Verified Dec 2024</div>
-      </div>
-      <div class="pstat">
         <div class="pstat-label">Pending Inquiries</div>
         <div class="pstat-value" style="font-family:'DM Sans',sans-serif;font-size:40px;font-weight:600">4</div>
         <div class="pstat-delta">3 new this week</div>
+      </div>
+      <div class="pstat" style="cursor:pointer" onclick="showPage('explore')" title="Rate vendors you've worked with">
+        <div class="pstat-label">Rate Your Co-Vendors</div>
+        <div class="pstat-value" style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;padding-top:6px;display:flex;align-items:center;gap:6px;color:var(--sage-dark)"><svg width="18" height="18"><use href="#ico-star"/></svg> Leave a Review</div>
+        <div class="pstat-delta" style="color:var(--ink-60)">Rate vendors you've worked with</div>
       </div>
     </div>
     <div class="portal-grid">
@@ -1453,14 +1480,28 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
         <div class="cal-grid2">
           <div class="cal2-head">Su</div><div class="cal2-head">Mo</div><div class="cal2-head">Tu</div><div class="cal2-head">We</div><div class="cal2-head">Th</div><div class="cal2-head">Fr</div><div class="cal2-head">Sa</div>
           <div class="cal2-day" style="grid-column:3">1</div><div class="cal2-day">2</div><div class="cal2-day">3</div><div class="cal2-day today2">4</div><div class="cal2-day">5</div>
-          <div class="cal2-day">6</div><div class="cal2-day">7</div><div class="cal2-day">8</div><div class="cal2-day">9</div><div class="cal2-day">10</div><div class="cal2-day">11</div><div class="cal2-day booked2">12</div>
-          <div class="cal2-day">13</div><div class="cal2-day booked2">14</div><div class="cal2-day booked2">15</div><div class="cal2-day">16</div><div class="cal2-day">17</div><div class="cal2-day">18</div><div class="cal2-day">19</div>
-          <div class="cal2-day">20</div><div class="cal2-day">21</div><div class="cal2-day booked2">22</div><div class="cal2-day">23</div><div class="cal2-day">24</div><div class="cal2-day">25</div>
+          <div class="cal2-day">6</div><div class="cal2-day">7</div><div class="cal2-day pending2">8</div><div class="cal2-day">9</div><div class="cal2-day">10</div><div class="cal2-day">11</div><div class="cal2-day booked2" onclick="showInlineBooking('Apr 12','Sofia &amp; James Chen','The Secret Garden · 3:00 PM','Lumière Co., Boho Floral Collective, Harmony DJ Co.','Gold Package · 10hrs')">12</div>
+          <div class="cal2-day">13</div><div class="cal2-day booked2" onclick="showInlineBooking('Apr 14','Nour &amp; David Tremblay','The Grand Hall · 4:30 PM','Sucré Patisserie, HAUS of RTISTS','Platinum Package · Full Day')">14</div><div class="cal2-day pending2">15</div><div class="cal2-day">16</div><div class="cal2-day blocked2">17</div><div class="cal2-day">18</div><div class="cal2-day">19</div>
+          <div class="cal2-day">20</div><div class="cal2-day">21</div><div class="cal2-day booked2" onclick="showInlineBooking('Apr 22','Priya &amp; Lucas Martin','Secret Garden · 2:00 PM','Lily\'s Florals, Boho Photo Collective','Silver Package · 6hrs')">22</div><div class="cal2-day">23</div><div class="cal2-day">24</div><div class="cal2-day">25</div>
           <div class="cal2-day">27</div><div class="cal2-day">28</div><div class="cal2-day">29</div><div class="cal2-day">30</div>
         </div>
-        <div style="display:flex;gap:12px;margin-top:10px;">
+        <!-- Inline booking detail panel -->
+        <div id="cal-booking-detail" style="display:none;margin-top:14px;padding:14px 16px;background:var(--mint-bg);border-radius:var(--r12);border:1px solid var(--sage-light);">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;">
+            <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-dark)" id="cal-bp-date"></div>
+            <button onclick="document.getElementById('cal-booking-detail').style.display='none'" style="background:none;border:none;font-size:16px;cursor:pointer;color:var(--ink-60);line-height:1;padding:0">✕</button>
+          </div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;margin-bottom:12px" id="cal-bp-couple"></div>
+          <div style="display:flex;flex-direction:column;gap:7px;">
+            <div style="display:flex;align-items:flex-start;gap:8px;font-size:12px;"><svg width="13" height="13" style="flex-shrink:0;margin-top:1px;color:var(--ink-60)"><use href="#ico-pin"/></svg><div><strong style="display:block;font-weight:600">Venue &amp; Time</strong><span style="color:var(--ink-60)" id="cal-bp-venue"></span></div></div>
+            <div style="display:flex;align-items:flex-start;gap:8px;font-size:12px;"><svg width="13" height="13" style="flex-shrink:0;margin-top:1px;color:var(--ink-60)"><use href="#ico-rings"/></svg><div><strong style="display:block;font-weight:600">Other Vendors</strong><span style="color:var(--ink-60)" id="cal-bp-vendors"></span></div></div>
+            <div style="display:flex;align-items:flex-start;gap:8px;font-size:12px;"><svg width="13" height="13" style="flex-shrink:0;margin-top:1px;color:var(--ink-60)"><use href="#ico-pkg"/></svg><div><strong style="display:block;font-weight:600">Package</strong><span style="color:var(--ink-60)" id="cal-bp-package"></span></div></div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;margin-top:10px;flex-wrap:wrap;">
           <div style="display:flex;align-items:center;gap:4px;font-size:10px;color:var(--ink-60)"><span style="width:8px;height:8px;border-radius:50%;background:var(--sage);display:inline-block"></span>Booked</div>
-          <div style="display:flex;align-items:center;gap:4px;font-size:10px;color:var(--ink-60)"><span style="width:8px;height:8px;border-radius:50%;background:var(--stone);display:inline-block"></span>Blocked</div>
+          <div style="display:flex;align-items:center;gap:4px;font-size:10px;color:var(--ink-60)"><span style="width:8px;height:8px;border-radius:50%;background:var(--stone-dark);display:inline-block"></span>Blocked</div>
+          <div style="display:flex;align-items:center;gap:4px;font-size:10px;color:var(--ink-60)"><span style="width:8px;height:8px;border-radius:50%;border:1.5px dashed var(--sage-dark);display:inline-block"></span>Pending</div>
           <div style="display:flex;align-items:center;gap:4px;font-size:10px;color:var(--ink-60)"><span style="width:8px;height:8px;border-radius:50%;border:1.5px solid var(--sage-dark);display:inline-block"></span>Today</div>
         </div>
       </div>
@@ -1482,7 +1523,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
         <button class="find-btn" style="margin-top:0">Edit Profile</button>
         <div class="instant-book-row">
           <div><div style="font-size:13px;font-weight:600;margin-bottom:2px">Instant Book</div><div style="font-size:11px;color:var(--ink-60)">Allow couples to book instantly.</div></div>
-          <div class="toggle-switch"><div class="toggle-knob"></div></div>
+          <div class="toggle-switch on" id="instant-book-toggle" onclick="toggleInstantBook()" title="Toggle Instant Book"><div class="toggle-knob"></div></div>
         </div>
       </div>
     </div>
@@ -1650,6 +1691,27 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
   </div>
 </div>
 
+<!-- Booking Info Popup -->
+<div class="booking-popup-overlay" id="booking-popup-overlay" onclick="if(event.target===this)closeBookingInfo()">
+  <div class="booking-popup">
+    <div class="booking-popup-date" id="bp-date"></div>
+    <div class="booking-popup-couple" id="bp-couple"></div>
+    <div class="booking-popup-row">
+      <svg width="14" height="14"><use href="#ico-pin"/></svg>
+      <div><strong>Venue &amp; Time</strong><span id="bp-venue"></span></div>
+    </div>
+    <div class="booking-popup-row">
+      <svg width="14" height="14"><use href="#ico-rings"/></svg>
+      <div><strong>Other Vendors</strong><span id="bp-vendors"></span></div>
+    </div>
+    <div class="booking-popup-row">
+      <svg width="14" height="14"><use href="#ico-pkg"/></svg>
+      <div><strong>Package</strong><span id="bp-package"></span></div>
+    </div>
+    <button class="booking-popup-close" onclick="closeBookingInfo()">Close</button>
+  </div>
+</div>
+
 <!-- Reviews Modal -->
 <div class="reviews-overlay" id="reviews-overlay" onclick="if(event.target===this)closeReviews()">
   <div class="reviews-modal">
@@ -1688,6 +1750,51 @@ function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.
 function setActiveIcon(el){document.querySelectorAll('.icon-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');}
 function openDrawer(){document.getElementById('maybe-drawer').classList.add('open');}
 function closeDrawer(){document.getElementById('maybe-drawer').classList.remove('open');}
+function toggleDrawer(){document.getElementById('maybe-drawer').classList.toggle('open');}
+
+function updateBudgetRange(){
+  const min=document.getElementById('bc-min'),max=document.getElementById('bc-max');
+  let lo=parseInt(min.value),hi=parseInt(max.value);
+  if(lo>hi){const t=lo;lo=hi;hi=t;min.value=lo;max.value=hi;}
+  const pct=(v)=>((v-5000)/(80000-5000))*100;
+  document.getElementById('bc-range-fill').style.left=pct(lo)+'%';
+  document.getElementById('bc-range-fill').style.width=(pct(hi)-pct(lo))+'%';
+  document.getElementById('bc-min-label').textContent='$'+lo.toLocaleString();
+  document.getElementById('bc-max-label').textContent='$'+hi.toLocaleString();
+}
+updateBudgetRange();
+
+function updateExploreRange(){
+  const min=document.getElementById('ex-min'),max=document.getElementById('ex-max');
+  let lo=parseInt(min.value),hi=parseInt(max.value);
+  if(lo>hi){const t=lo;lo=hi;hi=t;min.value=lo;max.value=hi;}
+  const pct=(v)=>((v-1000)/(130000-1000))*100;
+  document.getElementById('ex-range-fill').style.left=pct(lo)+'%';
+  document.getElementById('ex-range-fill').style.width=(pct(hi)-pct(lo))+'%';
+  document.getElementById('ex-min-label').textContent='$'+lo.toLocaleString();
+  document.getElementById('ex-max-label').textContent='$'+hi.toLocaleString();
+}
+updateExploreRange();
+
+function showInlineBooking(date,couple,venue,vendors,pkg){
+  document.getElementById('cal-bp-date').textContent=date;
+  document.getElementById('cal-bp-couple').textContent=couple;
+  document.getElementById('cal-bp-venue').textContent=venue;
+  document.getElementById('cal-bp-vendors').textContent=vendors;
+  document.getElementById('cal-bp-package').textContent=pkg;
+  const panel=document.getElementById('cal-booking-detail');
+  panel.style.display='block';
+  panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function showBookingInfo(date,couple,venue,vendors,pkg){
+  document.getElementById('bp-date').textContent=date;
+  document.getElementById('bp-couple').textContent=couple;
+  document.getElementById('bp-venue').textContent=venue;
+  document.getElementById('bp-vendors').textContent=vendors;
+  document.getElementById('bp-package').textContent=pkg;
+  document.getElementById('booking-popup-overlay').classList.add('open');
+}
+function closeBookingInfo(){document.getElementById('booking-popup-overlay').classList.remove('open');}
 
 const maybeVendors=[];
 function addToMaybe(name,imgUrl){
@@ -1707,6 +1814,7 @@ function toggleNS(el){
   if(sib)sib.className=isDone?'ns-text done-text':'ns-text';
 }
 function toggleCat(el){el.classList.toggle('sel');}
+function toggleInstantBook(){const t=document.getElementById('instant-book-toggle');t.classList.toggle('on');t.classList.toggle('off');}
 
 const vendorReviews={
   'The Secret Garden':{score:'4.9',count:'21 couples · 3 reviews',reviews:[
