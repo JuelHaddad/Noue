@@ -1020,6 +1020,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
         <div class="vendor-thumb-img"><img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=380&q=80" alt="Harmony DJ"></div>
         <div class="vendor-thumb-info"><div class="vendor-thumb-name">Harmony DJ Co.</div><div class="vendor-thumb-cat">Music · Laval</div></div>
       </div>
+      <div class="vendor-thumb" onclick="showPage('explore')">
+        <div class="vendor-thumb-img"><img src="makeup.png" alt="Anna-Maria Artistry"></div>
+        <div class="vendor-thumb-info"><div class="vendor-thumb-name">Anna-Maria Artistry</div><div class="vendor-thumb-cat">Makeup · Laval</div></div>
+      </div>
     </div>
     <button class="strip-arrow right" onclick="vendorScroll(1)">›</button>
   </div>
@@ -1183,7 +1187,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
               <div class="bv-price">$3,800</div>
             </div>
             <div class="bundle-vendor-row">
-              <div class="bv-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=72&q=80" alt="Florals"></div>
+              <div class="bv-img"><img src="boho floral.jpg" alt="Florals"></div>
               <div><div class="bv-cat">Florals</div><div class="bv-name">Boho Floral Collective <span class="bv-verified">✓</span></div><a class="bv-rating" href="#" onclick="openReviews('Boho Floral Collective');return false;">★ 4.7</a></div>
               <div class="bv-price">$2,100</div>
             </div>
@@ -1279,7 +1283,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
               <div class="bv-price">$2,800</div>
             </div>
             <div class="bundle-vendor-row">
-              <div class="bv-img"><img src="https://images.unsplash.com/photo-1612548403247-aa2873e9422d?w=72&q=80" alt="Cake"></div>
+              <div class="bv-img"><img src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=72&q=80" alt="Cake"></div>
               <div><div class="bv-cat">Cake &amp; Desserts</div><div class="bv-name">Sucré Patisserie <span class="bv-verified">✓</span></div><a class="bv-rating" href="#" onclick="openReviews('Sucré Patisserie');return false;">★ 4.8</a></div>
               <div class="bv-price">$1,200</div>
             </div>
@@ -1381,7 +1385,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
           </div>
         </div>
         <div class="explore-card">
-          <div class="explore-card-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Boho Florals"></div>
+          <div class="explore-card-img"><img src="boho floral.jpg" alt="Boho Florals"></div>
           <div class="explore-card-body">
             <div class="explore-card-name">Boho Floral Collective <span style="font-size:10px;color:var(--sage-dark);background:var(--sage-pale);padding:2px 6px;border-radius:10px;font-weight:600">✓ Verified</span></div>
             <div class="explore-card-location"><svg width="11" height="11"><use href="#ico-pin"/></svg> Montreal, QC</div>
@@ -1390,7 +1394,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
             <div class="card-reviews"><svg width="11" height="11" style="color:var(--gold)"><use href="#ico-star"/></svg> 4.7 · 27 couples · 5 reviews</div>
             <div class="card-actions">
               <button class="card-action-btn btn-top" onclick="showPage('checkout')">Select as Top Match</button>
-              <button class="card-action-btn btn-maybe" onclick="addToMaybe('Boho Florals','https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=80&q=80')">Save as Maybe</button>
+              <button class="card-action-btn btn-maybe" onclick="addToMaybe('Boho Florals','https://images.unsplash.com/boho floral.jpg?w=80&q=80')">Save as Maybe</button>
               <button class="card-action-btn btn-pass" style="flex:0.5;background:var(--cream);color:var(--ink-60);border:1px solid var(--stone)">Hide</button>
             </div>
           </div>
@@ -1441,7 +1445,22 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
           </div>
         </div>
         <div class="explore-card">
-          <div class="explore-card-img"><img src="https://images.unsplash.com/photo-1612548403247-aa2873e9422d?w=600&q=80" alt="Wedding Cake"></div>
+          <div class="explore-card-img"><img src="makeup.png" alt="Anna-Maria Makeup"></div>
+          <div class="explore-card-body">
+            <div class="explore-card-name">Anna-Maria Artistry <span style="font-size:10px;color:var(--sage-dark);background:var(--sage-pale);padding:2px 6px;border-radius:10px;font-weight:600">✓ Verified</span></div>
+            <div class="explore-card-location"><svg width="11" height="11"><use href="#ico-pin"/></svg> Laval, QC</div>
+            <div class="explore-card-desc">Luxury bridal makeup for Western &amp; Eastern weddings. Specializing in Armenian bridal looks — bold, elegant, and built to last all day. Mobile artist — comes to you.</div>
+            <div class="match-tags"><span class="tag blush">Armenian Weddings</span><span class="tag blush">Middle Eastern</span><span class="tag">Western &amp; Eastern</span><span class="tag">Mobile Artist</span><span class="tag">Hair &amp; Makeup</span></div>
+            <div class="card-reviews"><svg width="11" height="11" style="color:var(--gold)"><use href="#ico-star"/></svg> 4.9 · 38 couples · 14 reviews</div>
+            <div class="card-actions">
+              <button class="card-action-btn btn-top" onclick="showPage('checkout')">Select as Top Match</button>
+              <button class="card-action-btn btn-maybe" onclick="addToMaybe('Anna-Maria Artistry','https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=80&q=80')">Save as Maybe</button>
+              <button class="card-action-btn btn-pass" style="flex:0.5;background:var(--cream);color:var(--ink-60);border:1px solid var(--stone)">Hide</button>
+            </div>
+          </div>
+        </div>
+        <div class="explore-card">
+          <div class="explore-card-img"><img src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=600&q=80" alt="Wedding Cake"></div>
           <div class="explore-card-body">
             <div class="explore-card-name">Sucré Patisserie</div>
             <div class="explore-card-location"><svg width="11" height="11"><use href="#ico-pin"/></svg> Quebec City, QC</div>
@@ -1450,7 +1469,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
             <div class="card-reviews"><svg width="11" height="11" style="color:var(--gold)"><use href="#ico-star"/></svg> 4.8 · 32 couples</div>
             <div class="card-actions">
               <button class="card-action-btn btn-top" onclick="showPage('checkout')">Select as Top Match</button>
-              <button class="card-action-btn btn-maybe" onclick="addToMaybe('Sucré Patisserie','https://images.unsplash.com/photo-1612548403247-aa2873e9422d?w=80&q=80')">Save as Maybe</button>
+              <button class="card-action-btn btn-maybe" onclick="addToMaybe('Sucré Patisserie','https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=80&q=80')">Save as Maybe</button>
               <button class="card-action-btn btn-pass" style="flex:0.5;background:var(--cream);color:var(--ink-60);border:1px solid var(--stone)">Hide</button>
             </div>
           </div>
@@ -1507,7 +1526,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
           <div class="cv-status">Confirmed</div>
         </div>
         <div class="confirmed-vendor">
-          <div class="cv-avatar"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=64&q=80" alt="Florals"></div>
+          <div class="cv-avatar"><img src="https://images.unsplash.com/boho floral.jpg?w=64&q=80" alt="Florals"></div>
           <div><div class="cv-name">City Fleur</div><div class="cv-cat">Florals</div></div>
           <div class="cv-status">Confirmed</div>
         </div>
@@ -1550,7 +1569,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
       <div>
         <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:4px">
           <span style="font-size:13px;color:var(--ink-60)">Welcome back,</span>
-          <span style="font-family:'Corinthia',cursive;font-size:38px;font-weight:400;line-height:1">Anna-Maria</span>
+          <span style="font-family:'Corinthia',cursive;font-size:38px;font-weight:400;line-height:1">Nikita</span>
         </div>
         <div style="font-size:12px;color:var(--ink-60)">Manage your listings, calendar, and earnings.</div>
       </div>
@@ -1721,7 +1740,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--mint-bg);color:var(--ink)
           <div class="order-amt"><div class="order-amt-main">$2,400</div><div class="order-amt-sub">of $4,800</div></div>
         </div>
         <div class="order-item">
-          <div class="order-icon"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=88&q=80" alt="Florals"></div>
+          <div class="order-icon"><img src="https://images.unsplash.com/boho floral.jpg?w=88&q=80" alt="Florals"></div>
           <div><div class="order-name">Botanica Studio Florals</div><div class="order-pkg">Full Floral Package · 50% Deposit</div></div>
           <div class="order-amt"><div class="order-amt-main">$2,100</div><div class="order-amt-sub">of $4,200</div></div>
         </div>
@@ -1966,6 +1985,16 @@ const vendorReviews={
     {name:'Nour & David',date:'Sept 2025',stars:'★★★★★',text:'The most beautiful venue we\'ve ever been to. Staff were exceptional and the catering was out of this world.'},
     {name:'Lily & James',date:'July 2025',stars:'★★★★★',text:'We had 200 guests and the space handled it all gracefully. Logistics were flawless from start to finish.'}
   ]},
+  'Anna-Maria Artistry':{score:'4.9',count:'38 couples · 14 reviews',packages:[
+    {name:'Bridal Glow',price:'$280',desc:'Bridal makeup only · 1.5 hrs · travel included'},
+    {name:'Bridal + Party',price:'$520',desc:'Bride + 2 guests · touch-up kit included · travel included'},
+    {name:'Full Glam Day',price:'$950',desc:'Bride + up to 5 guests · on-site all morning · hair styling add-on available'},
+    {name:'Armenian Bridal Suite',price:'$1,200',desc:'Full Eastern bridal look · ceremony & reception touch-up · traditional eye & lip artistry · travel included'}
+  ],reviews:[
+    {name:'Aline & Raffi',date:'Oct 2025',stars:'★★★★★',text:'Anna-Maria understood exactly what we needed for our Armenian ceremony. The look was stunning — bold eyes, flawless skin, and it lasted through every tear and every dance. She came right to our home and made the whole morning feel calm and luxurious.'},
+    {name:'Yasmine & Sami',date:'Sept 2025',stars:'★★★★★',text:'I have olive skin and always struggle with foundations. She matched me perfectly and the look translated beautifully in photos. She also did my mother and three bridesmaids — everyone was glowing. So professional.'},
+    {name:'Sophie & Marc',date:'July 2025',stars:'★★★★★',text:'We had a Western ceremony and I wasn\'t sure what to expect, but Anna-Maria created something so elegant and wearable. She listened to everything I said and even brought a full kit with options. Couldn\'t recommend her more.'}
+  ]},
   'Sucré Patisserie':{score:'4.8',count:'32 couples',reviews:[
     {name:'Camille & Theo',date:'Oct 2025',stars:'★★★★★',text:'Our five-tier cake was absolutely breathtaking and tasted even better than it looked. All guests asked for the recipe!'},
     {name:'Anya & Raj',date:'Aug 2025',stars:'★★★★★',text:'They created the most beautiful fusion dessert table — gulab jamun macarons were a highlight!'},
@@ -1981,7 +2010,13 @@ function openReviews(vendor){
   document.getElementById('reviews-stars').textContent='★'.repeat(Math.round(parseFloat(data.score)))+'☆'.repeat(5-Math.round(parseFloat(data.score)));
   document.getElementById('reviews-count').textContent=data.count;
   const list=document.getElementById('reviews-list');
-  list.innerHTML=data.reviews.map(r=>`<div class="review-item"><div class="review-item-top"><div class="review-item-name">${r.name}</div><div class="review-item-stars">${r.stars}</div><div class="review-item-date">${r.date}</div></div><div class="review-item-text">${r.text}</div></div>`).join('');
+  let html='';
+  if(data.packages){
+    html+=`<div style="padding:14px 22px;border-bottom:1px solid var(--stone)"><div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:10px">Packages</div>`+
+    data.packages.map(p=>`<div style="display:flex;justify-content:space-between;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--stone);"><div><div style="font-size:13px;font-weight:600">${p.name}</div><div style="font-size:11px;color:var(--ink-60);margin-top:2px">${p.desc}</div></div><div style="font-size:13px;font-weight:700;color:var(--sage-dark);white-space:nowrap;margin-left:12px">${p.price}</div></div>`).join('')+`</div>`;
+  }
+  html+=data.reviews.map(r=>`<div class="review-item"><div class="review-item-top"><div class="review-item-name">${r.name}</div><div class="review-item-stars">${r.stars}</div><div class="review-item-date">${r.date}</div></div><div class="review-item-text">${r.text}</div></div>`).join('');
+  list.innerHTML=html;
   document.getElementById('reviews-overlay').classList.add('open');
 }
 function closeReviews(){document.getElementById('reviews-overlay').classList.remove('open');}
